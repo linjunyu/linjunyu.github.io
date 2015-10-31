@@ -53,26 +53,43 @@
 
 
 
-<meta name="description" content="本系列教程转载于http://woiweb.net/github-gitshell-tutorial.html，然后经由我完善了一些内容。
-Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
-目前，包括 Rubinius和Merb在内的很多知名项目都使用了Git。Git同样可">
+<meta name="description" content="今天在Linux下编译.sh文件的时候，居然报错了- -
+
+一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。
+
+这样一来，就应该是编译器的问题了。
+网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。
+dash是一种shell,貌似不是很受欢迎，没bash好用。
+解决这个问题有两种方法。
+第一种方法，修改sh默认">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何使用Github（一）">
-<meta property="og:url" content="http://yoursite.com/2015/10/16/how-to-use-github/index.html">
+<meta property="og:title" content="Linux下编译.sh文件报错"Unexpected operator"">
+<meta property="og:url" content="http://yoursite.com/2015/10/30/some-error-about-linux/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="本系列教程转载于http://woiweb.net/github-gitshell-tutorial.html，然后经由我完善了一些内容。
-Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
-目前，包括 Rubinius和Merb在内的很多知名项目都使用了Git。Git同样可">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ex6yq4t4zdj30d50cwgnc.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ex6yucknmxj309903zweu.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mjw1ex6ywdg491j30ji0frju0.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ex6yyt5ka4j305202jt8r.jpg">
-<meta property="og:updated_time" content="2015-10-21T14:42:37.982Z">
+<meta property="og:description" content="今天在Linux下编译.sh文件的时候，居然报错了- -
+
+一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。
+
+这样一来，就应该是编译器的问题了。
+网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。
+dash是一种shell,貌似不是很受欢迎，没bash好用。
+解决这个问题有两种方法。
+第一种方法，修改sh默认">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg">
+<meta property="og:updated_time" content="2015-10-30T15:02:12.155Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何使用Github（一）">
-<meta name="twitter:description" content="本系列教程转载于http://woiweb.net/github-gitshell-tutorial.html，然后经由我完善了一些内容。
-Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
-目前，包括 Rubinius和Merb在内的很多知名项目都使用了Git。Git同样可">
+<meta name="twitter:title" content="Linux下编译.sh文件报错"Unexpected operator"">
+<meta name="twitter:description" content="今天在Linux下编译.sh文件的时候，居然报错了- -
+
+一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。
+
+这样一来，就应该是编译器的问题了。
+网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。
+dash是一种shell,貌似不是很受欢迎，没bash好用。
+解决这个问题有两种方法。
+第一种方法，修改sh默认">
 
 
 
@@ -84,7 +101,7 @@ Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用
   };
 </script>
 
-  <title> 如何使用Github（一） | 林俊宇的博客 </title>
+  <title> Linux下编译.sh文件报错"Unexpected operator" | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +221,7 @@ Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用
             
             
               
-                如何使用Github（一）
+                Linux下编译.sh文件报错"Unexpected operator"
               
             
           </h1>
@@ -213,8 +230,8 @@ Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-10-16T21:33:36+08:00" content="2015-10-16">
-              2015-10-16
+            <time itemprop="dateCreated" datetime="2015-10-30T22:39:39+08:00" content="2015-10-30">
+              2015-10-30
             </time>
           </span>
 
@@ -237,42 +254,21 @@ Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用
       
 
       
-        <span itemprop="articleBody"><p>本系列教程转载于<a href="http://woiweb.net/github-gitshell-tutorial.html" target="_blank" rel="external">http://woiweb.net/github-gitshell-tutorial.html</a>，然后经由我完善了一些内容。</p>
-<p>Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。</p>
-<p>目前，包括 Rubinius和Merb在内的很多知名项目都使用了Git。Git同样可以被诸如Capistrano和Vlad the Deployer这样的部署工具所使用。</p>
-<p>作为开源代码库以及版本控制系统，Github目前拥有140多万开发者用户。随着越来越多的应用程序转移到了云上，Github已经成为了管理软件开发以及发现已有代码的首选方法。</p>
-<p>作为一个分布式的版本控制系统，在Git中并不存在主库这样的概念，每一份复制出的库都可以独立使用，任何两个库之间的不一致之处都可以进行合并。</p>
-<p>GitHub可以托管各种git库，并提供一个web界面，但与其它像SourceForge或GoogleCode这样的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull request”机制向项目负责人申请代码合并。</p>
-<p>百度百科：<a href="http://baike.baidu.com/view/3366456.htm" target="_blank" rel="external">http://baike.baidu.com/view/3366456.htm</a></p>
-<p>使用Github来管理代码，看完这个系列的教程你会发现它的好处的。</p>
-<h2 id="开始动工">开始动工</h2><p>一、注册一个免费git帐号，可以无限建立访问权限为公共的版本仓库，注册地址：<a href="https://github.com/signup/free" target="_blank" rel="external">https://github.com/signup/free</a></p>
-<p>二、依次填写，用户名、邮箱地址、密码，点击“creat an account”进行注册</p>
-<p><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ex6yq4t4zdj30d50cwgnc.jpg" alt=""></p>
-<p>三、点击右上方的”sign in”使用注册邮箱登录到Github</p>
-<p>四、点击右上方的绿色按钮，+ New repository（新建一个版本仓库）</p>
-<p><img src="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ex6yucknmxj309903zweu.jpg" alt=""></p>
-<p>五、在“Repository name”一栏里填写版本仓库的名称，我们填写为“helloworld”，Description栏是描述，可填可不填</p>
-<p><img src="http://ww4.sinaimg.cn/mw690/005ANU5mjw1ex6ywdg491j30ji0frju0.jpg" alt=""></p>
-<p>默认访问权限为公共，我们点击“Creating Repository”按钮，创建我们的第一个版本仓库。</p>
-<p>接下来，我们需要在本地安装Github客户端。</p>
-<p>六、以Windows为例，下载客户端：<a href="http://github-windows.s3.amazonaws.com/GitHubSetup.exe" target="_blank" rel="external">http://github-windows.s3.amazonaws.com/GitHubSetup.exe</a>，安装完成后，会在桌面上出现两个图标，Git Shell和GitHub。</p>
-<p><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ex6yyt5ka4j305202jt8r.jpg" alt=""></p>
-<p>七、那两个图标分别是命令行工具和图形界面，我们先来学习使用Git Shell。</p>
-<p>八、双击打开Git Shell,【win7以上版本的用户使用管理员权限打开】</p>
-<p>九、输入<code>git config --global user.name &quot;linjunyu&quot;</code>, 这里的linjunyu是我注册的用户名，需要你改成你自己的</p>
-<p>十、输入<code>git config --global user.email &quot;346693350@qq.com&quot;</code>, 这里的邮箱也是我的邮箱，需要你改成你自己的</p>
-<p>十一、上面两步在客户端配置你的Git帐户，下面我们在本地建立自己的版本仓库，我把版本仓库建立在D盘。输入<code>cd d:</code>，切换到D盘目录。</p>
-<p>十二、输入<code>mkdir helloworld</code>，建立一个helloworld目录，注意本地仓库名要和git中建立的仓库名一样</p>
-<p>十三、输入<code>cd helloworld</code>，进入helloworld目录</p>
-<p>十四、输入<code>git init</code>,初始化版本仓库</p>
-<p>十五、输入<code>touch README</code>,建立一个README文件</p>
-<p>十六、用文本编辑器打开README文件，随便输入一点文字，比如：this is a README file!</p>
-<p>十七、输入<code>git add README</code>,将文件添加到上传队列</p>
-<p>十八、输入<code>git commit -m &#39;first commit&#39;</code>,缓存提交，引号中的是对本次提交的描述，必须填写，不能为空 - -||</p>
-<p>十九、输入<code>git remote add origin https://github.com/linjunyu/helloworld.git</code>,注意url格式，linjunyu是我的昵称，需要你改成你自己的，helloworld是刚才建立的版本仓库</p>
-<p>二十、输入<code>git push origin master</code>，将README文件上传到版本库。这一步会一次让你填写你的git注册邮箱和密码，注意不要填错了</p>
-<p>好了，到这一步，我们就完成了在线上和线下建立git版本库并上传文件的全部步骤。</p>
-<p>关于如何使用Github（二）：<a href="http://linjunyu.com/2015/10/16/how-to-use-github-2/" target="_blank" rel="external">http://linjunyu.com/2015/10/16/how-to-use-github-2/</a></p>
+        <span itemprop="articleBody"><p>今天在Linux下编译.sh文件的时候，居然报错了- -</p>
+<p><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg" alt=""></p>
+<p>一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。</p>
+<p><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg" alt=""></p>
+<p>这样一来，就应该是编译器的问题了。</p>
+<p>网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。</p>
+<p>dash是一种shell,貌似不是很受欢迎，没bash好用。</p>
+<p>解决这个问题有两种方法。</p>
+<p>第一种方法，修改sh默认到bash的连接。</p>
+<p>·sudo dpkg-reconfigure dash·</p>
+<p>选择no即可！</p>
+<p>再次编译就通过了~</p>
+<p>第二种方法，通过./来执行.sh文件。（先要给这个文件x权限）</p>
+<p><img src="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg" alt=""></p>
+<p>编译成功啦~</p>
 </span>
       
     </div>
@@ -284,17 +280,13 @@ Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/29/how-to-install-eclipse/" rel="next" title="如何安装Eclipse">
-                <i class="fa fa-chevron-left"></i> 如何安装Eclipse
+              <a href="/2015/10/16/how-to-use-github-3/" rel="next" title="如何使用Github（三）">
+                <i class="fa fa-chevron-left"></i> 如何使用Github（三）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/10/16/how-to-use-github-2/" rel="prev" title="如何使用Github（二）">
-                如何使用Github（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -442,7 +434,7 @@ Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始动工"><span class="nav-number">1.</span> <span class="nav-text">开始动工</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
