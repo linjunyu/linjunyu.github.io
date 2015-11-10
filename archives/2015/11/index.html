@@ -56,7 +56,7 @@
 <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="林俊宇的博客">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/2015/11/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -73,7 +73,7 @@
   };
 </script>
 
-  <title> 林俊宇的博客 </title>
+  <title> 归档 | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -94,9 +94,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column  page-archive ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -173,103 +171,59 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-  <section id="posts" class="posts-expand">
+
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
+
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 4 篇日志。 继续努力。
+    </span>
 
     
 
-    
-    
-
-    
+      
+      
       
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
+      
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/29/how-to-install-java/" itemprop="url">
-                  如何安装Java
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-09-29T21:24:07+08:00" content="2015-09-29">
-              2015-09-29
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
         </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
       
       
 
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-          <span itemprop="articleBody">
-            
-            如果你要使用Eclipse进行Java开发的话，需要你的电脑配置好Java环境，所以最开始应该先安装并配置好Java。
-安装JavaJava JDK安装包，JDK是Java Development Kit的缩写，也就是开发工具包，里面内含平时用户用到的JRE，也就是Java Runtime Enviroment运行环境。所以装了JDK，JRE自然也被装上了。
-一、JDK8官方下载网址是http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html。
-
-二、进入下载页面，下方有各个系统版本的JDK，根据自己的电脑系统选择合适的。32位系统安装32位JDK，64位系统64位JDK。（x86是32位，x64是64位）
-
-三、下载下来之后，运行安装包，下一步下一步下一步… 
-四、安装完之后，还需
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/29/how-to-install-java/#more" rel="contents">
-              阅读全文 &raquo;
+            <a class="post-title-link" href="/2015/11/10/data-structures-expr-code/" itemprop="url">
+              
+                <span itemprop="name">数据结构实验代码</span>
+              
             </a>
-          </div>
         
-      
-    </div>
+      </h1>
 
-    <footer class="post-footer">
-      
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2015-11-10T12:00:14+08:00"
+              content="2015-11-10" >
+          11-10
+        </time>
+      </div>
 
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </header>
   </article>
+
 
 
     
@@ -277,9 +231,6 @@
   </section>
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
 
 
 
@@ -319,7 +270,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -433,6 +384,12 @@
 
   
   
+  
+    <script type="text/javascript">
+      postMotionOptions = {stagger: 100, drag: true};
+    </script>
+  
+
 
   
     
@@ -459,6 +416,12 @@
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
+
 
   <script type="text/javascript" src="/js/bootstrap.js"></script>
 
