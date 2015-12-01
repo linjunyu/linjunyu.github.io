@@ -53,37 +53,16 @@
 
 
 
-<meta name="description" content="记录一下在Linux系统里搭建各种环境遇到的问题~
-编译.sh文件报错”Unexpected operator”今天在Linux下编译.sh文件的时候，居然报错了- -
-
-一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。
-
-这样一来，就应该是编译器的问题了。
-网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。">
+<meta name="description" content="问题事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。在设置PATH环境变量的时候，突然脑抽了，sudo vim /etc/profile然后直接在文件末尾export PATH=/usr/local/android-sdk-linux重启系统想让环境变量生效但是在账号登陆界面就进不去了，输入密码依旧是登陆界面我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux学习笔记">
-<meta property="og:url" content="http://yoursite.com/2015/10/30/notes-about-linux/index.html">
+<meta property="og:title" content="Linux修改PATH环境变量账号无法登陆">
+<meta property="og:url" content="http://yoursite.com/2015/11/24/linux-cant-login/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="记录一下在Linux系统里搭建各种环境遇到的问题~
-编译.sh文件报错”Unexpected operator”今天在Linux下编译.sh文件的时候，居然报错了- -
-
-一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。
-
-这样一来，就应该是编译器的问题了。
-网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg">
-<meta property="og:updated_time" content="2015-11-10T04:40:11.126Z">
+<meta property="og:description" content="问题事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。在设置PATH环境变量的时候，突然脑抽了，sudo vim /etc/profile然后直接在文件末尾export PATH=/usr/local/android-sdk-linux重启系统想让环境变量生效但是在账号登陆界面就进不去了，输入密码依旧是登陆界面我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进">
+<meta property="og:updated_time" content="2015-11-24T17:17:31.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux学习笔记">
-<meta name="twitter:description" content="记录一下在Linux系统里搭建各种环境遇到的问题~
-编译.sh文件报错”Unexpected operator”今天在Linux下编译.sh文件的时候，居然报错了- -
-
-一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。
-
-这样一来，就应该是编译器的问题了。
-网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。">
+<meta name="twitter:title" content="Linux修改PATH环境变量账号无法登陆">
+<meta name="twitter:description" content="问题事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。在设置PATH环境变量的时候，突然脑抽了，sudo vim /etc/profile然后直接在文件末尾export PATH=/usr/local/android-sdk-linux重启系统想让环境变量生效但是在账号登陆界面就进不去了，输入密码依旧是登陆界面我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进">
 
 
 
@@ -95,7 +74,7 @@
   };
 </script>
 
-  <title> Linux学习笔记 | 林俊宇的博客 </title>
+  <title> Linux修改PATH环境变量账号无法登陆 | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -215,7 +194,7 @@
             
             
               
-                Linux学习笔记
+                Linux修改PATH环境变量账号无法登陆
               
             
           </h1>
@@ -224,8 +203,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-10-30T22:39:39+08:00" content="2015-10-30">
-              2015-10-30
+            <time itemprop="dateCreated" datetime="2015-11-24T23:55:18+08:00" content="2015-11-24">
+              2015-11-24
             </time>
           </span>
 
@@ -248,22 +227,9 @@
       
 
       
-        <span itemprop="articleBody"><p>记录一下在Linux系统里搭建各种环境遇到的问题~</p>
-<h2 id="编译-sh文件报错”Unexpected_operator”">编译.sh文件报错”Unexpected operator”</h2><p>今天在Linux下编译.sh文件的时候，居然报错了- -</p>
-<p><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg" alt=""></p>
-<p>一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。</p>
-<p><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg" alt=""></p>
-<p>这样一来，就应该是编译器的问题了。</p>
-<p>网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。</p>
-<p>dash是一种shell,貌似不是很受欢迎，没bash好用。</p>
-<p>解决这个问题有两种方法。</p>
-<p>第一种方法，修改sh默认到bash的连接。</p>
-<p>·sudo dpkg-reconfigure dash·</p>
-<p>选择no即可！</p>
-<p>再次编译就通过了~</p>
-<p>第二种方法，通过./来执行.sh文件。（先要给这个文件x权限）</p>
-<p><img src="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg" alt=""></p>
-<p>编译成功啦~</p>
+        <span itemprop="articleBody"><h4 id="问题">问题</h4><p>事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。<br>在设置PATH环境变量的时候，突然脑抽了，<br><code>sudo vim /etc/profile</code><br>然后直接在文件末尾export PATH=/usr/local/android-sdk-linux<br>重启系统想让环境变量生效<br>但是在账号登陆界面就进不去了，输入密码依旧是登陆界面<br>我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进去<br>所以导致系统没法进入</p>
+<h4 id="解决方法">解决方法</h4><p>1.在开机时进入Ubuntu的Recovery Mode，进入后会显示Recovery Menu(filesystem state: read-only)，在这个状态下是无法修改文件的<br>2.在Recovery Mode选项中选择root，然后输入<code>mount -o remount,rw /</code>再重启进入Recovery Mode，选择grub项<br>3.运行返回之后会发现菜单变成了Recovery Menu(filesystem state: read-write)，在这个状态下就可以修改系统的文件了<br>4.再选择root，<code>sudo vim /etc/profile</code>，然后把原来的坑填好</p>
+<p>重启，人生又一次圆满了~</p>
 </span>
       
     </div>
@@ -275,17 +241,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/16/how-to-use-github/" rel="next" title="如何使用Github">
-                <i class="fa fa-chevron-left"></i> 如何使用Github
+              <a href="/2015/11/10/data-structures-expr-code-5/" rel="next" title="数据结构实验代码(5)">
+                <i class="fa fa-chevron-left"></i> 数据结构实验代码(5)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/10/data-structures-expr-code/" rel="prev" title="数据结构实验代码">
-                数据结构实验代码 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -353,7 +315,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -433,7 +395,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-sh文件报错”Unexpected_operator”"><span class="nav-number">1.</span> <span class="nav-text">编译.sh文件报错”Unexpected operator”</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

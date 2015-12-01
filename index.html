@@ -202,8 +202,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/11/10/data-structures-expr-code/" itemprop="url">
-                  数据结构实验代码
+                <a class="post-title-link" href="/2015/11/24/linux-cant-login/" itemprop="url">
+                  Linux修改PATH环境变量账号无法登陆
                 </a>
               
             
@@ -213,8 +213,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-10T12:00:14+08:00" content="2015-11-10">
-              2015-11-10
+            <time itemprop="dateCreated" datetime="2015-11-24T23:55:18+08:00" content="2015-11-24">
+              2015-11-24
             </time>
           </span>
 
@@ -238,16 +238,14 @@
 
       
         
-          <p>随便写点数据结构实验，把代码屯起来，说不定以后用得上~</p>
-<h2 id="实验一、实验二后续补上。">实验一、实验二后续补上。</h2><h2 id="实验三_线性表操作">实验三 线性表操作</h2><h4 id="实验内容">实验内容</h4><pre><code>1.创建线性表类。线性表的存储结构使用链表。
-2.提供操作:自表首插入元素、删除指定元素、搜索表中是否有指定元素、输出链表。
-3.接收键盘录入的一系列整数（例<span class="number">10,25,8,33</span>,60）作为节点的元素值，创建链表。输出链表内容。
-4.输入一个整数（例33），在链表中进行搜索，输出其在链表中的位置。如果不存在输出0。
-5.使用链表遍历器实现链表的反序输出。
-6.创建两个有序链表，使用链表遍历器实现链表的合并。
-</code></pre>
+          <span itemprop="articleBody">
+            
+            问题事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。在设置PATH环境变量的时候，突然脑抽了，sudo vim /etc/profile然后直接在文件末尾export PATH=/usr/local/android-sdk-linux重启系统想让环境变量生效但是在账号登陆界面就进不去了，输入密码依旧是登陆界面我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进去所以导致系统没法进入
+解决方法1.在开机时进入Ubuntu的Recovery Mode，进入后会显示Recovery Menu(filesystem state: read-only)，在这个状态下是无法修改文件的2.在Recovery Mode选项中选择root，然后输入mount -o remount,rw /再重启进入Recovery Mode，选择grub项3.运行返回之后会发现菜单变成
+            ...
+          </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/10/data-structures-expr-code/#more" rel="contents">
+            <a class="btn" href="/2015/11/24/linux-cant-login/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -290,8 +288,259 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/30/notes-about-linux/" itemprop="url">
-                  Linux学习笔记
+                <a class="post-title-link" href="/2015/11/10/data-structures-expr-code-5/" itemprop="url">
+                  数据结构实验代码(5)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-10T12:00:14+08:00" content="2015-11-10">
+              2015-11-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>随便写点数据结构实验，把代码屯起来，说不定以后用得上~</p>
+<h2 id="实验五_堆栈和队列的应用">实验五 堆栈和队列的应用</h2><h4 id="实验内容">实验内容</h4><p>1、计算数学表达式的值。<br>输入数学表达式，输出表达式的计算结果。数学表达式由单个数字和运算符“+”、“-”、“<em>”、“/”、“(、“)构成，例如 2 + 3 </em> ( 4 + 5 ) – 6 / 4。假定表达式输入格式合法。<br>2、以一个 m*n的长方阵表示迷宫，0和1分别表示迷宫中的通路和障碍。设计一个程序，对任意设定的迷宫，求出一条从入口到出口的通路，或得出没有通路的结论。<br>迷宫根据一个迷宫数据文件建立。迷宫数据文件由一个包含0、1的矩阵组成。迷宫的通路可以使用通路上各点的坐标序列进行展示(使用图形展示最佳)。<br>3、设计电路布线最短路径<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/10/data-structures-expr-code-5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/10/data-structures-expr-code-4/" itemprop="url">
+                  数据结构实验代码(4)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-10T12:00:13+08:00" content="2015-11-10">
+              2015-11-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            随便写点数据结构实验，把代码屯起来，说不定以后用得上~
+实验四 矩阵和散列表实验内容1.创建三对角矩阵类，采用按列映射方式，提供store和retrieve方法。2.创建下三角矩阵类，采用按列映射方式，提供store和retrieve方法。3.创建稀疏矩阵类，采用行主顺序把稀疏矩阵映射到一维数组中，实现稀疏矩阵的转置和两个稀疏矩阵的加法操作。4.使用散列表设计实现一个字典，假设关键字为整数且D为961，在字典中插入随机产生的500个不同的整数，实现字典的建立和搜索操作。分别使用线性开型寻址和链表散列解决溢出。
+代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/10/data-structures-expr-code-4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/10/data-structures-expr-code-3/" itemprop="url">
+                  数据结构实验代码(3)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-10T12:00:12+08:00" content="2015-11-10">
+              2015-11-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>随便写点数据结构实验，把代码屯起来，说不定以后用得上~</p>
+<h2 id="实验一、实验二后续补上。">实验一、实验二后续补上。</h2><h2 id="实验三_线性表操作">实验三 线性表操作</h2><h4 id="实验内容">实验内容</h4><p>1.创建线性表类。线性表的存储结构使用链表。<br>2.提供操作:自表首插入元素、删除指定元素、搜索表中是否有指定元素、输出链表。<br>3.接收键盘录入的一系列整数（例10,25,8,33,60）作为节点的元素值，创建链表。输出链表内容。<br>4.输入一个整数（例33），在链表中进行搜索，输出其在链表中的位置。如果不存在输出0。<br>5.使用链表遍历器实现链表的反序输出。<br>6.创建两个有序链表，使用链表遍历器实现链表的合并。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/10/data-structures-expr-code-3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/30/linux-compile-shfile-error/" itemprop="url">
+                  编译.sh文件报错"Unexpected operator"
                 </a>
               
             
@@ -328,208 +577,16 @@
         
           <span itemprop="articleBody">
             
-            记录一下在Linux系统里搭建各种环境遇到的问题~
-编译.sh文件报错”Unexpected operator”今天在Linux下编译.sh文件的时候，居然报错了- -
-
-一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。
-
-这样一来，就应该是编译器的问题了。
-网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。
-dash是一种shell,貌似不是很受欢迎，没bash好用。
-解决这个问题有两种方法。
-第一种方法，修改sh默认到bash的连接。
-·sudo dpkg-reconfigure dash·
-选择no即可！
+            问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
+解决方法。第一种方法，修改sh默认到bash的连接。sudo dpkg-reconfigure dash选择no即可！
 再次编译就通过了~
 第二种方法，通过./来执行.sh文件。（先要给这个文件x权限）
-
 编译成功啦~
 
             
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/30/notes-about-linux/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/16/how-to-use-github/" itemprop="url">
-                  如何使用Github
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-16T21:33:36+08:00" content="2015-10-16">
-              2015-10-16
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            本系列教程转载于http://woiweb.net/github-gitshell-tutorial.html，然后经由我完善了一些内容。
-Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
-目前，包括 Rubinius和Merb在内的很多知名项目都使用了Git。Git同样可以被诸如Capistrano和Vlad the Deployer这样的部署工具所使用。
-作为开源代码库以及版本控制系统，Github目前拥有140多万开发者用户。随着越来越多的应用程序转移到了云上，Github已经成为了管理软件开发以及发现已有代码的首选方法。
-作为一个分布式的版本控制系统，在Git中并不存在主库这样的概念，每一份复制出的库都可以独立使用，任何两个库之间的不一致之处都可以进行合并。
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/16/how-to-use-github/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/29/how-to-install-eclipse/" itemprop="url">
-                  如何安装Eclipse
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-09-29T21:24:08+08:00" content="2015-09-29">
-              2015-09-29
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            如果你要使用Eclipse进行Java开发的话，需要你的电脑配置好Java环境，所以最开始应该先安装并配置好Java。
-安装JavaJava JDK安装包，JDK是Java Development Kit的缩写，也就是开发工具包，里面内含平时用户用到的JRE，也就是Java Runtime Enviroment运行环境。所以装了JDK，JRE自然也被装上了。
-一、JDK8官方下载网址是http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html。
-
-二、进入下载页面，下方有各个系统版本的JDK，根据自己的电脑系统选择合适的。32位系统安装32位JDK，64位系统64位JDK。（x86是32位，x64是64位）
-
-三、下载下来之后，运行安装包，下一步下一步下一步… 
-四、安装完之后，还需
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/29/how-to-install-eclipse/#more" rel="contents">
+            <a class="btn" href="/2015/10/30/linux-compile-shfile-error/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -555,6 +612,10 @@ Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
         </div>
@@ -593,7 +654,7 @@ Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

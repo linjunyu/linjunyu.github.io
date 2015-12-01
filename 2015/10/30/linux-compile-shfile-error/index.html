@@ -53,39 +53,22 @@
 
 
 
-<meta name="description" content="如果你要使用Eclipse进行Java开发的话，需要你的电脑配置好Java环境，所以最开始应该先安装并配置好Java。
-安装JavaJava JDK安装包，JDK是Java Development Kit的缩写，也就是开发工具包，里面内含平时用户用到的JRE，也就是Java Runtime Enviroment运行环境。所以装了JDK，JRE自然也被装上了。
-一、JDK8官方下载网址是http:/">
+<meta name="description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
+解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何安装Eclipse">
-<meta property="og:url" content="http://yoursite.com/2015/09/29/how-to-install-eclipse/index.html">
+<meta property="og:title" content="编译.sh文件报错"Unexpected operator"">
+<meta property="og:url" content="http://yoursite.com/2015/10/30/linux-compile-shfile-error/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="如果你要使用Eclipse进行Java开发的话，需要你的电脑配置好Java环境，所以最开始应该先安装并配置好Java。
-安装JavaJava JDK安装包，JDK是Java Development Kit的缩写，也就是开发工具包，里面内含平时用户用到的JRE，也就是Java Runtime Enviroment运行环境。所以装了JDK，JRE自然也被装上了。
-一、JDK8官方下载网址是http:/">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjob2l0q2j30tk0okwrj.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ewjob1b62lj30f8086tca.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ewjoay7takj30hh0jq418.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ewjoaznxn0j30g90ic0wx.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ewjoaza5w7j30g90ic776.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjpm6lfpcj30g90icwhl.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mjw1ewjob0vk06j30nf09d0u0.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mjw1ewjob3h0zbj30wi0oxtgy.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ewjqbgi44oj30oc0ctdj7.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjqe76o3cj309c0dt76b.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjob5aznmj30w80o0q8b.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjqx3ucb8j30sg0lcwhr.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ewjr9xsay9j30hw0ok78o.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ewjr9zbkizj30sg0lcad1.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjra2w0q9j30sg0lcjx6.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjra2w0q9j30sg0lcjx6.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ewjra4wk6sj30sg0lc42i.jpg">
-<meta property="og:updated_time" content="2015-11-10T04:39:47.243Z">
+<meta property="og:description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
+解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg">
+<meta property="og:updated_time" content="2015-11-24T17:18:22.195Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何安装Eclipse">
-<meta name="twitter:description" content="如果你要使用Eclipse进行Java开发的话，需要你的电脑配置好Java环境，所以最开始应该先安装并配置好Java。
-安装JavaJava JDK安装包，JDK是Java Development Kit的缩写，也就是开发工具包，里面内含平时用户用到的JRE，也就是Java Runtime Enviroment运行环境。所以装了JDK，JRE自然也被装上了。
-一、JDK8官方下载网址是http:/">
+<meta name="twitter:title" content="编译.sh文件报错"Unexpected operator"">
+<meta name="twitter:description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
+解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
 
 
 
@@ -97,7 +80,7 @@
   };
 </script>
 
-  <title> 如何安装Eclipse | 林俊宇的博客 </title>
+  <title> 编译.sh文件报错"Unexpected operator" | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -217,7 +200,7 @@
             
             
               
-                如何安装Eclipse
+                编译.sh文件报错"Unexpected operator"
               
             
           </h1>
@@ -226,8 +209,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-09-29T21:24:08+08:00" content="2015-09-29">
-              2015-09-29
+            <time itemprop="dateCreated" datetime="2015-10-30T22:39:39+08:00" content="2015-10-30">
+              2015-10-30
             </time>
           </span>
 
@@ -250,49 +233,11 @@
       
 
       
-        <span itemprop="articleBody"><p>如果你要使用Eclipse进行Java开发的话，需要你的电脑配置好Java环境，所以最开始应该先安装并配置好Java。</p>
-<h2 id="安装Java">安装Java</h2><p>Java JDK安装包，JDK是Java Development Kit的缩写，也就是开发工具包，里面内含平时用户用到的JRE，也就是Java Runtime Enviroment运行环境。所以装了JDK，JRE自然也被装上了。</p>
-<p>一、JDK8官方下载网址是<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>。</p>
-<p><img src="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjob2l0q2j30tk0okwrj.jpg" alt=""></p>
-<p>二、进入下载页面，下方有各个系统版本的JDK，根据自己的电脑系统选择合适的。32位系统安装32位JDK，64位系统64位JDK。（x86是32位，x64是64位）</p>
-<p><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ewjob1b62lj30f8086tca.jpg" alt=""></p>
-<p>三、下载下来之后，运行安装包，下一步下一步下一步… </p>
-<p>四、安装完之后，还需要配置环境。</p>
-<p>右击我的电脑，打开属性，左上角高级系统设置，打开“系统属性”，找到“高级”选项卡，找到右下角的“环境变量”。</p>
-<p><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ewjoay7takj30hh0jq418.jpg" alt=""></p>
-<p>点开“环境变量”</p>
-<p><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ewjoaznxn0j30g90ic0wx.jpg" alt=""></p>
-<p>在环境变量中，要修改两个地方，一个是在系统变量中添加JAVA_HOME。选择“新建”，变量名填上JAVA_HOME，变量值填上JDK的安装目录 C:\Program Files\Java\jdk1.8.0_20（特别需要注意，jdk1.8.0_20这个版本是我电脑安装的JDK版本，你现在安装的JDK版本也许会比我的更加新，所以可以会是C:\Program Files\Java\jdk1.8.0_60或者更新，需要你到JDK的安装目录确定）<br><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ewjoaza5w7j30g90ic776.jpg" alt=""></p>
-<p>还要修改一个地方，就是Path，选择Path，然后点“编辑”，在最后面添加如下语句 ;%JAVA_HOME%\bin;</p>
-<p><img src="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjpm6lfpcj30g90icwhl.jpg" alt=""></p>
-<p>最后别忘了点“确定”，这样我们就安装并配置好了Java。</p>
-<p>五、开始菜单搜索“cmd”，打开命令行，输入java -version这个命令，来检测我们的Java是否配置成功。</p>
-<p><img src="http://ww4.sinaimg.cn/mw690/005ANU5mjw1ewjob0vk06j30nf09d0u0.jpg" alt=""></p>
-<p>OK，系统找到了我们的Java版本，这样，我们的电脑就支持Java程序在电脑上运行，并且可以用Eclipse敲代码了。</p>
-<h2 id="安装Eclipse">安装Eclipse</h2><p>一、首先进入Eclipse官方下载地址：<a href="http://www.eclipse.org/downloads/" target="_blank" rel="external">http://www.eclipse.org/downloads/</a>。</p>
-<p><img src="http://ww4.sinaimg.cn/mw690/005ANU5mjw1ewjob3h0zbj30wi0oxtgy.jpg" alt=""></p>
-<p>二、我们会发现下面Eclipse Package有很多个，这里我们选择Eclipse IDE for Java Developers。</p>
-<p>三、我们根据自己电脑的系统位数，选择右边32bit/64bit，然后进入下载界面。</p>
-<p><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ewjqbgi44oj30oc0ctdj7.jpg" alt=""></p>
-<p>四、下载界面有些复杂，左下右有一栏Choose a mirror close to you，在这里我们可以选择最后一项China - Dalian Neusoft University of Information，从大连东软信息学院下载安装包。</p>
-<p><img src="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjqe76o3cj309c0dt76b.jpg" alt=""></p>
-<p>五、之后进入了一个Donate界面，过几秒就会弹出Eclipse的下载框。</p>
-<p><img src="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjob5aznmj30w80o0q8b.jpg" alt=""></p>
-<p>六、下载完成后，解压出来就是Eclipse的文件夹，双击文件夹中的eclipse.exe即可运行。</p>
-<p>七、第一次打开应该需要设置workspace（你平时写的代码文件）的路径，选择默认的就可以。</p>
-<p>然后就进入了Eclipse界面啦！</p>
-<p><img src="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjqx3ucb8j30sg0lcwhr.jpg" alt=""></p>
-<p>八、创建一个新项目：File-&gt;New-&gt;Java Project，Project name定为Helloworld吧！然后点右下角的“Finish”就可以。</p>
-<p><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ewjr9xsay9j30hw0ok78o.jpg" alt=""></p>
-<p>并没有什么变化，把Welcome界面关掉，就看到了Eclipse的本体。</p>
-<p><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ewjr9zbkizj30sg0lcad1.jpg" alt=""></p>
-<p>九、在Helloworld栏右击New-&gt;Class，创建一个类。</p>
-<p><img src="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjra2w0q9j30sg0lcjx6.jpg" alt=""></p>
-<p>十、填写Name为Hello，然后点击“Finish”</p>
-<p><img src="http://ww3.sinaimg.cn/mw690/005ANU5mjw1ewjra2w0q9j30sg0lcjx6.jpg" alt=""></p>
-<p>终于，我们能愉快的敲代码了~</p>
-<p><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ewjra4wk6sj30sg0lc42i.jpg" alt=""></p>
-<p>撒花~</p>
+        <span itemprop="articleBody"><h4 id="问题">问题</h4><p>今天在Linux下编译.sh文件的时候，报错了<br><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg" alt=""><br>一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。<br><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg" alt=""><br>这样一来，就应该是编译器的问题了。<br>网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。<br>dash是一种shell,貌似不是很受欢迎，没bash好用。</p>
+<h4 id="解决方法。">解决方法。</h4><p>第一种方法，修改sh默认到bash的连接。<br><code>sudo dpkg-reconfigure dash</code><br>选择no即可！</p>
+<p>再次编译就通过了~</p>
+<p>第二种方法，通过./来执行.sh文件。（先要给这个文件x权限）<br><img src="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg" alt=""></p>
+<p>编译成功啦~</p>
 </span>
       
     </div>
@@ -304,12 +249,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2015/10/16/how-to-use-github/" rel="next" title="如何使用Github">
+                <i class="fa fa-chevron-left"></i> 如何使用Github
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/16/how-to-use-github/" rel="prev" title="如何使用Github">
-                如何使用Github <i class="fa fa-chevron-right"></i>
+              <a href="/2015/11/10/data-structures-expr-code-3/" rel="prev" title="数据结构实验代码(3)">
+                数据结构实验代码(3) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -458,7 +407,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Java"><span class="nav-number">1.</span> <span class="nav-text">安装Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Eclipse"><span class="nav-number">2.</span> <span class="nav-text">安装Eclipse</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法。"><span class="nav-number">2.</span> <span class="nav-text">解决方法。</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
