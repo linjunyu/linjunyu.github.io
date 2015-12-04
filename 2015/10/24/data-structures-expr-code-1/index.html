@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="数据结构," />
 
 
 
@@ -53,22 +53,19 @@
 
 
 
-<meta name="description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
-解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
+<meta name="description" content="随便写点数据结构实验，把代码屯起来，说不定以后用得上~
+实验一 递归练习实验内容1.输出n个整数的全排列。2.输出n个整数的所有子集。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="编译.sh文件报错"Unexpected operator"">
-<meta property="og:url" content="http://yoursite.com/2015/10/30/linux-compile-shfile-error/index.html">
+<meta property="og:title" content="数据结构实验代码(1)">
+<meta property="og:url" content="http://yoursite.com/2015/10/24/data-structures-expr-code-1/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
-解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg">
-<meta property="og:updated_time" content="2015-12-01T15:43:52.348Z">
+<meta property="og:description" content="随便写点数据结构实验，把代码屯起来，说不定以后用得上~
+实验一 递归练习实验内容1.输出n个整数的全排列。2.输出n个整数的所有子集。">
+<meta property="og:updated_time" content="2015-12-02T07:38:33.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编译.sh文件报错"Unexpected operator"">
-<meta name="twitter:description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
-解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
+<meta name="twitter:title" content="数据结构实验代码(1)">
+<meta name="twitter:description" content="随便写点数据结构实验，把代码屯起来，说不定以后用得上~
+实验一 递归练习实验内容1.输出n个整数的全排列。2.输出n个整数的所有子集。">
 
 
 
@@ -80,7 +77,7 @@
   };
 </script>
 
-  <title> 编译.sh文件报错"Unexpected operator" | 林俊宇的博客 </title>
+  <title> 数据结构实验代码(1) | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -200,7 +197,7 @@
             
             
               
-                编译.sh文件报错"Unexpected operator"
+                数据结构实验代码(1)
               
             
           </h1>
@@ -209,8 +206,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-10-30T22:39:39+08:00" content="2015-10-30">
-              2015-10-30
+            <time itemprop="dateCreated" datetime="2015-10-24T12:00:14+08:00" content="2015-10-24">
+              2015-10-24
             </time>
           </span>
 
@@ -233,11 +230,12 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="问题">问题</h4><p>今天在Linux下编译.sh文件的时候，报错了<br><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg" alt=""><br>一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。<br><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg" alt=""><br>这样一来，就应该是编译器的问题了。<br>网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。<br>dash是一种shell,貌似不是很受欢迎，没bash好用。</p>
-<h4 id="解决方法。">解决方法。</h4><p>第一种方法，修改sh默认到bash的连接。<br><code>sudo dpkg-reconfigure dash</code><br>选择no即可！</p>
-<p>再次编译就通过了~</p>
-<p>第二种方法，通过./来执行.sh文件。（先要给这个文件x权限）<br><img src="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg" alt=""></p>
-<p>编译成功啦~</p>
+        <span itemprop="articleBody"><p>随便写点数据结构实验，把代码屯起来，说不定以后用得上~</p>
+<h2 id="实验一_递归练习">实验一 递归练习</h2><h4 id="实验内容">实验内容</h4><p>1.输出n个整数的全排列。<br>2.输出n个整数的所有子集。<br><a id="more"></a></p>
+<h4 id="代码">代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp = a;a = b;b = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Perm</span><span class="params">(<span class="keyword">int</span> <span class="built_in">list</span>[],<span class="keyword">int</span> k, <span class="keyword">int</span> m)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">if</span>(k==m)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//输出一个排列方式</span></span><br><span class="line">		<span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="built_in">list</span>[i]&lt;&lt; <span class="string">" "</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//list[k:m]有多个排列方式</span></span><br><span class="line">		<span class="comment">//递归的产生这些排列方式</span></span><br><span class="line">		<span class="keyword">for</span> (i=k;i&lt;=m;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			Swap(<span class="built_in">list</span>[k],<span class="built_in">list</span>[i]);</span><br><span class="line">			Perm(<span class="built_in">list</span>,k+<span class="number">1</span>,m);</span><br><span class="line">			Swap(<span class="built_in">list</span>[k],<span class="built_in">list</span>[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">list</span>[<span class="number">20</span>],n;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"数字的数目:"</span>&lt;&lt;endl;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="built_in">list</span>[i]=i;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"输出"</span>&lt;&lt;endl;</span><br><span class="line">	Perm(<span class="built_in">list</span>,<span class="number">1</span>,n);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Perm</span><span class="params">(<span class="keyword">int</span> *<span class="built_in">list</span>,<span class="keyword">int</span> *tag,<span class="keyword">int</span> k,<span class="keyword">int</span> m)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(k==m+<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)</span><br><span class="line">			<span class="keyword">if</span>(tag[i]==<span class="number">1</span>)</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;<span class="built_in">list</span>[i];</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	tag[k] = <span class="number">0</span>;</span><br><span class="line">	Perm(<span class="built_in">list</span>,tag,k+<span class="number">1</span>,m);</span><br><span class="line">	tag[k] = <span class="number">1</span>;</span><br><span class="line">	Perm(<span class="built_in">list</span>,tag,k+<span class="number">1</span>,m);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">list</span>[<span class="number">20</span>],n;</span><br><span class="line">	<span class="keyword">int</span> tag[<span class="number">20</span>];</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"数字的数目:"</span>&lt;&lt;endl;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="built_in">list</span>[i]=i;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"输出"</span>&lt;&lt;endl;</span><br><span class="line">	Perm(<span class="built_in">list</span>,tag,<span class="number">1</span>,n);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="小结">小结</h4><p>1.输出排列的代码还是按照课本上写的。<br>2.其实输出排列和输出子集的原理就是回溯法，创建当前的状态(current)，然后调用函数来继续创建下一步的”当前状态”。</p>
+<p>于是乎，就要从大一的Java坑跳进C++里了么- -<br>感觉Java比C++友好度更高一些<br>依稀记得很多BigNumber问题可以通过Java投机取巧 JAVA大法好~</p>
 </span>
       
     </div>
@@ -246,7 +244,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag">#Linux</a>
+            <a href="/tags/数据结构/" rel="tag">#数据结构</a>
           
         </div>
       
@@ -255,16 +253,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/27/data-structures-expr-code-2/" rel="next" title="数据结构实验代码(2)">
-                <i class="fa fa-chevron-left"></i> 数据结构实验代码(2)
+              <a href="/2015/10/16/how-to-use-github/" rel="next" title="如何使用Github">
+                <i class="fa fa-chevron-left"></i> 如何使用Github
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/10/data-structures-expr-code-3/" rel="prev" title="数据结构实验代码(3)">
-                数据结构实验代码(3) <i class="fa fa-chevron-right"></i>
+              <a href="/2015/10/27/data-structures-expr-code-2/" rel="prev" title="数据结构实验代码(2)">
+                数据结构实验代码(2) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -413,7 +411,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法。"><span class="nav-number">2.</span> <span class="nav-text">解决方法。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验一_递归练习"><span class="nav-number">1.</span> <span class="nav-text">实验一 递归练习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实验内容"><span class="nav-number">1.0.1.</span> <span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">1.0.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.0.3.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
