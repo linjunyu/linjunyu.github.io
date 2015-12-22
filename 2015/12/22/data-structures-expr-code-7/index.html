@@ -1,0 +1,660 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据结构," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="实验七 堆和搜索树实验内容1.创建最大堆类。最大堆的存储结构使用链表。2.提供操作:堆的插入、堆的删除。堆的初始化。Huffman树的构造。二叉搜索树的构造。3.接收键盘录入的一系列整数，输出其对应的最大堆、Huffman编码以及二叉搜索树。4.堆排序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构实验代码(7)">
+<meta property="og:url" content="http://yoursite.com/2015/12/22/data-structures-expr-code-7/index.html">
+<meta property="og:site_name" content="林俊宇的博客">
+<meta property="og:description" content="实验七 堆和搜索树实验内容1.创建最大堆类。最大堆的存储结构使用链表。2.提供操作:堆的插入、堆的删除。堆的初始化。Huffman树的构造。二叉搜索树的构造。3.接收键盘录入的一系列整数，输出其对应的最大堆、Huffman编码以及二叉搜索树。4.堆排序。">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mjw1ez8f3atckhj30dx09z74f.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ez8ep1tmtcj30io0i4dgw.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ez8ep1fuy4j30vo10maf4.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ez8ep1fuy4j30vo10maf4.jpg">
+<meta property="og:updated_time" content="2015-12-22T06:30:31.008Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构实验代码(7)">
+<meta name="twitter:description" content="实验七 堆和搜索树实验内容1.创建最大堆类。最大堆的存储结构使用链表。2.提供操作:堆的插入、堆的删除。堆的初始化。Huffman树的构造。二叉搜索树的构造。3.接收键盘录入的一系列整数，输出其对应的最大堆、Huffman编码以及二叉搜索树。4.堆排序。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 数据结构实验代码(7) | 林俊宇的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">林俊宇的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据结构实验代码(7)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-22T01:21:10+08:00" content="2015-12-22">
+              2015-12-22
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="实验七_堆和搜索树">实验七 堆和搜索树</h2><h4 id="实验内容">实验内容</h4><p>1.创建最大堆类。最大堆的存储结构使用链表。<br>2.提供操作:堆的插入、堆的删除。堆的初始化。Huffman树的构造。二叉搜索树的构造。<br>3.接收键盘录入的一系列整数，输出其对应的最大堆、Huffman编码以及二叉搜索树。<br>4.堆排序。<br><a id="more"></a></p>
+<h4 id="代码">代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MAXSIZE 20</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MAXDEPTH 10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> BinaryTreeNode</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		BinaryTreeNode() &#123;leftChild = rightChild = <span class="number">0</span>;&#125;</span><br><span class="line">		BinaryTreeNode(<span class="keyword">int</span> d) &#123;data = d; leftChild = rightChild = <span class="number">0</span>;&#125;</span><br><span class="line">		BinaryTreeNode(<span class="keyword">int</span> d, BinaryTreeNode* left, BinaryTreeNode* right) &#123;data = d; leftChild = left; rightChild = right;&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> data;</span><br><span class="line">		BinaryTreeNode* leftChild;</span><br><span class="line">		BinaryTreeNode* rightChild; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> MaxHeap</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		MaxHeap(<span class="keyword">int</span> size = <span class="number">10</span>) </span><br><span class="line">		&#123;</span><br><span class="line">			maxSize = size;</span><br><span class="line">			heap = <span class="keyword">new</span> <span class="keyword">int</span>[maxSize + <span class="number">1</span>];</span><br><span class="line">			currentSize = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> arrrayCurrentSize, <span class="keyword">int</span> arrayMaxSize)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">int</span> <span class="title">deleteMax</span><span class="params">()</span></span>;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">int</span> currentSize, maxSize;</span><br><span class="line">		<span class="keyword">int</span>* heap;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> MaxHeap::init(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> arrayCurrentSize, <span class="keyword">int</span> arrayMaxSize)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">delete</span> [] heap;</span><br><span class="line">	heap = <span class="built_in">array</span>;</span><br><span class="line">	currentSize = arrayCurrentSize;</span><br><span class="line">	maxSize = arrayMaxSize;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = currentSize / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> y = heap[i];</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> c = <span class="number">2</span>*i;</span><br><span class="line">		<span class="keyword">while</span>(c &lt;= currentSize)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(c &lt; currentSize &amp;&amp; heap[c] &lt; heap[c + <span class="number">1</span>]) c++;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span>(y &gt;= heap[c]) <span class="keyword">break</span>;</span><br><span class="line">			</span><br><span class="line">			heap[c / <span class="number">2</span>] = heap[c];</span><br><span class="line">			c *= <span class="number">2</span>; </span><br><span class="line">		&#125;</span><br><span class="line">		heap[c / <span class="number">2</span>] = y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> MaxHeap::insert(<span class="keyword">int</span> x)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(currentSize == maxSize) &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">"out of bounds"</span>; <span class="keyword">return</span>;&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> i = ++currentSize;</span><br><span class="line">	<span class="keyword">while</span>(i != <span class="number">1</span> &amp;&amp; x &gt; heap[i / <span class="number">2</span>])</span><br><span class="line">	&#123;</span><br><span class="line">		heap[i] = heap[i / <span class="number">2</span>];</span><br><span class="line">		i /= <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	heap[i] = x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> MaxHeap::deleteMax()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(currentSize == <span class="number">0</span>) &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">"there is no mem"</span>; <span class="keyword">return</span> -<span class="number">1</span>;&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> x = heap[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">int</span> y = heap[currentSize--];</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> ci = <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">while</span>(ci &lt;= currentSize)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(ci &lt; currentSize &amp;&amp; heap[ci] &lt; heap[ci + <span class="number">1</span>]) ci++;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(y &gt;= heap[ci]) <span class="keyword">break</span>;</span><br><span class="line">		</span><br><span class="line">		heap[i] = heap[ci];</span><br><span class="line">		i = ci;</span><br><span class="line">		ci *= <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	heap[i] = y;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> BinarySearchTree</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		BinarySearchTree() &#123;root = <span class="number">0</span>;&#125;</span><br><span class="line">		</span><br><span class="line"> 		<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> e)</span></span>;</span><br><span class="line"> 		<span class="function"><span class="keyword">void</span> <span class="title">preOrder</span><span class="params">(BinaryTreeNode* t)</span></span>;</span><br><span class="line">		</span><br><span class="line">		BinaryTreeNode* root;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> BinarySearchTree::insert(<span class="keyword">int</span> e)</span><br><span class="line">&#123;</span><br><span class="line">	BinaryTreeNode* p = root;</span><br><span class="line">	BinaryTreeNode* pp = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(p)</span><br><span class="line">	&#123;</span><br><span class="line">		pp = p;</span><br><span class="line">		<span class="keyword">if</span>(e &lt; p-&gt;data) p = p-&gt;leftChild;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(e &gt; p-&gt;data) p = p-&gt;rightChild;</span><br><span class="line">		<span class="keyword">else</span> &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">"bad input"</span>; <span class="keyword">return</span>;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	BinaryTreeNode* r = <span class="keyword">new</span> BinaryTreeNode(e);</span><br><span class="line">	<span class="keyword">if</span>(root)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(e &lt; pp-&gt;data) pp-&gt;leftChild = r;</span><br><span class="line">		<span class="keyword">else</span> pp-&gt;rightChild = r;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		root = r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> BinarySearchTree::preOrder(BinaryTreeNode* t)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(t != NULL)</span><br><span class="line">	&#123;</span><br><span class="line">		preOrder(t-&gt;leftChild);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; t-&gt;data &lt;&lt; endl;</span><br><span class="line">		preOrder(t-&gt;rightChild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> HuffmanTree</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		HuffmanTree(<span class="keyword">int</span> a[], <span class="keyword">int</span> n);</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">preOrder</span><span class="params">(BinaryTreeNode* b)</span></span>;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">printCode</span><span class="params">(BinaryTreeNode* b, <span class="keyword">int</span> len)</span></span>;</span><br><span class="line">		</span><br><span class="line">		BinaryTreeNode** b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">HuffmanTree::HuffmanTree(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span><br><span class="line">&#123;</span><br><span class="line">    b = <span class="keyword">new</span> BinaryTreeNode*[<span class="number">100</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    	b[i] = <span class="keyword">new</span> BinaryTreeNode(a[i + <span class="number">1</span>]);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)<span class="comment">//进行 n-1 次循环建立哈夫曼树  </span></span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="comment">//k1表示森林中具有最小权值的树根结点的下标，k2为次最小的下标  </span></span><br><span class="line">        <span class="keyword">int</span> k1 = -<span class="number">1</span>, k2;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)<span class="comment">//让k1初始指向森林中第一棵树，k2指向第二棵  </span></span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">if</span>(b[j] != NULL &amp;&amp; k1 == -<span class="number">1</span>)  </span><br><span class="line">            &#123;  </span><br><span class="line">                k1 = j;  </span><br><span class="line">                <span class="keyword">continue</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="keyword">if</span>(b[j] != NULL)  </span><br><span class="line">            &#123;  </span><br><span class="line">                k2 = j;  </span><br><span class="line">                <span class="keyword">break</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = k2; j &lt; n; j++)<span class="comment">//从当前森林中求出最小权值树和次最小  </span></span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">if</span>(b[j] != NULL)  </span><br><span class="line">            &#123;  </span><br><span class="line">                <span class="keyword">if</span> (b[j]-&gt;data &lt; b[k1]-&gt;data)  </span><br><span class="line">                &#123;  </span><br><span class="line">                    k2 = k1;  </span><br><span class="line">                    k1 = j;  </span><br><span class="line">                &#125;  </span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (b[j]-&gt;data &lt; b[k2]-&gt;data)  </span><br><span class="line">                    k2 = j;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        </span><br><span class="line">    	BinaryTreeNode *q = <span class="keyword">new</span> BinaryTreeNode();</span><br><span class="line">        q-&gt;data = b[k1]-&gt;data + b[k2]-&gt;data;  </span><br><span class="line">        q-&gt;leftChild = b[k1];  </span><br><span class="line">        q-&gt;rightChild = b[k2];  </span><br><span class="line">  </span><br><span class="line">        b[k1] = q;</span><br><span class="line">        b[k2] = NULL;</span><br><span class="line">        </span><br><span class="line">    &#125;  </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> HuffmanTree::preOrder(BinaryTreeNode* b)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (b != NULL)  </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; b-&gt;data &lt;&lt; endl;</span><br><span class="line">        preOrder(b-&gt;leftChild);</span><br><span class="line">        preOrder(b-&gt;rightChild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> HuffmanTree::printCode(BinaryTreeNode* b, <span class="keyword">int</span> len)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> code[MAXDEPTH];</span><br><span class="line">	<span class="keyword">if</span>(b != NULL)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b-&gt;leftChild == NULL &amp;&amp; b-&gt;rightChild == NULL)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"the huffman code of "</span> &lt;&lt; b-&gt;data &lt;&lt; <span class="string">" is "</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; code[i];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; endl;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		code[len] = <span class="number">0</span>;</span><br><span class="line">		printCode(b-&gt;leftChild, len + <span class="number">1</span>);</span><br><span class="line">		code[len] = <span class="number">1</span>;</span><br><span class="line">		printCode(b-&gt;rightChild, len + <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> b[n + <span class="number">1</span>];</span><br><span class="line">	</span><br><span class="line">	MaxHeap maxHeap;</span><br><span class="line">	maxHeap.init(a, n, n);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; maxHeap.deleteMax() &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		a[i] = b[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[MAXSIZE];</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"输入数组长度："</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;	<span class="comment">//输入样例 5</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"输入数据："</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	<span class="comment">//输入样例 1 32 21 35 41</span></span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">		</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"bst:"</span> &lt;&lt; endl;</span><br><span class="line">	BinarySearchTree bstree;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">		bstree.insert(a[i]);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"preOrder:"</span> &lt;&lt; endl;</span><br><span class="line">	bstree.preOrder(bstree.root);</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"huffman:"</span> &lt;&lt; endl;</span><br><span class="line">	<span class="function">HuffmanTree <span class="title">htree</span><span class="params">(a, 5)</span></span>;</span><br><span class="line">	htree.printCode(htree.b[<span class="number">0</span>], <span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"heap sort:"</span> &lt;&lt; endl;</span><br><span class="line">	heapSort(a, <span class="number">5</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="小结">小结</h4><p>1.关于BinarySearchTree（二叉搜索树）<br>存在一棵树，若它的左子树不空，左子树上所有结点的值均小于它的根结点的值；若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；那么它就是二叉搜索树。它的左、右子树也分别都为二叉搜索树。<br>这里盗百科一张图<em>(:зゝ∠)</em><br><img src="http://ww4.sinaimg.cn/mw690/005ANU5mjw1ez8f3atckhj30dx09z74f.jpg" alt=""><br>2.关于HuffmanTree（哈夫曼树）<br>哈夫曼树又称最优二叉树。它是n个带权叶子结点构成的所有二叉树中，带权路径长度最小的二叉树。比如下图：<br><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1ez8ep1tmtcj30io0i4dgw.jpg" alt=""><br>3.关于怎样构造HuffmanTree<br>假设有n个权值，则构造出的哈夫曼树有n个叶子结点。n个权值分别设为 w1、w2、…、wn，则哈夫曼树的构造规则为：<br>(1) 将w1、w2、…，wn看成是有n 棵树的森林(每棵树仅有一个结点)；<br>(2) 在森林中选出两个根结点的权值最小的树合并，作为一棵新树的左、右子树，且新树的根结点权值为其左、右子树根结点权值之和；<br>(3)从森林中删除选取的两棵树，并将新树加入森林；<br>(4)重复(2)、(3)步，直到森林中只剩一棵树为止，该树即为所求得的哈夫曼树。<br><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ez8ep1fuy4j30vo10maf4.jpg" alt=""><br>4.关于构造HuffmanCode<br>在电报通信中，电文是以二进制的0、1序列传送的，每个字符对应一个二进制编码，为了缩短电文的总长度，采用不等长编码方式，构造哈夫曼树，<br>将每个字符的出现频率作为字符结点的权值赋予叶子结点，每个分支结点的左右分支分别用0和1编码，从树根结点到每个叶子结点的路径上<br>所经分支的0、1编码序列等于该叶子结点的二进制编码。比如上面的HuffmanTree编码如下图：<br><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1ez8ep1fuy4j30vo10maf4.jpg" alt=""><br>5.关于堆排序<br>堆排序的原理其实很简单，因为已经写好了最大堆类以及deleteMax方法，所以对长度为n的a数组进行n次deleteMax()即为堆排序。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag">#数据结构</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/01/data-structures-expr-code-6/" rel="next" title="数据结构实验代码(6)">
+                <i class="fa fa-chevron-left"></i> 数据结构实验代码(6)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/22/data-structures-expr-code-8/" rel="prev" title="数据结构实验代码(8)">
+                数据结构实验代码(8) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="林俊宇" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">林俊宇</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/linjunyu" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/linjunyugood" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.douban.com/people/136864738/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 豆瓣
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lin-jun-yu-28" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验七_堆和搜索树"><span class="nav-number">1.</span> <span class="nav-text">实验七 堆和搜索树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实验内容"><span class="nav-number">1.0.1.</span> <span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">1.0.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.0.3.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林俊宇</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
