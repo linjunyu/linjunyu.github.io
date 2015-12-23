@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -53,16 +53,33 @@
 
 
 
-<meta name="description" content="问题事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。在设置PATH环境变量的时候，突然脑抽了，sudo vim /etc/profile然后直接在文件末尾export PATH=/usr/local/android-sdk-linux重启系统想让环境变量生效但是在账号登陆界面就进不去了，输入密码依旧是登陆界面我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进">
+<meta name="description" content="又看到一篇非常棒的文章，有关Java比较典型的八个特性，搬来学习(:зゝ∠)原文链接：http://www.importnew.com/11725.html
+1、字符串不变性下面这张图展示了这段代码做了什么12String s = &quot;abcd&quot;;s = s.concat(&quot;ef&quot;);
+
+2、equals()方法、hashCode()方法的区别HashCode被设计用来提高性能。equals()方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux修改PATH环境变量账号无法登陆">
-<meta property="og:url" content="http://yoursite.com/2015/11/24/linux-cant-login/index.html">
+<meta property="og:title" content="8张图帮你更理解Java(转)">
+<meta property="og:url" content="http://yoursite.com/2015/12/24/8-pictures-about-java/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="问题事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。在设置PATH环境变量的时候，突然脑抽了，sudo vim /etc/profile然后直接在文件末尾export PATH=/usr/local/android-sdk-linux重启系统想让环境变量生效但是在账号登陆界面就进不去了，输入密码依旧是登陆界面我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进">
-<meta property="og:updated_time" content="2015-12-01T15:43:44.442Z">
+<meta property="og:description" content="又看到一篇非常棒的文章，有关Java比较典型的八个特性，搬来学习(:зゝ∠)原文链接：http://www.importnew.com/11725.html
+1、字符串不变性下面这张图展示了这段代码做了什么12String s = &quot;abcd&quot;;s = s.concat(&quot;ef&quot;);
+
+2、equals()方法、hashCode()方法的区别HashCode被设计用来提高性能。equals()方法">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mgw1eza2m6je6wj30i207rwew.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mgw1eza2m6tav5j30i20a9dg6.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mgw1eza2m7gdi6j30du0sgabl.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005ANU5mgw1eza2m7tps2j30pa0czgm3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mgw1eza2m8iclsj3090060mx7.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mgw1eza2m9d64fj308t05lmwz.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005ANU5mgw1eza2m9ds2aj30ds075jrp.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mgw1eza2ma3rosj30dx0a3wex.jpg">
+<meta property="og:updated_time" content="2015-12-23T16:57:53.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux修改PATH环境变量账号无法登陆">
-<meta name="twitter:description" content="问题事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。在设置PATH环境变量的时候，突然脑抽了，sudo vim /etc/profile然后直接在文件末尾export PATH=/usr/local/android-sdk-linux重启系统想让环境变量生效但是在账号登陆界面就进不去了，输入密码依旧是登陆界面我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进">
+<meta name="twitter:title" content="8张图帮你更理解Java(转)">
+<meta name="twitter:description" content="又看到一篇非常棒的文章，有关Java比较典型的八个特性，搬来学习(:зゝ∠)原文链接：http://www.importnew.com/11725.html
+1、字符串不变性下面这张图展示了这段代码做了什么12String s = &quot;abcd&quot;;s = s.concat(&quot;ef&quot;);
+
+2、equals()方法、hashCode()方法的区别HashCode被设计用来提高性能。equals()方法">
 
 
 
@@ -74,7 +91,7 @@
   };
 </script>
 
-  <title> Linux修改PATH环境变量账号无法登陆 | 林俊宇的博客 </title>
+  <title> 8张图帮你更理解Java(转) | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -194,7 +211,7 @@
             
             
               
-                Linux修改PATH环境变量账号无法登陆
+                8张图帮你更理解Java(转)
               
             
           </h1>
@@ -203,8 +220,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-24T23:55:18+08:00" content="2015-11-24">
-              2015-11-24
+            <time itemprop="dateCreated" datetime="2015-12-24T00:17:18+08:00" content="2015-12-24">
+              2015-12-24
             </time>
           </span>
 
@@ -227,9 +244,17 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="问题">问题</h4><p>事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。<br>在设置PATH环境变量的时候，突然脑抽了，<br><code>sudo vim /etc/profile</code><br>然后直接在文件末尾export PATH=/usr/local/android-sdk-linux<br>重启系统想让环境变量生效<br>但是在账号登陆界面就进不去了，输入密码依旧是登陆界面<br>我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进去<br>所以导致系统没法进入</p>
-<h4 id="解决方法">解决方法</h4><p>1.在开机时进入Ubuntu的Recovery Mode，进入后会显示Recovery Menu(filesystem state: read-only)，在这个状态下是无法修改文件的<br>2.在Recovery Mode选项中选择root，然后输入<code>mount -o remount,rw /</code>再重启进入Recovery Mode，选择grub项<br>3.运行返回之后会发现菜单变成了Recovery Menu(filesystem state: read-write)，在这个状态下就可以修改系统的文件了<br>4.再选择root，<code>sudo vim /etc/profile</code>，然后把原来的坑填好</p>
-<p>重启，人生又一次圆满了~</p>
+        <span itemprop="articleBody"><p>又看到一篇非常棒的文章，有关Java比较典型的八个特性，搬来学习<em>(:зゝ∠)</em><br>原文链接：<a href="http://www.importnew.com/11725.html" target="_blank" rel="external">http://www.importnew.com/11725.html</a></p>
+<h4 id="1、字符串不变性">1、字符串不变性</h4><p>下面这张图展示了这段代码做了什么<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">String</span> s = <span class="string">"abcd"</span>;</span><br><span class="line"><span class="title">s</span> = s.concat(<span class="string">"ef"</span>);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ww4.sinaimg.cn/mw690/005ANU5mgw1eza2m6je6wj30i207rwew.jpg" alt=""></p>
+<h4 id="2、equals()方法、hashCode()方法的区别">2、equals()方法、hashCode()方法的区别</h4><p>HashCode被设计用来提高性能。equals()方法与hashCode()方法的区别在于：<br>1.如果两个对象相等(equal)，那么他们一定有相同的哈希值。<br>2.如果两个对象的哈希值相同，但他们未必相等(equal)。<br><img src="http://ww1.sinaimg.cn/mw690/005ANU5mgw1eza2m6tav5j30i20a9dg6.jpg" alt=""></p>
+<h4 id="3、Java异常类的层次结构">3、Java异常类的层次结构</h4><p>图中红色部分为受检查异常。它们必须被捕获，或者在函数中声明为抛出该异常。<br><img src="http://ww1.sinaimg.cn/mw690/005ANU5mgw1eza2m7gdi6j30du0sgabl.jpg" alt=""></p>
+<h4 id="4、集合类的层次结构">4、集合类的层次结构</h4><p>注意Collections和Collection的区别。（Collections包含有各种有关集合操作的静态多态方法）<br><img src="http://ww3.sinaimg.cn/mw690/005ANU5mgw1eza2m7tps2j30pa0czgm3.jpg" alt=""></p>
+<h4 id="5、Java同步">5、Java同步</h4><p>Java同步机制可通过类比建筑物来阐明。<br><img src="http://ww1.sinaimg.cn/mw690/005ANU5mgw1eza2m8iclsj3090060mx7.jpg" alt=""></p>
+<h4 id="6、别名">6、别名</h4><p>别名意味着有多个变量指向同一可被更新的内存块，这些别名分别是不同的对象类型。<br><img src="http://ww2.sinaimg.cn/mw690/005ANU5mgw1eza2m9d64fj308t05lmwz.jpg" alt=""></p>
+<h4 id="7、堆和栈">7、堆和栈</h4><p>图解表明了方法和对象在运行时内存中的位置。<br><img src="http://ww3.sinaimg.cn/mw690/005ANU5mgw1eza2m9ds2aj30ds075jrp.jpg" alt=""></p>
+<h4 id="8、Java虚拟机运行时数据区域">8、Java虚拟机运行时数据区域</h4><p>图解展示了整个虚拟机运行时数据区域的情况。<br><img src="http://ww2.sinaimg.cn/mw690/005ANU5mgw1eza2ma3rosj30dx0a3wex.jpg" alt=""></p>
+<p>总结的真的非常棒，对Java的理解能更深入一些，点赞~</p>
 </span>
       
     </div>
@@ -238,7 +263,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag">#Linux</a>
+            <a href="/tags/Java/" rel="tag">#Java</a>
           
         </div>
       
@@ -247,17 +272,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/10/data-structures-expr-code-5/" rel="next" title="数据结构实验代码(5)">
-                <i class="fa fa-chevron-left"></i> 数据结构实验代码(5)
+              <a href="/2015/12/24/common-regex/" rel="next" title="常用正则表达式大全(转)">
+                <i class="fa fa-chevron-left"></i> 常用正则表达式大全(转)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/01/data-structures-expr-code-6/" rel="prev" title="数据结构实验代码(6)">
-                数据结构实验代码(6) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -405,7 +426,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、字符串不变性"><span class="nav-number">1.</span> <span class="nav-text">1、字符串不变性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、equals()方法、hashCode()方法的区别"><span class="nav-number">2.</span> <span class="nav-text">2、equals()方法、hashCode()方法的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、Java异常类的层次结构"><span class="nav-number">3.</span> <span class="nav-text">3、Java异常类的层次结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、集合类的层次结构"><span class="nav-number">4.</span> <span class="nav-text">4、集合类的层次结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、Java同步"><span class="nav-number">5.</span> <span class="nav-text">5、Java同步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、别名"><span class="nav-number">6.</span> <span class="nav-text">6、别名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、堆和栈"><span class="nav-number">7.</span> <span class="nav-text">7、堆和栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、Java虚拟机运行时数据区域"><span class="nav-number">8.</span> <span class="nav-text">8、Java虚拟机运行时数据区域</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

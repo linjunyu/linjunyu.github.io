@@ -1,0 +1,661 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="正则表达式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="今天看到一篇非常不错的博客，列举了非常详细的常用的正则表达式，特地搬运一下。原文链接：http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html
+一、校验数字的表达式12345678910111213141516171819数字：^[0-9]*$n位的数字：^\d&amp;#123;n&amp;#125;$至少n位的数字：^\d&amp;#123;n,&amp;#125">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用正则表达式大全(转)">
+<meta property="og:url" content="http://yoursite.com/2015/12/24/common-regex/index.html">
+<meta property="og:site_name" content="林俊宇的博客">
+<meta property="og:description" content="今天看到一篇非常不错的博客，列举了非常详细的常用的正则表达式，特地搬运一下。原文链接：http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html
+一、校验数字的表达式12345678910111213141516171819数字：^[0-9]*$n位的数字：^\d&amp;#123;n&amp;#125;$至少n位的数字：^\d&amp;#123;n,&amp;#125">
+<meta property="og:updated_time" content="2015-12-23T16:58:16.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用正则表达式大全(转)">
+<meta name="twitter:description" content="今天看到一篇非常不错的博客，列举了非常详细的常用的正则表达式，特地搬运一下。原文链接：http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html
+一、校验数字的表达式12345678910111213141516171819数字：^[0-9]*$n位的数字：^\d&amp;#123;n&amp;#125;$至少n位的数字：^\d&amp;#123;n,&amp;#125">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 常用正则表达式大全(转) | 林俊宇的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">林俊宇的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                常用正则表达式大全(转)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-24T00:17:07+08:00" content="2015-12-24">
+              2015-12-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>今天看到一篇非常不错的博客，列举了非常详细的常用的正则表达式，特地搬运一下。<br>原文链接：<a href="http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html" target="_blank" rel="external">http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html</a></p>
+<h4 id="一、校验数字的表达式">一、校验数字的表达式</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">数字：^[0-9]*$</span><br><span class="line">n位的数字：^\d&#123;n&#125;$</span><br><span class="line">至少n位的数字：^\d&#123;n,&#125;$</span><br><span class="line">m-n位的数字：^\d&#123;m,n&#125;$</span><br><span class="line">零和非零开头的数字：^(0|[<span class="link_label">1-9</span>][<span class="link_reference">0-9</span>]*)$</span><br><span class="line">非零开头的最多带两位小数的数字：^([<span class="link_label">1-9</span>][<span class="link_reference">0-9</span>]*)+(.[0-9]&#123;1,2&#125;)?$</span><br><span class="line">带1-2位小数的正数或负数：^(\-)?\d+(\.\d&#123;1,2&#125;)?$</span><br><span class="line">正数、负数、和小数：^(\-|\+)?\d+(\.\d+)?$</span><br><span class="line">有两位小数的正实数：^[0-9]+(.[0-9]&#123;2&#125;)?$</span><br><span class="line">有1~3位小数的正实数：^[0-9]+(.[0-9]&#123;1,3&#125;)?$</span><br><span class="line">非零的正整数：^[<span class="link_label">1-9</span>]\d<span class="emphasis">*$ 或 ^([1-9][0-9]*</span>)&#123;1,3&#125;$ 或 ^\+?[<span class="link_label">1-9</span>][<span class="link_reference">0-9</span>]*$</span><br><span class="line">非零的负整数：^\-[<span class="link_label">1-9</span>][<span class="link_reference"></span>]0-9"<span class="emphasis">*$ 或 ^-[1-9]\d*</span>$</span><br><span class="line">非负整数：^\d+$ 或 ^[1-9]\d*|0$</span><br><span class="line">非正整数：^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$</span><br><span class="line">非负浮点数：^\d+(\.\d+)?$ 或 ^[1-9]\d<span class="emphasis">*\.\d*</span>|0\.\d<span class="emphasis">*[1-9]\d*</span>|0?\.0+|0$</span><br><span class="line">非正浮点数：^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d<span class="emphasis">*\.\d*</span>|0\.\d<span class="emphasis">*[1-9]\d*</span>))|0?\.0+|0$</span><br><span class="line">正浮点数：^[<span class="link_label">1-9</span>]\d<span class="emphasis">*\.\d*</span>|0\.\d<span class="emphasis">*[1-9]\d*</span>$ 或 ^(([<span class="link_label">0-9</span>]+\.[<span class="link_label">0-9</span>]<span class="emphasis">*[1-9][0-9]*</span>)|([<span class="link_label">0-9</span>]<span class="emphasis">*[1-9][0-9]*</span>\.[<span class="link_label">0-9</span>]+)|([<span class="link_label">0-9</span>]<span class="emphasis">*[1-9][0-9]*</span>))$</span><br><span class="line">负浮点数：^-([<span class="link_label">1-9</span>]\d<span class="emphasis">*\.\d*</span>|0\.\d<span class="emphasis">*[1-9]\d*</span>)$ 或 ^(-(([<span class="link_label">0-9</span>]+\.[<span class="link_label">0-9</span>]<span class="emphasis">*[1-9][0-9]*</span>)|([<span class="link_label">0-9</span>]<span class="emphasis">*[1-9][0-9]*</span>\.[<span class="link_label">0-9</span>]+)|([<span class="link_label">0-9</span>]<span class="emphasis">*[1-9][0-9]*</span>)))$</span><br><span class="line">浮点数：^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d<span class="emphasis">*\.\d*</span>|0\.\d<span class="emphasis">*[1-9]\d*</span>|0?\.0+|0)$</span><br></pre></td></tr></table></figure>
+<h4 id="二、校验字符的表达式">二、校验字符的表达式</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">汉字：^[\u4e0<span class="number">0</span>-\u9fa5]&#123;<span class="number">0</span>,&#125;<span class="variable">$</span><br><span class="line"></span>英文和数字：^[<span class="constant">A-Za-</span>z<span class="number">0</span>-<span class="number">9</span>]+<span class="variable">$ </span>或 ^[<span class="constant">A-Za-</span>z<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">4</span>,<span class="number">40</span>&#125;<span class="variable">$</span><br><span class="line"></span>长度为<span class="number">3</span>-<span class="number">20</span>的所有字符：^.&#123;<span class="number">3</span>,<span class="number">20</span>&#125;<span class="variable">$</span><br><span class="line"></span>由<span class="number">26</span>个英文字母组成的字符串：^[<span class="constant">A-Za-</span>z]+<span class="variable">$</span><br><span class="line"></span>由<span class="number">26</span>个大写英文字母组成的字符串：^[<span class="constant">A-Z]</span>+<span class="variable">$</span><br><span class="line"></span>由<span class="number">26</span>个小写英文字母组成的字符串：^[a-z]+<span class="variable">$</span><br><span class="line"></span>由数字和<span class="number">26</span>个英文字母组成的字符串：^[<span class="constant">A-Za-</span>z<span class="number">0</span>-<span class="number">9</span>]+<span class="variable">$</span><br><span class="line"></span>由数字、<span class="number">26</span>个英文字母或者下划线组成的字符串：^\w+<span class="variable">$ </span>或 ^\w&#123;<span class="number">3</span>,<span class="number">20</span>&#125;<span class="variable">$</span><br><span class="line"></span>中文、英文、数字包括下划线：^[\u4E0<span class="number">0</span>-\u9FA5A-<span class="constant">Za-</span>z<span class="number">0</span>-<span class="number">9_</span>]+<span class="variable">$</span><br><span class="line"></span>中文、英文、数字但不包括下划线等符号：^[\u4E0<span class="number">0</span>-\u9FA5A-<span class="constant">Za-</span>z<span class="number">0</span>-<span class="number">9</span>]+<span class="variable">$ </span>或 ^[\u4E0<span class="number">0</span>-\u9FA5A-<span class="constant">Za-</span>z<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">2</span>,<span class="number">20</span>&#125;<span class="variable">$</span><br><span class="line"></span>可以输入含有^%&amp;<span class="string">',;=?$\"等字符：[^%&amp;'</span>,;=?<span class="variable">$\</span>x22]+</span><br><span class="line">禁止输入含有~的字符：[^~\x22]+</span><br></pre></td></tr></table></figure>
+<h4 id="三、特殊需求表达式">三、特殊需求表达式</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Email地址：^\w+([-+.]\w+)<span class="emphasis">*@\w+([-.]\w+)*</span>\.\w+([-.]\w+)*$</span><br><span class="line">域名：[<span class="link_label">a-zA-Z0-9</span>][<span class="link_reference">-a-zA-Z0-9</span>]&#123;0,62&#125;(/.[<span class="link_label">a-zA-Z0-9</span>][<span class="link_reference">-a-zA-Z0-9</span>]&#123;0,62&#125;)+/.?</span><br><span class="line">InternetURL：[a-zA-z]+://[^\s]<span class="bullet">* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*</span>)?$</span><br><span class="line">手机号码：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$</span><br><span class="line">电话号码("XXX-XXXXXXX"、"XXXX-XXXXXXXX"、"XXX-XXXXXXX"、"XXX-XXXXXXXX"、"XXXXXXX"和"XXXXXXXX)：^(\(\d&#123;3,4&#125;-)|\d&#123;3.4&#125;-)?\d&#123;7,8&#125;$ </span><br><span class="line">国内电话号码(0511-4405222、021-87888822)：\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;</span><br><span class="line">身份证号(15位、18位数字)：^\d&#123;15&#125;|\d&#123;18&#125;$</span><br><span class="line">短身份证号码(数字、字母x结尾)：^([0-9])&#123;7,18&#125;(x|X)?$ 或 ^\d&#123;8,18&#125;|[0-9x]&#123;8,18&#125;|[0-9X]&#123;8,18&#125;?$</span><br><span class="line">帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[<span class="link_label">a-zA-Z</span>][<span class="link_reference">a-zA-Z0-9_</span>]&#123;4,15&#125;$</span><br><span class="line">密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w&#123;5,17&#125;$</span><br><span class="line">强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：^(?=.<span class="emphasis">*\d)(?=.*</span>[a-z])(?=.*[A-Z]).&#123;8,10&#125;$  </span><br><span class="line">日期格式：^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;</span><br><span class="line">一年的12个月(01～09和1～12)：^(0?[1-9]|1[0-2])$</span><br><span class="line">一个月的31天(01～09和1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$ </span><br><span class="line">钱的输入格式：</span><br><span class="line">  1.有四种钱的表示形式我们可以接受:"10000.00" 和 "10,000.00", 和没有 "分" 的 "10000" 和 "10,000"：^[<span class="link_label">1-9</span>][<span class="link_reference">0-9</span>]*$ </span><br><span class="line">  2.这表示任意一个不以0开头的数字,但是,这也意味着一个字符"0"不通过,所以我们采用下面的形式：^(0|[<span class="link_label">1-9</span>][<span class="link_reference">0-9</span>]*)$ </span><br><span class="line">  3.一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：^(0|-?[<span class="link_label">1-9</span>][<span class="link_reference">0-9</span>]*)$ </span><br><span class="line">  4.这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧.下面我们要加的是说明可能的小数部分：^[0-9]+(.[0-9]+)?$ </span><br><span class="line">  5.必须说明的是,小数点后面至少应该有1位数,所以"10."是不通过的,但是 "10" 和 "10.2" 是通过的：^[0-9]+(.[0-9]&#123;2&#125;)?$ </span><br><span class="line">  6.这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：^[0-9]+(.[0-9]&#123;1,2&#125;)?$ </span><br><span class="line">  7.这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：^[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*(.[0-9]&#123;1,2&#125;)?$ </span><br><span class="line">  8.1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：^([0-9]+|[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*)(.[0-9]&#123;1,2&#125;)?$ </span><br><span class="line">  备注：这就是最终结果了,别忘了"+"可以用"*"替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里</span><br><span class="line">xml文件：^([<span class="link_label">a-zA-Z</span>]+-?)+[<span class="link_label">a-zA-Z0-9</span>]+\\.[<span class="link_label">x|X</span>][<span class="link_reference">m|M</span>][<span class="link_label">l|L</span>]$</span><br><span class="line">中文字符的正则表达式：[\u4e00-\u9fa5]</span><br><span class="line">双字节字符：[^\x00-\xff]    (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</span><br><span class="line">空白行的正则表达式：\n\s*\r    (可以用来删除空白行)</span><br><span class="line">HTML标记的正则表达式：<span class="xml"><span class="tag">&lt;<span class="title">(\S*?)[^</span>&gt;</span></span>]<span class="emphasis">*&gt;.*</span>?<span class="xml"><span class="tag">&lt;/<span class="title">\1</span>&gt;</span></span>|<span class="xml"><span class="tag">&lt;<span class="title">.*?</span> /&gt;</span></span>    (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)</span><br><span class="line">首尾空白字符的正则表达式：^\s<span class="emphasis">*|\s*</span>$或(^\s<span class="emphasis">*)|(\s*</span>$)    (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</span><br><span class="line">腾讯QQ号：[<span class="link_label">1-9</span>][<span class="link_reference">0-9</span>]&#123;4,&#125;    (腾讯QQ号从10000开始)</span><br><span class="line">中国邮政编码：[1-9]\d&#123;5&#125;(?!\d)    (中国邮政编码为6位数字)</span><br><span class="line">IP地址：\d+\.\d+\.\d+\.\d+    (提取IP地址时有用)</span><br><span class="line">IP地址：((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))    (由@飞龙三少 提供,感谢共享)</span><br></pre></td></tr></table></figure>
+<p>学好正则表达式真的可以方便的实现很多的功能！<em>(:зゝ∠)</em></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/正则表达式/" rel="tag">#正则表达式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/22/data-structures-expr-code-8/" rel="next" title="数据结构实验代码(8)">
+                <i class="fa fa-chevron-left"></i> 数据结构实验代码(8)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/24/8-pictures-about-java/" rel="prev" title="8张图帮你更理解Java(转)">
+                8张图帮你更理解Java(转) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="林俊宇" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">林俊宇</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/linjunyu" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/linjunyugood" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.douban.com/people/136864738/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 豆瓣
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lin-jun-yu-28" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、校验数字的表达式"><span class="nav-number">1.</span> <span class="nav-text">一、校验数字的表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、校验字符的表达式"><span class="nav-number">2.</span> <span class="nav-text">二、校验字符的表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、特殊需求表达式"><span class="nav-number">3.</span> <span class="nav-text">三、特殊需求表达式</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林俊宇</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

@@ -207,6 +207,173 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/24/linux-cant-login/" itemprop="url">
+                  Linux修改PATH环境变量账号无法登陆
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-24T23:55:18+08:00" content="2015-11-24">
+              2015-11-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            问题事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。在设置PATH环境变量的时候，突然脑抽了，sudo vim /etc/profile然后直接在文件末尾export PATH=/usr/local/android-sdk-linux重启系统想让环境变量生效但是在账号登陆界面就进不去了，输入密码依旧是登陆界面我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进去所以导致系统没法进入
+解决方法1.在开机时进入Ubuntu的Recovery Mode，进入后会显示Recovery Menu(filesystem state: read-only)，在这个状态下是无法修改文件的2.在Recovery Mode选项中选择root，然后输入mount -o remount,rw /再重启进入Recovery Mode，选择grub项3.运行返回之后会发现菜单变成
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/24/linux-cant-login/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/10/data-structures-expr-code-5/" itemprop="url">
+                  数据结构实验代码(5)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-10T12:00:14+08:00" content="2015-11-10">
+              2015-11-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="实验五_堆栈和队列的应用">实验五 堆栈和队列的应用</h2><h4 id="实验内容">实验内容</h4><p>1.计算数学表达式的值。<br>输入数学表达式，输出表达式的计算结果。数学表达式由单个数字和运算符“+”、“-”、“<em>”、“/”、“(、“)构成，例如 2 + 3 </em> ( 4 + 5 ) – 6 / 4。假定表达式输入格式合法。<br>2.以一个 m*n的长方阵表示迷宫，0和1分别表示迷宫中的通路和障碍。设计一个程序，对任意设定的迷宫，求出一条从入口到出口的通路，或得出没有通路的结论。<br>迷宫根据一个迷宫数据文件建立。迷宫数据文件由一个包含0、1的矩阵组成。迷宫的通路可以使用通路上各点的坐标序列进行展示(使用图形展示最佳)。<br>3.设计电路布线最短路径<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/10/data-structures-expr-code-5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/10/data-structures-expr-code-4/" itemprop="url">
                   数据结构实验代码(4)
                 </a>
@@ -438,169 +605,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/27/data-structures-expr-code-2/" itemprop="url">
-                  数据结构实验代码(2)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-27T12:00:14+08:00" content="2015-10-27">
-              2015-10-27
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="实验二_排序算法">实验二 排序算法</h2><h4 id="实验内容">实验内容</h4><p>1.创建排序类。<br>2.提供操作:选择排序、冒泡排序、插入排序、基数排序、快速排序、归并排序。<br>3.*能够显示各种排序算法的中间过程。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/27/data-structures-expr-code-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/24/data-structures-expr-code-1/" itemprop="url">
-                  数据结构实验代码(1)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-24T12:00:14+08:00" content="2015-10-24">
-              2015-10-24
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>把数据结构实验代码屯起来，说不定以后用得上~</p>
-<h2 id="实验一_递归练习">实验一 递归练习</h2><h4 id="实验内容">实验内容</h4><p>1.输出n个整数的全排列。<br>2.输出n个整数的所有子集。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/24/data-structures-expr-code-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -647,7 +651,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -661,7 +665,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
