@@ -961,7 +961,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8bffb5;
+  background: #2e2bbd;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -2218,8 +2218,4 @@ mobie()
   .footer-inner {
     text-align: center;
   }
-}
-.code {
-  padding-left: 20px !important;
-  background-color: #000;
 }
