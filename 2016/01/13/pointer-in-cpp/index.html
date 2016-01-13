@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="数据结构," />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -53,19 +53,28 @@
 
 
 
-<meta name="description" content="把数据结构实验代码屯起来，说不定以后用得上~
-实验一 递归练习实验内容1.输出n个整数的全排列。2.输出n个整数的所有子集。">
+<meta name="description" content="关于int int* int&amp;amp;的区别int*是int指针类型比如这段代码12int b = 1;int* a = &amp;amp;b;
+此时*a和b为同一个东西，改变a的值，就会改变b的值。
+int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;int&amp;amp; a = b;
+此时a和b为同一个东西，改变a的值，就会改变b的值。
+在函数的形参中定义引用，也是一样。比如这">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构实验代码(1)">
-<meta property="og:url" content="http://yoursite.com/2015/10/24/data-structures-expr-code-1/index.html">
+<meta property="og:title" content="C++指针小记">
+<meta property="og:url" content="http://yoursite.com/2016/01/13/pointer-in-cpp/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="把数据结构实验代码屯起来，说不定以后用得上~
-实验一 递归练习实验内容1.输出n个整数的全排列。2.输出n个整数的所有子集。">
-<meta property="og:updated_time" content="2015-12-21T17:24:58.309Z">
+<meta property="og:description" content="关于int int* int&amp;amp;的区别int*是int指针类型比如这段代码12int b = 1;int* a = &amp;amp;b;
+此时*a和b为同一个东西，改变a的值，就会改变b的值。
+int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;int&amp;amp; a = b;
+此时a和b为同一个东西，改变a的值，就会改变b的值。
+在函数的形参中定义引用，也是一样。比如这">
+<meta property="og:updated_time" content="2016-01-13T10:10:44.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构实验代码(1)">
-<meta name="twitter:description" content="把数据结构实验代码屯起来，说不定以后用得上~
-实验一 递归练习实验内容1.输出n个整数的全排列。2.输出n个整数的所有子集。">
+<meta name="twitter:title" content="C++指针小记">
+<meta name="twitter:description" content="关于int int* int&amp;amp;的区别int*是int指针类型比如这段代码12int b = 1;int* a = &amp;amp;b;
+此时*a和b为同一个东西，改变a的值，就会改变b的值。
+int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;int&amp;amp; a = b;
+此时a和b为同一个东西，改变a的值，就会改变b的值。
+在函数的形参中定义引用，也是一样。比如这">
 
 
 
@@ -77,7 +86,7 @@
   };
 </script>
 
-  <title> 数据结构实验代码(1) | 林俊宇的博客 </title>
+  <title> C++指针小记 | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -197,7 +206,7 @@
             
             
               
-                数据结构实验代码(1)
+                C++指针小记
               
             
           </h1>
@@ -206,8 +215,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-10-24T12:00:14+08:00" content="2015-10-24">
-              2015-10-24
+            <time itemprop="dateCreated" datetime="2016-01-13T15:51:28+08:00" content="2016-01-13">
+              2016-01-13
             </time>
           </span>
 
@@ -230,12 +239,22 @@
       
 
       
-        <span itemprop="articleBody"><p>把数据结构实验代码屯起来，说不定以后用得上~</p>
-<h2 id="实验一_递归练习">实验一 递归练习</h2><h4 id="实验内容">实验内容</h4><p>1.输出n个整数的全排列。<br>2.输出n个整数的所有子集。<br><a id="more"></a></p>
-<h4 id="代码">代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp = a;a = b;b = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Perm</span><span class="params">(<span class="keyword">int</span> <span class="built_in">list</span>[],<span class="keyword">int</span> k, <span class="keyword">int</span> m)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">if</span>(k==m)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//输出一个排列方式</span></span><br><span class="line">		<span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="built_in">list</span>[i]&lt;&lt; <span class="string">" "</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//list[k:m]有多个排列方式</span></span><br><span class="line">		<span class="comment">//递归的产生这些排列方式</span></span><br><span class="line">		<span class="keyword">for</span> (i=k;i&lt;=m;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			Swap(<span class="built_in">list</span>[k],<span class="built_in">list</span>[i]);</span><br><span class="line">			Perm(<span class="built_in">list</span>,k+<span class="number">1</span>,m);</span><br><span class="line">			Swap(<span class="built_in">list</span>[k],<span class="built_in">list</span>[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">list</span>[<span class="number">20</span>],n;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"数字的数目:"</span>&lt;&lt;endl;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="built_in">list</span>[i]=i;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"输出"</span>&lt;&lt;endl;</span><br><span class="line">	Perm(<span class="built_in">list</span>,<span class="number">1</span>,n);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Perm</span><span class="params">(<span class="keyword">int</span> *<span class="built_in">list</span>,<span class="keyword">int</span> *tag,<span class="keyword">int</span> k,<span class="keyword">int</span> m)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(k==m+<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)</span><br><span class="line">			<span class="keyword">if</span>(tag[i]==<span class="number">1</span>)</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;<span class="built_in">list</span>[i];</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	tag[k] = <span class="number">0</span>;</span><br><span class="line">	Perm(<span class="built_in">list</span>,tag,k+<span class="number">1</span>,m);</span><br><span class="line">	tag[k] = <span class="number">1</span>;</span><br><span class="line">	Perm(<span class="built_in">list</span>,tag,k+<span class="number">1</span>,m);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">list</span>[<span class="number">20</span>],n;</span><br><span class="line">	<span class="keyword">int</span> tag[<span class="number">20</span>];</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"数字的数目:"</span>&lt;&lt;endl;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="built_in">list</span>[i]=i;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"输出"</span>&lt;&lt;endl;</span><br><span class="line">	Perm(<span class="built_in">list</span>,tag,<span class="number">1</span>,n);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="小结">小结</h4><p>1.输出排列的代码还是按照课本上写的。<br>2.其实输出排列和输出子集的原理就是回溯法，创建当前的状态(current)，然后调用函数来继续创建下一步的”当前状态”。</p>
-<p>于是乎，就要从大一的Java坑跳进C++里了么- -<br>感觉Java比C++友好度更高一些<br>依稀记得很多BigNumber问题可以通过Java投机取巧 JAVA大法好~</p>
+        <span itemprop="articleBody"><h4 id="关于int_int*_int&amp;的区别">关于int int* int&amp;的区别</h4><p>int*是int指针类型<br>比如这段代码<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span>* a = &amp;b;</span><br></pre></td></tr></table></figure></p>
+<p>此时*a和b为同一个东西，改变a的值，就会改变b的值。</p>
+<p>int&amp;是引用，相当于原有变量的副本<br>比如这段代码<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; a = b;</span><br></pre></td></tr></table></figure></p>
+<p>此时a和b为同一个东西，改变a的值，就会改变b的值。</p>
+<p>在函数的形参中定义引用，也是一样。<br>比如这段伪代码<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void <span class="function"><span class="title">fun</span><span class="params">(int&amp; a)</span></span></span><br><span class="line">&#123;</span><br><span class="line">	对a进行的操作...</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int b = <span class="number">4</span>;</span><br><span class="line">	<span class="function"><span class="title">fun</span><span class="params">(b)</span>;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此时，在fun中使用变量a，就相当于使用变量b，函数中改变a的值，b的值也会同时改变。<br>定义引用的优点是实参向形参传值时，系统会新开辟一段内存用于存放形参，而使用引用则跳过此步骤，有利于提高程序效率。<br>尤其是传入函数的是很大的数组，这点尤其重要。<br>当然指针也可以实现这个功能，但引用的执行效率比指针更高。</p>
+<h4 id="关于const_int_*">关于const int *</h4><p>如果const涉及到了指针，比如下面的这段代码<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b = <span class="number">500</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* a = &amp;b;<span class="comment">//情况1</span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *a = &amp;b;<span class="comment">//情况2</span></span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> a = &amp;b;<span class="comment">//情况3</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* <span class="keyword">const</span> a = &amp;b;<span class="comment">//情况4</span></span><br></pre></td></tr></table></figure></p>
+<p>《Effective C++》当中说过一条特别棒的定理</p>
+<blockquote>
+<p>如果const位于星号的左侧，则const就是用来修饰指针所指向的变量，即指针指向为常量；如果const位于星号的右侧，const就是修饰指针本身，即指针本身是常量。</p>
+</blockquote>
+<p>因此，1和2的情况相同，都是指针所指向的内容为常量（const放在变量声明符的位置无关），这种情况下不允许对内容进行更改操作，如不能*a = 3；<br>情况3为指针本身是常量，而指针所指向的内容不是常量，这种情况下不能对指针本身进行更改操作，如a++是错误的；<br>情况4为指针本身和指向的内容均为常量。</p>
+<p>另外const的强大还体现在它在函数声明中的应用。在类成员函数当中，形如：<code>void fun() const;</code><br>如果一个成员函数不会修改数据成员，那么最好将其声明为const，因为const成员函数中不允许对数据成员进行修改，如果修改，编译器将报错，这样可以提高程序的健壮性。 </p>
+<h4 id="关于int*_p[2]和int_(*p)[2]的区别">关于int* p[2]和int (*p)[2]的区别</h4><p>这两个的区别不难区分，<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int*<span class="tag">p</span>[<span class="number">2</span>]是一个指向int型的指针数组，<span class="tag">p</span>[<span class="number">0</span>]和<span class="tag">p</span>[<span class="number">1</span>]的值为内存地址；</span><br><span class="line"><span class="function"><span class="title">int</span><span class="params">(*p)</span></span>[<span class="number">2</span>]相当于一个二维整数数组,(*p)[<span class="number">0</span>]和(*p)[<span class="number">1</span>]的值为int型整数。</span><br></pre></td></tr></table></figure></p>
+<p>更难更高级更灵活的用法搬运一下：<a href="http://www.cnblogs.com/zhengyuhong/articles/2295769.html" target="_blank" rel="external">http://www.cnblogs.com/zhengyuhong/articles/2295769.html</a></p>
+<p>C++博大精深的指针啊 给跪了呀(°□°;)</p>
 </span>
       
     </div>
@@ -244,7 +263,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据结构/" rel="tag">#数据结构</a>
+            <a href="/tags/C/" rel="tag">#C++</a>
           
         </div>
       
@@ -253,17 +272,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/16/how-to-use-github/" rel="next" title="如何使用Github">
-                <i class="fa fa-chevron-left"></i> 如何使用Github
+              <a href="/2015/12/24/8-pictures-about-java/" rel="next" title="8张图帮你更理解Java(转)">
+                <i class="fa fa-chevron-left"></i> 8张图帮你更理解Java(转)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/10/27/data-structures-expr-code-2/" rel="prev" title="数据结构实验代码(2)">
-                数据结构实验代码(2) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -411,7 +426,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验一_递归练习"><span class="nav-number">1.</span> <span class="nav-text">实验一 递归练习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实验内容"><span class="nav-number">1.0.1.</span> <span class="nav-text">实验内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">1.0.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">1.0.3.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于int_int*_int&的区别"><span class="nav-number">1.</span> <span class="nav-text">关于int int* int&的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于const_int_*"><span class="nav-number">2.</span> <span class="nav-text">关于const int *</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于int*_p[2]和int_(*p)[2]的区别"><span class="nav-number">3.</span> <span class="nav-text">关于int* p[2]和int (*p)[2]的区别</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
