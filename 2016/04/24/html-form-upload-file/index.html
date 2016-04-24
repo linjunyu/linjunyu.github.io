@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C++," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -53,28 +53,22 @@
 
 
 
-<meta name="description" content="关于int int* int&amp;amp;的区别int*是int指针类型比如这段代码12int b = 1;int* a = &amp;amp;b;
-此时*a和b为同一个东西，改变a的值，就会改变b的值。
-int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;int&amp;amp; a = b;
-此时a和b为同一个东西，改变a的值，就会改变b的值。
-在函数的形参中定义引用，也是一样。比如这">
+<meta name="description" content="发现最近好久都没有写博客了，变懒了，以后一定不能颓废下去了。
+form表单上传文件失败先看下面这段代码
+1234&amp;lt;form name=&quot;form1&quot; action=&quot;form2.html&quot;&amp;gt;    &amp;lt;p&amp;gt;添加上传文件：&amp;lt;input type=&quot;file&quot; name=&quot;file1&quot;&amp;gt;&amp;lt;/p&amp;gt;	&amp;lt;input type=&quot;submit&quot; value=">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++指针小记">
-<meta property="og:url" content="http://yoursite.com/2016/01/13/pointer-in-cpp/index.html">
+<meta property="og:title" content="form表单上传文件失败的原因">
+<meta property="og:url" content="http://yoursite.com/2016/04/24/html-form-upload-file/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="关于int int* int&amp;amp;的区别int*是int指针类型比如这段代码12int b = 1;int* a = &amp;amp;b;
-此时*a和b为同一个东西，改变a的值，就会改变b的值。
-int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;int&amp;amp; a = b;
-此时a和b为同一个东西，改变a的值，就会改变b的值。
-在函数的形参中定义引用，也是一样。比如这">
-<meta property="og:updated_time" content="2016-01-13T10:10:44.624Z">
+<meta property="og:description" content="发现最近好久都没有写博客了，变懒了，以后一定不能颓废下去了。
+form表单上传文件失败先看下面这段代码
+1234&amp;lt;form name=&quot;form1&quot; action=&quot;form2.html&quot;&amp;gt;    &amp;lt;p&amp;gt;添加上传文件：&amp;lt;input type=&quot;file&quot; name=&quot;file1&quot;&amp;gt;&amp;lt;/p&amp;gt;	&amp;lt;input type=&quot;submit&quot; value=">
+<meta property="og:updated_time" content="2016-04-24T07:54:27.225Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++指针小记">
-<meta name="twitter:description" content="关于int int* int&amp;amp;的区别int*是int指针类型比如这段代码12int b = 1;int* a = &amp;amp;b;
-此时*a和b为同一个东西，改变a的值，就会改变b的值。
-int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;int&amp;amp; a = b;
-此时a和b为同一个东西，改变a的值，就会改变b的值。
-在函数的形参中定义引用，也是一样。比如这">
+<meta name="twitter:title" content="form表单上传文件失败的原因">
+<meta name="twitter:description" content="发现最近好久都没有写博客了，变懒了，以后一定不能颓废下去了。
+form表单上传文件失败先看下面这段代码
+1234&amp;lt;form name=&quot;form1&quot; action=&quot;form2.html&quot;&amp;gt;    &amp;lt;p&amp;gt;添加上传文件：&amp;lt;input type=&quot;file&quot; name=&quot;file1&quot;&amp;gt;&amp;lt;/p&amp;gt;	&amp;lt;input type=&quot;submit&quot; value=">
 
 
 
@@ -86,7 +80,7 @@ int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b 
   };
 </script>
 
-  <title> C++指针小记 | 林俊宇的博客 </title>
+  <title> form表单上传文件失败的原因 | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -206,7 +200,7 @@ int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b 
             
             
               
-                C++指针小记
+                form表单上传文件失败的原因
               
             
           </h1>
@@ -215,8 +209,8 @@ int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b 
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-13T15:51:28+08:00" content="2016-01-13">
-              2016-01-13
+            <time itemprop="dateCreated" datetime="2016-04-24T15:35:40+08:00" content="2016-04-24">
+              2016-04-24
             </time>
           </span>
 
@@ -239,49 +233,57 @@ int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b 
       
 
       
-        <span itemprop="articleBody"><h4 id="关于int_int*_int&amp;的区别">关于int int* int&amp;的区别</h4><p>int*是int指针类型<br>比如这段代码<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span>* a = &amp;b;</span><br></pre></td></tr></table></figure></p>
-<p>此时*a和b为同一个东西，改变a的值，就会改变b的值。</p>
-<p>int&amp;是引用，相当于原有变量的副本<br>比如这段代码<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; a = b;</span><br></pre></td></tr></table></figure></p>
-<p>此时a和b为同一个东西，改变a的值，就会改变b的值。</p>
-<p>在函数的形参中定义引用，也是一样。<br>比如这段伪代码<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void <span class="function"><span class="title">fun</span><span class="params">(int&amp; a)</span></span></span><br><span class="line">&#123;</span><br><span class="line">	对a进行的操作...</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int b = <span class="number">4</span>;</span><br><span class="line">	<span class="function"><span class="title">fun</span><span class="params">(b)</span>;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此时，在fun中使用变量a，就相当于使用变量b，函数中改变a的值，b的值也会同时改变。<br>定义引用的优点是实参向形参传值时，系统会新开辟一段内存用于存放形参，而使用引用则跳过此步骤，有利于提高程序效率。<br>尤其是传入函数的是很大的数组，这点尤其重要。<br>当然指针也可以实现这个功能，但引用的执行效率比指针更高。</p>
-<h4 id="关于const_int_*">关于const int *</h4><p>如果const涉及到了指针，比如下面的这段代码<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b = <span class="number">500</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* a = &amp;b;<span class="comment">//情况1</span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> *a = &amp;b;<span class="comment">//情况2</span></span><br><span class="line"><span class="keyword">int</span>* <span class="keyword">const</span> a = &amp;b;<span class="comment">//情况3</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* <span class="keyword">const</span> a = &amp;b;<span class="comment">//情况4</span></span><br></pre></td></tr></table></figure></p>
-<p>《Effective C++》当中说过一条特别棒的定理</p>
-<blockquote>
-<p>如果const位于星号的左侧，则const就是用来修饰指针所指向的变量，即指针指向为常量；如果const位于星号的右侧，const就是修饰指针本身，即指针本身是常量。</p>
-</blockquote>
-<p>因此，1和2的情况相同，都是指针所指向的内容为常量（const放在变量声明符的位置无关），这种情况下不允许对内容进行更改操作，如不能*a = 3；<br>情况3为指针本身是常量，而指针所指向的内容不是常量，这种情况下不能对指针本身进行更改操作，如a++是错误的；<br>情况4为指针本身和指向的内容均为常量。</p>
-<p>另外const的强大还体现在它在函数声明中的应用。在类成员函数当中，形如：<code>void fun() const;</code><br>如果一个成员函数不会修改数据成员，那么最好将其声明为const，因为const成员函数中不允许对数据成员进行修改，如果修改，编译器将报错，这样可以提高程序的健壮性。 </p>
-<h4 id="关于int*_p[2]和int_(*p)[2]的区别">关于int* p[2]和int (*p)[2]的区别</h4><p>这两个的区别不难区分，<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int*<span class="tag">p</span>[<span class="number">2</span>]是一个指向int型的指针数组，<span class="tag">p</span>[<span class="number">0</span>]和<span class="tag">p</span>[<span class="number">1</span>]的值为内存地址；</span><br><span class="line"><span class="function"><span class="title">int</span><span class="params">(*p)</span></span>[<span class="number">2</span>]相当于一个二维整数数组,(*p)[<span class="number">0</span>]和(*p)[<span class="number">1</span>]的值为int型整数。</span><br></pre></td></tr></table></figure></p>
-<p>更难更高级更灵活的用法搬运一下：<a href="http://www.cnblogs.com/zhengyuhong/articles/2295769.html" target="_blank" rel="external">http://www.cnblogs.com/zhengyuhong/articles/2295769.html</a></p>
-<p>C++博大精深的指针啊 给跪了呀(°□°;)</p>
+        <span itemprop="articleBody"><p>发现最近好久都没有写博客了，变懒了，以后一定不能颓废下去了。</p>
+<h4 id="form表单上传文件失败">form表单上传文件失败</h4><p>先看下面这段代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">name</span>=<span class="value">"form1"</span> <span class="attribute">action</span>=<span class="value">"form2.html"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>添加上传文件：<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"file"</span> <span class="attribute">name</span>=<span class="value">"file1"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果直接这样定义这个form的话，上传文件是不会成功的。<br>因为form有一个属性值enctype，enctype规定了在发送到服务器之前应该如何对表单数据进行编码。<br>默认地，表单数据会编码为 “application/x-www-form-urlencoded”。<br>enctype的值一共有下面三种：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>application/x-www-form-urlencoded</td>
+<td>在发送前编码所有字符（默认）</td>
+</tr>
+<tr>
+<td>multipart/form-data</td>
+<td>不对字符编码</td>
+</tr>
+<tr>
+<td>text/plain</td>
+<td>空格转换为 “+” 加号，但不对特殊字符编码。</td>
+</tr>
+</tbody>
+</table>
+<p>在使用包含文件上传控件的表单时，enctype的值必须为multipart/form-data，否则文件不会上传成功。附一段正确的代码：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form <span class="variable">name=</span><span class="string">"form1"</span> <span class="variable">action=</span><span class="string">"form2.html"</span> <span class="variable">enctype=</span><span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">    &lt;p&gt;添加上传文件：&lt;input <span class="variable">type=</span><span class="string">"file"</span> <span class="variable">name=</span><span class="string">"file1"</span>&gt;&lt;/p&gt;</span><br><span class="line">	&lt;input <span class="variable">type=</span><span class="string">"submit"</span> <span class="variable">value=</span><span class="string">"提交"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>之前写表单文件一直上传失败，查了好久才发现这个bug。</p>
+<p>=_=收工</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/C/" rel="tag">#C++</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/24/8-pictures-about-java/" rel="next" title="8张图帮你更理解Java(转)">
-                <i class="fa fa-chevron-left"></i> 8张图帮你更理解Java(转)
+              <a href="/2016/01/13/pointer-in-cpp/" rel="next" title="C++指针小记">
+                <i class="fa fa-chevron-left"></i> C++指针小记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/24/html-form-upload-file/" rel="prev" title="form表单上传文件失败的原因">
-                form表单上传文件失败的原因 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/24/mysql-row-nums/" rel="prev" title="怎样确定mysql中select的结果是否为空">
+                怎样确定mysql中select的结果是否为空 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -430,7 +432,7 @@ int&amp;amp;是引用，相当于原有变量的副本比如这段代码12int b 
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于int_int*_int&的区别"><span class="nav-number">1.</span> <span class="nav-text">关于int int* int&的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于const_int_*"><span class="nav-number">2.</span> <span class="nav-text">关于const int *</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于int*_p[2]和int_(*p)[2]的区别"><span class="nav-number">3.</span> <span class="nav-text">关于int* p[2]和int (*p)[2]的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#form表单上传文件失败"><span class="nav-number">1.</span> <span class="nav-text">form表单上传文件失败</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

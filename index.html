@@ -179,15 +179,190 @@
 
     
     
+
+    
       
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/24/mysql-row-nums/" itemprop="url">
+                  怎样确定mysql中select的结果是否为空
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-04-24T15:54:48+08:00" content="2016-04-24">
+              2016-04-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
-        
-        
-        
       
 
       
+        
+          <span itemprop="articleBody">
+            
+            我觉得这是我碰到的比较中二的bug了，【好吧是我自己比较中二先附上一段php代码1234567891011$username = $_POST['username'];$password = $_POST['password'];$query = "select * from user where username = '$username' and password = '$password'";$result = mysql_query($query);if($result) &#123;	//执行登录成功的代码&#125;else &#123;	//执行登录失败的代码&#125;
+这段代码想实现的功能就是在数据库中查询username和password，判断账号密码是否正确。问题出在最后六行，我错误的认为，如果在数据库中能查询到结果，那么result变量就不为空，否则为空。所以就写出
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/24/mysql-row-nums/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/24/html-form-upload-file/" itemprop="url">
+                  form表单上传文件失败的原因
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-04-24T15:35:40+08:00" content="2016-04-24">
+              2016-04-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            发现最近好久都没有写博客了，变懒了，以后一定不能颓废下去了。
+form表单上传文件失败先看下面这段代码
+1234&lt;form name="form1" action="form2.html"&gt;    &lt;p&gt;添加上传文件：&lt;input type="file" name="file1"&gt;&lt;/p&gt;	&lt;input type="submit" value="提交"&gt;&lt;/form&gt;
+如果直接这样定义这个form的话，上传文件是不会成功的。因为form有一个属性值enctype，enctype规定了在发送到服务器之前应该如何对表单数据进行编码。默认地，表单数据会编码为 “application/x-www-form-urlencoded”。enctype的值一共有下面三种：
+
+
+
+值
+描述
+
+
+
+
+application/x-www-
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/24/html-form-upload-file/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -280,12 +455,188 @@ int&amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/24/8-pictures-about-java/" itemprop="url">
+                  8张图帮你更理解Java(转)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-24T00:17:18+08:00" content="2015-12-24">
+              2015-12-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            又看到一篇非常棒的文章，有关Java比较典型的八个特性，搬来学习(:зゝ∠)原文链接：http://www.importnew.com/11725.html
+1、字符串不变性下面这张图展示了这段代码做了什么12String s = "abcd";s = s.concat("ef");
+
+2、equals()方法、hashCode()方法的区别HashCode被设计用来提高性能。equals()方法与hashCode()方法的区别在于：1.如果两个对象相等(equal)，那么他们一定有相同的哈希值。2.如果两个对象的哈希值相同，但他们未必相等(equal)。
+3、Java异常类的层次结构图中红色部分为受检查异常。它们必须被捕获，或者在函数中声明为抛出该异常。
+4、集合类的层次结构注意Collections和Collection的区别。（Collections包含有各种有关集合操作的静态多态方
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/24/8-pictures-about-java/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/24/common-regex/" itemprop="url">
+                  常用正则表达式大全(转)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-24T00:17:07+08:00" content="2015-12-24">
+              2015-12-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            今天看到一篇非常不错的博客，列举了非常详细的常用的正则表达式，特地搬运一下。原文链接：http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html
+一、校验数字的表达式12345678910111213141516171819数字：^[0-9]*$n位的数字：^\d&#123;n&#125;$至少n位的数字：^\d&#123;n,&#125;$m-n位的数字：^\d&#123;m,n&#125;$零和非零开头的数字：^(0|[1-9][0-9]*)$非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$带1-2位小数的正数或负数：^(\-)?\d+(\.\d&#123;1,2&#125;)?$正数、负数、和小数：^(\-|\+)?\d+(\.\d+)?$有两位小数的正实数：^
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/24/common-regex/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
 
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -326,7 +677,7 @@ int&amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
