@@ -65,7 +65,7 @@
 错误示范客户端JS代码：1234">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/05/18/573c9d1e79938.jpg">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/05/18/573ca00974fd3.png">
-<meta property="og:updated_time" content="2016-05-18T17:03:21.208Z">
+<meta property="og:updated_time" content="2016-05-21T17:02:12.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax跨域请求">
 <meta name="twitter:description" content="“用最少的代码来做更多的事情”最近在看关于jQuery的资料，被jQuery强大的功能震撼到了。说到jQuery就会说到Ajax，然后就想写点Ajax的东西练练手。
@@ -253,8 +253,7 @@
 <p>伟大的先祖比我更早难以忍受，所以就开发了<strong>jsonp</strong>这东西，用&lt;script&gt;跨域的请求数据，跨域的服务器返回一段<em>JavaScript代码</em>，是的，你没看错，不是json格式数据，是JavaScript代码，这样，这段代码就由JavaScript直译器执行。<br>从1.2版本开始，jQuery拥有对jsonp回调的本地支持。如果指定了jsonp回调，就可以加载位于另一个域的json数据，回调的语法为：url?callback=? 然后jQuery自动将?替换为要调用的生成函数名。</p>
 <h4 id="正确代码">正确代码</h4><p>客户端代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> url = <span class="string">"http://linjunyu.applinzi.com/getjson.php?callback=?"</span>;</span><br><span class="line">	$.getJSON(url, <span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</span><br><span class="line">		alert(json.name);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>SAE服务端PHP代码：<br><figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="variable">$callback</span> = htmlentities(<span class="variable">$_GET</span>[<span class="string">'callback'</span>]);	<span class="comment">//防止XSS攻击</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$callback</span>.<span class="string">'(</span></span></span><span class="expression">&#123;<span class="string">"name"</span>:<span class="string">"jerry"</span>&#125;</span><span class="xml"><span class="php">)<span class="string">';	// 返回客户端的数据为：callback(</span></span></span><span class="expression">&#123;<span class="string">"name"</span>:<span class="string">"jerry"</span>&#125;</span><span class="xml"><span class="php">) js代码</span><br><span class="line"><span class="preprocessor">?&gt;</span></span></span></span><br></pre></td></tr></table></figure></p>
-<p>运行正确的代码，</p>
-<p><img src="https://ooo.0o0.ooo/2016/05/18/573ca00974fd3.png" alt="success.png"></p>
+<p>运行正确的代码，<br><img src="https://ooo.0o0.ooo/2016/05/18/573ca00974fd3.png" alt="success.png"></p>
 <p>成功在localhost获得json数据，这样就可以实现Ajax异域请求了。</p>
 <p>还有几个特别不错的东西：<br>在线HTML+CSS+JS编辑器： <a href="https://jsfiddle.net/" target="_blank" rel="external">https://jsfiddle.net/</a><br>值得一读的《<strong>白帽子讲Web安全</strong>》：<a href="https://book.douban.com/subject/10546925/" target="_blank" rel="external">https://book.douban.com/subject/10546925/</a></p>
 <p>深夜收工=_=</p>
@@ -276,6 +275,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/21/raspberry-ssh/" rel="prev" title="SSH连接给Raspberry Pi减负">
+                SSH连接给Raspberry Pi减负 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -343,7 +346,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

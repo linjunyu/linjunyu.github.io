@@ -179,6 +179,15 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
 
     
       
@@ -202,8 +211,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/05/18/ajax-cross-origin-resource-sharing/" itemprop="url">
-                  Ajax跨域请求
+                <a class="post-title-link" href="/2016/05/21/raspberry-ssh/" itemprop="url">
+                  SSH连接给Raspberry Pi减负
                 </a>
               
             
@@ -213,8 +222,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-05-18T23:02:26+08:00" content="2016-05-18">
-              2016-05-18
+            <time itemprop="dateCreated" datetime="2016-05-21T22:02:04+08:00" content="2016-05-21">
+              2016-05-21
             </time>
           </span>
 
@@ -240,14 +249,15 @@
         
           <span itemprop="articleBody">
             
-            “用最少的代码来做更多的事情”最近在看关于jQuery的资料，被jQuery强大的功能震撼到了。说到jQuery就会说到Ajax，然后就想写点Ajax的东西练练手。
-在SAE上写了一个getjson.php文件http://linjunyu.applinzi.com/getjson.php，本地客户端通过ajax获取SAE上的json信息。然后写了下面的错误代码：
-错误示范客户端JS代码：12345678&lt;script&gt;$(document).ready(function() &#123;	var url = "http://linjunyu.applinzi.com/getjson.php";	$.getJSON(url, function(json) &#123;		alert(json.name);	&#125;);&#125;);&lt;/script&gt;
-SAE服
+            
+树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件刺激在学校的基本计算机科学教育。树莓派基金会提供了基于ARM架构的Debian、Arch Linux和Fedora等的发行版供大众下载，还计划提供支持Python作为主要编程语言，支持BBC BASIC(通过RISC OS映像或者Linux的”Brandy Basic”克隆)、C语言和Perl等编程语言。——from Wikipedia
+
+最近向实验室申请了一个Raspberry Pi，连接好键鼠线、HDMI、网线、电源线并安装好Raspbian系统，虽然成功的跑起来了，但它变成了这个样子：
+这一坨坨线让我一个强迫症看着那叫一个揪心啊，于是就打算用自己的电脑SSH连接到Raspberry Pi进行远程操作，这样只需要一条电源线给Raspberry Pi供电就
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/18/ajax-cross-origin-resource-sharing/#more" rel="contents">
+            <a class="btn" href="/2016/05/21/raspberry-ssh/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -543,96 +553,6 @@ int&amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/24/8-pictures-about-java/" itemprop="url">
-                  8张图帮你更理解Java(转)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-24T00:17:18+08:00" content="2015-12-24">
-              2015-12-24
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            又看到一篇非常棒的文章，有关Java比较典型的八个特性，搬来学习(:зゝ∠)原文链接：http://www.importnew.com/11725.html
-1、字符串不变性下面这张图展示了这段代码做了什么12String s = "abcd";s = s.concat("ef");
-
-2、equals()方法、hashCode()方法的区别HashCode被设计用来提高性能。equals()方法与hashCode()方法的区别在于：1.如果两个对象相等(equal)，那么他们一定有相同的哈希值。2.如果两个对象的哈希值相同，但他们未必相等(equal)。
-3、Java异常类的层次结构图中红色部分为受检查异常。它们必须被捕获，或者在函数中声明为抛出该异常。
-4、集合类的层次结构注意Collections和Collection的区别。（Collections包含有各种有关集合操作的静态多态方
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/24/8-pictures-about-java/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -679,7 +599,7 @@ int&amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
