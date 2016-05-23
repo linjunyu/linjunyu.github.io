@@ -75,7 +75,7 @@
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57409867a10f7.png">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57409867adebb.png">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57409867b8e2b.png">
-<meta property="og:updated_time" content="2016-05-21T17:18:32.137Z">
+<meta property="og:updated_time" content="2016-05-23T10:39:56.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH连接给Raspberry Pi减负">
 <meta name="twitter:description" content="树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件刺激在学校的基本计算机科学教育。树莓派基金会提供了基于ARM架构的Debian、Arch Linux和Fedora等的发行版供大众下载，还计划提供支持Python作为主要编程语言，支持BBC BASIC(通过RISC OS映像或者Linux的”Brandy Basic">
@@ -246,9 +246,9 @@
         <span itemprop="articleBody"><blockquote>
 <p>树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件刺激在学校的基本计算机科学教育。<br>树莓派基金会提供了基于ARM架构的Debian、Arch Linux和Fedora等的发行版供大众下载，还计划提供支持Python作为主要编程语言，支持BBC BASIC(通过RISC OS映像或者Linux的”Brandy Basic”克隆)、C语言和Perl等编程语言。<br>——from <a href="https://zh.wikipedia.org/wiki/%E6%A0%91%E8%8E%93%E6%B4%BE" target="_blank" rel="external">Wikipedia</a></p>
 </blockquote>
-<p>最近向实验室申请了一个Raspberry Pi，连接好键鼠线、HDMI、网线、电源线并安装好Raspbian系统，虽然成功的跑起来了，但它变成了这个样子：<br><img src="https://ooo.0o0.ooo/2016/05/21/57408864f245c.jpg" alt="raspberry.jpg"></p>
+<p>最近向实验室申请了一个RaspberryPi，连接好键鼠线、HDMI、网线、电源线并安装好Raspbian系统，虽然成功的跑起来了，但它变成了这个样子：<br><img src="https://ooo.0o0.ooo/2016/05/21/57408864f245c.jpg" alt="raspberry.jpg"></p>
 <p>这一坨坨线让我一个强迫症看着那叫一个揪心啊，于是就打算用自己的电脑SSH连接到Raspberry Pi进行远程操作，这样只需要一条电源线给Raspberry Pi供电就可以了。</p>
-<h4 id="Wifi_Adapter">Wifi Adapter</h4><p>首先需要Raspberry Pi连接到跟自己的电脑相同的网段，也就是连接到路由器，不用网线连接的话，这样就需要一个Wifi Adapter。<br><img src="https://ooo.0o0.ooo/2016/05/21/57408beb71af4.jpg" alt="wifiadapter.jpg"></p>
+<h4 id="Wifi_Adapter">Wifi Adapter</h4><p>首先需要树莓派连接到跟自己的电脑相同的网段，也就是连接到路由器，不用网线连接的话，这样就需要一个Wifi Adapter。<br><img src="https://ooo.0o0.ooo/2016/05/21/57408beb71af4.jpg" alt="wifiadapter.jpg"></p>
 <p>将Wifi Adapter插入到Raspberry Pi的USB口，然后进行Wifi的相关配置。<br>Raspbian系统可以用<code>iwconfig</code>命令来查询Adapter是否成功连接，如下图所示。<br><img src="https://ooo.0o0.ooo/2016/05/21/574088358c936.jpg" alt="iwconfig2.jpg"></p>
 <p>连接成功后Adapter需要进行Wifi的扫描，这里需要注意的是<code>iwlist wlan0 scan</code>并不会有任何的扫描结果，需要在命令前面加上<code>sudo</code><br><img src="https://ooo.0o0.ooo/2016/05/21/57408895872f9.jpg" alt="iwlist.jpg"></p>
 <p>Adapter会找到许多的cell，其实就是我们附近的热点，找到需要连接热点的ESSID，我这里连接的是”longshen521”<br><img src="https://ooo.0o0.ooo/2016/05/21/5740883fac547.jpg" alt="searchwifi.jpg"></p>
