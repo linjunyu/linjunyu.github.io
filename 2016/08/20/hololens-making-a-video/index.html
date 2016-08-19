@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -53,22 +53,27 @@
 
 
 
-<meta name="description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
-解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
+<meta name="description" content="实验室的Hololens到了，把玩了一下相当不错呀。
+Hololens的拍照及录制视频其实还蛮简单的，在你想录制的界面用Blossom手势调出开始菜单，那些磁贴下面有两项Photo和Video，就是进行拍照和视频录制。
+但是我发现Blossom手势有些应用会调出开始菜单，但有些应用则是直接退出，所以没法调出开始菜单录制，如果出现这种情况的话，就需要用语音来操作，可以直接对Hololens说 &amp;qu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="编译.sh文件报错"Unexpected operator"">
-<meta property="og:url" content="http://yoursite.com/2015/10/30/linux-compile-shfile-error/index.html">
+<meta property="og:title" content="Hololens如何录制视频并导出">
+<meta property="og:url" content="http://yoursite.com/2016/08/20/hololens-making-a-video/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
-解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg">
-<meta property="og:updated_time" content="2015-12-01T15:43:52.348Z">
+<meta property="og:description" content="实验室的Hololens到了，把玩了一下相当不错呀。
+Hololens的拍照及录制视频其实还蛮简单的，在你想录制的界面用Blossom手势调出开始菜单，那些磁贴下面有两项Photo和Video，就是进行拍照和视频录制。
+但是我发现Blossom手势有些应用会调出开始菜单，但有些应用则是直接退出，所以没法调出开始菜单录制，如果出现这种情况的话，就需要用语音来操作，可以直接对Hololens说 &amp;qu">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/08/19/57b734a078243.jpg">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/08/19/57b734a0767f7.jpg">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/08/19/57b734a05ba39.jpg">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/08/19/57b734a03cbce.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/08/19/57b734a0629bc.png">
+<meta property="og:updated_time" content="2016-08-19T16:41:13.968Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编译.sh文件报错"Unexpected operator"">
-<meta name="twitter:description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
-解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
+<meta name="twitter:title" content="Hololens如何录制视频并导出">
+<meta name="twitter:description" content="实验室的Hololens到了，把玩了一下相当不错呀。
+Hololens的拍照及录制视频其实还蛮简单的，在你想录制的界面用Blossom手势调出开始菜单，那些磁贴下面有两项Photo和Video，就是进行拍照和视频录制。
+但是我发现Blossom手势有些应用会调出开始菜单，但有些应用则是直接退出，所以没法调出开始菜单录制，如果出现这种情况的话，就需要用语音来操作，可以直接对Hololens说 &amp;qu">
 
 
 
@@ -80,7 +85,7 @@
   };
 </script>
 
-  <title> 编译.sh文件报错"Unexpected operator" | 林俊宇的博客 </title>
+  <title> Hololens如何录制视频并导出 | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -200,7 +205,7 @@
             
             
               
-                编译.sh文件报错"Unexpected operator"
+                Hololens如何录制视频并导出
               
             
           </h1>
@@ -209,8 +214,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-10-30T22:39:39+08:00" content="2015-10-30">
-              2015-10-30
+            <time itemprop="dateCreated" datetime="2016-08-20T00:21:33+08:00" content="2016-08-20">
+              2016-08-20
             </time>
           </span>
 
@@ -233,39 +238,38 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="问题">问题</h4><p>今天在Linux下编译.sh文件的时候，报错了<br><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg" alt=""><br>一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。<br><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg" alt=""><br>这样一来，就应该是编译器的问题了。<br>网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。<br>dash是一种shell,貌似不是很受欢迎，没bash好用。</p>
-<h4 id="解决方法。">解决方法。</h4><p>第一种方法，修改sh默认到bash的连接。<br><code>sudo dpkg-reconfigure dash</code><br>选择no即可！</p>
-<p>再次编译就通过了~</p>
-<p>第二种方法，通过./来执行.sh文件。（先要给这个文件x权限）<br><img src="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg" alt=""></p>
-<p>编译成功啦~</p>
+        <span itemprop="articleBody"><p>实验室的Hololens到了，把玩了一下相当不错呀。</p>
+<p>Hololens的拍照及录制视频其实还蛮简单的，在你想录制的界面用Blossom手势调出开始菜单，那些磁贴下面有两项Photo和Video，就是进行拍照和视频录制。<br><img src="https://ooo.0o0.ooo/2016/08/19/57b734a078243.jpg" alt="start.jpg"></p>
+<p>但是我发现Blossom手势有些应用会调出开始菜单，但有些应用则是直接退出，所以没法调出开始菜单录制，如果出现这种情况的话，就需要用语音来操作，可以直接对Hololens说 <code>&quot;hey cortana take a photo / record a video&quot;</code>，这样可以解决某些应用没法用手势录制的情况。</p>
+<h4 id="录制好以后视频的导出">录制好以后视频的导出</h4><p>一开始我还以为Hololens像手机一样USB连接到电脑上就能导出视频，但是尝试USB连接过，发现并没有什么卵用，电脑并不能识别Hololens这个设备。<br>后来从一个学长那里得知，原来Hololens本身搭建了一个Web Server，可以通过浏览器来控制你的Hololens。</p>
+<p>首先查找你的Hololens的IP地址，<br><img src="https://ooo.0o0.ooo/2016/08/19/57b734a0767f7.jpg" alt="ip.jpg"></p>
+<p>然后在设置选项Update &amp; Security里 for developers 打开device portal选项，即可以通过你的浏览器来控制Hololens。<br><img src="https://ooo.0o0.ooo/2016/08/19/57b734a05ba39.jpg" alt="device portal.jpg"></p>
+<p>在浏览器输入Hololens的IP地址，会出现一个Set up access的页面，设置好账号密码就可以进入到Hololens的浏览器控制端。<br><img src="https://ooo.0o0.ooo/2016/08/19/57b734a03cbce.png" alt="setupaccess.png"></p>
+<p>在Mixed Reality Capture里有所有拍摄录制的照片及视频，<br><img src="https://ooo.0o0.ooo/2016/08/19/57b734a0629bc.png" alt="mixedreality.png"></p>
+<p>点击save按钮就可以把Hololens上的视频下载到电脑上了~</p>
+<p>最后附上Hololens的环境配置: <a href="https://developer.microsoft.com/en-us/windows/holographic/install_the_tools" target="_blank" rel="external">https://developer.microsoft.com/en-us/windows/holographic/install_the_tools</a></p>
+<p>以及Hololens官方的Tutorial: <a href="https://developer.microsoft.com/en-us/windows/holographic/academy" target="_blank" rel="external">https://developer.microsoft.com/en-us/windows/holographic/academy</a></p>
+<p>自己录制的一个demo视频：<a href="http://www.bilibili.com/video/av5163527/" target="_blank" rel="external">http://www.bilibili.com/video/av5163527/</a></p>
+<p>Hololens真的很神奇，但是目前我发现的有一个特别严重的缺点，就是它的可视角度。Hololens展示出的AR面板其实就是一块180度的小面板，非常小，所以真正体验的时候并不是很舒服。有时眼睛斜着看，就可能看不到渲染的模型。传说微软在开发下一代的Hololens，会解决这个缺点，期待呀。</p>
+<p>AR在将来真的是洪水猛兽，必将造福人类呀。不管怎样，好好学习= =</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag">#Linux</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/27/data-structures-expr-code-2/" rel="next" title="数据结构实验代码(2)">
-                <i class="fa fa-chevron-left"></i> 数据结构实验代码(2)
+              <a href="/2016/08/15/global-variable-in-cfiles/" rel="next" title="全局变量在多个c文件中公用的方法">
+                <i class="fa fa-chevron-left"></i> 全局变量在多个c文件中公用的方法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/10/data-structures-expr-code-3/" rel="prev" title="数据结构实验代码(3)">
-                数据结构实验代码(3) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -413,7 +417,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法。"><span class="nav-number">2.</span> <span class="nav-text">解决方法。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#录制好以后视频的导出"><span class="nav-number">1.</span> <span class="nav-text">录制好以后视频的导出</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
