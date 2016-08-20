@@ -207,6 +207,92 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/24/mysql-row-nums/" itemprop="url">
+                  PHP怎样确定mysql中select的结果是否为空
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-04-24T15:54:48+08:00" content="2016-04-24">
+              2016-04-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            我觉得这是我碰到的比较中二的bug了，【好吧是我自己比较中二先附上一段php代码1234567891011$username = $_POST['username'];$password = $_POST['password'];$query = "select * from user where username = '$username' and password = '$password'";$result = mysql_query($query);if($result) &#123;	//执行登录成功的代码&#125;else &#123;	//执行登录失败的代码&#125;
+这段代码想实现的功能就是在数据库中查询username和password，判断账号密码是否正确。问题出在最后六行，我错误的认为，如果在数据库中能查询到结果，那么result变量就不为空，否则为空。所以就写出
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/24/mysql-row-nums/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/24/html-form-upload-file/" itemprop="url">
                   form表单上传文件失败的原因
                 </a>
@@ -550,87 +636,6 @@ int&amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/22/data-structures-expr-code-8/" itemprop="url">
-                  数据结构实验代码(8)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-22T01:21:58+08:00" content="2015-12-22">
-              2015-12-22
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="实验八_图">实验八 图</h2><h4 id="实验内容">实验内容</h4><p>1.创建图类。二叉树的存储结构使用邻接矩阵或链表。<br>2.提供操作:遍历、BFS、DFS<br>3.对建立好的图，执行上述各操作。<br>4.输出生成树。<br>5.输出最小生成树。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/22/data-structures-expr-code-8/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -677,7 +682,7 @@ int&amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
