@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -53,22 +53,17 @@
 
 
 
-<meta name="description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
-解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
+<meta name="description" content="这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。后来想了条比较投机取巧的方法，用来输出模板">
 <meta property="og:type" content="article">
-<meta property="og:title" content="编译.sh文件报错"Unexpected operator"">
-<meta property="og:url" content="http://yoursite.com/2015/10/30/linux-compile-shfile-error/index.html">
+<meta property="og:title" content="投机取巧用PHP输出doc文档">
+<meta property="og:url" content="http://yoursite.com/2016/09/17/php-print-doc/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
-解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg">
-<meta property="og:updated_time" content="2015-12-01T15:43:52.348Z">
+<meta property="og:description" content="这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。后来想了条比较投机取巧的方法，用来输出模板">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/09/16/57dc4ea59e51d.png">
+<meta property="og:updated_time" content="2016-09-16T20:03:42.364Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编译.sh文件报错"Unexpected operator"">
-<meta name="twitter:description" content="问题今天在Linux下编译.sh文件的时候，报错了一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。这样一来，就应该是编译器的问题了。网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。dash是一种shell,貌似不是很受欢迎，没bash好用。
-解决方法。第一种方法，修改sh默认到bash的连接。sudo dpk">
+<meta name="twitter:title" content="投机取巧用PHP输出doc文档">
+<meta name="twitter:description" content="这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。后来想了条比较投机取巧的方法，用来输出模板">
 
 
 
@@ -80,7 +75,7 @@
   };
 </script>
 
-  <title> 编译.sh文件报错"Unexpected operator" | 林俊宇的博客 </title>
+  <title> 投机取巧用PHP输出doc文档 | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -200,7 +195,7 @@
             
             
               
-                编译.sh文件报错"Unexpected operator"
+                投机取巧用PHP输出doc文档
               
             
           </h1>
@@ -209,8 +204,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-10-30T22:39:39+08:00" content="2015-10-30">
-              2015-10-30
+            <time itemprop="dateCreated" datetime="2016-09-17T03:28:34+08:00" content="2016-09-17">
+              2016-09-17
             </time>
           </span>
 
@@ -233,39 +228,30 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="问题">问题</h4><p>今天在Linux下编译.sh文件的时候，报错了<br><img src="http://ww1.sinaimg.cn/mw690/005ANU5mjw1exjjrlioxaj30b0054mxe.jpg" alt=""><br>一开始是从语法规则来找bug的，写了个很简单的if then语句，改了半天依旧报错。<br><img src="http://ww2.sinaimg.cn/mw690/005ANU5mjw1exjjrj9rn2j30ag01mjrm.jpg" alt=""><br>这样一来，就应该是编译器的问题了。<br>网上查了一下，ubuntu默认的.sh是连接到dash的，又因为dash跟bash的不兼容所以出错了。<br>dash是一种shell,貌似不是很受欢迎，没bash好用。</p>
-<h4 id="解决方法。">解决方法。</h4><p>第一种方法，修改sh默认到bash的连接。<br><code>sudo dpkg-reconfigure dash</code><br>选择no即可！</p>
-<p>再次编译就通过了~</p>
-<p>第二种方法，通过./来执行.sh文件。（先要给这个文件x权限）<br><img src="http://ww4.sinaimg.cn/mw690/005ANU5mjw1exjjtknonjj30am021aab.jpg" alt=""></p>
-<p>编译成功啦~</p>
+        <span itemprop="articleBody"><p>这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。<br>我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。<br>用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。<br>后来想了条比较投机取巧的方法，用来输出模板式的文档（比如证书、成绩单、交费单这类）。</p>
+<p>先制作一个模板的word文档，把里面要替换的内容改成name、fee等通用字符串，如下图所示。<br><img src="https://ooo.0o0.ooo/2016/09/16/57dc4ea59e51d.png" alt="paynotice.png"></p>
+<p>把这个word文档另存为xml格式，比如template.xml，然后把template.xml这个文件重命名成template.docx保存。<br>这么做是因为直接保存成docx格式的话，office会用二进制的方式写文件，这样没法进行后面的替换了。</p>
+<p>把template.xml放到服务器你的系统目录里，然后新建一个print.php放到相同的目录。<br>这个print.php就是用来生成doc文档用的，代码如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">edit</span><span class="params">(<span class="variable">$file</span>, <span class="variable">$needle</span>, <span class="variable">$heap</span>)</span> </span>&#123;</span><br><span class="line">	<span class="variable">$content</span> = @file_get_contents(<span class="variable">$file</span>);</span><br><span class="line">	<span class="keyword">if</span>(!<span class="variable">$content</span>) &#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"文件找不到"</span>;  </span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; count(<span class="variable">$needle</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">		<span class="variable">$content</span> = <span class="variable">$content</span> = preg_replace(<span class="string">"/$needle[$i]/"</span>, <span class="variable">$heap</span>[<span class="variable">$i</span>], <span class="variable">$content</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$content</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$year</span> = <span class="variable">$_GET</span>[<span class="string">'year'</span>];</span><br><span class="line"><span class="variable">$month</span> = <span class="variable">$_GET</span>[<span class="string">'month'</span>];</span><br><span class="line"><span class="variable">$name</span> = <span class="variable">$_GET</span>[<span class="string">'name'</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable">$sheet_title</span> = <span class="variable">$year</span>.<span class="string">'年'</span>.<span class="variable">$month</span>.<span class="string">'月业主'</span>.<span class="variable">$name</span>.<span class="string">'交费单.docx'</span>;</span><br><span class="line">header(<span class="string">'Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document'</span>);  </span><br><span class="line">header(<span class="string">'Content-Disposition: attachment;filename="'</span>.<span class="variable">$sheet_title</span>. <span class="string">'"'</span>);  </span><br><span class="line">header(<span class="string">'Cache-Control: max-age=0'</span>);  </span><br><span class="line">ob_clean();</span><br><span class="line"><span class="variable">$needle</span> = <span class="keyword">array</span>(<span class="string">'name'</span>,<span class="string">'year'</span>, <span class="string">'month'</span>, <span class="string">'water_fee'</span>, <span class="string">'electricity_fee'</span>, <span class="string">'gas_fee'</span>, <span class="string">'tv_fee'</span>, <span class="string">'heating_fee'</span>, <span class="string">'pm_fee'</span>);<span class="comment">//doc模板里要替换的各项内容，这里是物业交费单的各项费用的替换</span></span><br><span class="line"><span class="variable">$heap</span> = <span class="keyword">array</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; count(<span class="variable">$needle</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">	array_push(<span class="variable">$heap</span>, <span class="variable">$_GET</span>[<span class="variable">$needle</span>[<span class="variable">$i</span>]]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$template_title</span> = <span class="string">'template.docx'</span>;</span><br><span class="line"><span class="keyword">echo</span> edit(<span class="variable">$template_title</span>, <span class="variable">$needle</span>, <span class="variable">$heap</span>);</span><br><span class="line"><span class="keyword">exit</span>;  </span><br><span class="line"><span class="preprocessor">?&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>然后访问 你的服务器路径/print.php?+各项GET参数，就可以下载到word文档了。</p>
+<p>思路就是读文件-&gt;替换-&gt;输出，想想挺偷鸡取巧的，就这样=_=</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag">#Linux</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/27/data-structures-expr-code-2/" rel="next" title="数据结构实验代码(2)">
-                <i class="fa fa-chevron-left"></i> 数据结构实验代码(2)
+              <a href="/2016/08/21/socket-io-message-to-specific-client/" rel="next" title="socket.io实现精准单用户推送">
+                <i class="fa fa-chevron-left"></i> socket.io实现精准单用户推送
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/10/data-structures-expr-code-3/" rel="prev" title="数据结构实验代码(3)">
-                数据结构实验代码(3) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -413,7 +399,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法。"><span class="nav-number">2.</span> <span class="nav-text">解决方法。</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

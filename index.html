@@ -179,15 +179,94 @@
 
     
     
+
+    
       
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/17/php-print-doc/" itemprop="url">
+                  投机取巧用PHP输出doc文档
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-17T03:28:34+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
-        
-        
-        
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+            这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。后来想了条比较投机取巧的方法，用来输出模板式的文档（比如证书、成绩单、交费单这类）。
+先制作一个模板的word文档，把里面要替换的内容改成name、fee等通用字符串，如下图所示。
+把这个word文档另存为xml格式，比如template.xml，然后把template.xml这个文件重命名成template.docx保存。这么做是因为直接保存成docx格式的话，office会用二进制的方式写文件，这样没法进行后面的替换了。
+把templ
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/17/php-print-doc/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -276,6 +355,275 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/20/hololens-making-a-video/" itemprop="url">
+                  Hololens如何录制视频并导出
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-20T00:21:33+08:00" content="2016-08-20">
+              2016-08-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            实验室的Hololens到了，把玩了一下相当不错呀。
+Hololens的拍照及录制视频其实还蛮简单的，在你想录制的界面用Blossom手势调出开始菜单，那些磁贴下面有两项Photo和Video，就是进行拍照和视频录制。
+但是我发现Blossom手势有些应用会调出开始菜单，但有些应用则是直接退出，所以没法调出开始菜单录制，如果出现这种情况的话，就需要用语音来操作，可以直接对Hololens说 &quot;hey cortana take a photo / record a video&quot;，这样可以解决某些应用没法用手势录制的情况。
+录制好以后视频的导出一开始我还以为Hololens像手机一样USB连接到电脑上就能导出视频，但是尝试USB连接过，发现并没有什么卵用，电脑并不能识别Hololens这个设备。后来从一个学长那里得知，原来Hololens本身搭建了一个Web Server，
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/20/hololens-making-a-video/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/15/global-variable-in-cfiles/" itemprop="url">
+                  全局变量在多个c文件中公用的方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-15T14:04:28+08:00" content="2016-08-15">
+              2016-08-15
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            最近照着川合秀实的书在写操作系统，中间遇到了一个小插曲，关于全局变量在多个c文件中公用，举个例子说明：
+文件夹project下有main.c、common.c和common.h三个文件，其中common.h文件分别#include在main.c和common.c文件中。现在希望声明一个字符型变量key，在main.c和common.c中公用。
+
+我一开始的做法就是直接在两个c文件中引用common.h文件，代码如下：
+main.c1234567#include "common.h"int main()&#123;	//一些调用key变量的代码...	return 0;&#125;
+common.c123#include "common.h"//一些调用key变量的代码...
+common.h1unsigned char key;
+本以为这样就可以达到公用全局变量的目的，但是报错了。Erro
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/15/global-variable-in-cfiles/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/21/raspberry-ssh/" itemprop="url">
+                  SSH连接给Raspberry Pi减负
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-05-21T22:02:04+08:00" content="2016-05-21">
+              2016-05-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            
+树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件刺激在学校的基本计算机科学教育。树莓派基金会提供了基于ARM架构的Debian、Arch Linux和Fedora等的发行版供大众下载，还计划提供支持Python作为主要编程语言，支持BBC BASIC(通过RISC OS映像或者Linux的”Brandy Basic”克隆)、C语言和Perl等编程语言。——from Wikipedia
+
+最近向实验室申请了一个RaspberryPi，连接好键鼠线、HDMI、网线、电源线并安装好Raspbian系统，虽然成功的跑起来了，但它变成了这个样子：
+这一坨坨线让我一个强迫症看着那叫一个揪心啊，于是就打算用自己的电脑SSH连接到Raspberry Pi进行远程操作，这样只需要一条电源线给Raspberry Pi供电就可
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/21/raspberry-ssh/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
 
   </section>
 
@@ -322,7 +670,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
