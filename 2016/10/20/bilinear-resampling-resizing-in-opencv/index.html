@@ -1,0 +1,668 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="这段时间在上数字图像处理的课，有一个实验是关于图像缩放的，不许调用opencv库里的resize()函数，需要自己根据算法写。
+比如一个图像的像素矩阵如下：234    38    2267    44    1289    65    63把这幅图放大成4×4大小的图像，初始化一个4×4的矩阵：?    ?    ?    ??    ?    ?    ??    ?    ?    ?根据3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双线性插值进行图像缩放">
+<meta property="og:url" content="http://yoursite.com/2016/10/20/bilinear-resampling-resizing-in-opencv/index.html">
+<meta property="og:site_name" content="林俊宇的博客">
+<meta property="og:description" content="这段时间在上数字图像处理的课，有一个实验是关于图像缩放的，不许调用opencv库里的resize()函数，需要自己根据算法写。
+比如一个图像的像素矩阵如下：234    38    2267    44    1289    65    63把这幅图放大成4×4大小的图像，初始化一个4×4的矩阵：?    ?    ?    ??    ?    ?    ??    ?    ?    ?根据3">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/20/5808f47533ffe.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/20/5808f47509810.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/20/5808f475301f9.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/20/5808f4758d1ce.png">
+<meta property="og:updated_time" content="2016-10-20T17:16:35.633Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="双线性插值进行图像缩放">
+<meta name="twitter:description" content="这段时间在上数字图像处理的课，有一个实验是关于图像缩放的，不许调用opencv库里的resize()函数，需要自己根据算法写。
+比如一个图像的像素矩阵如下：234    38    2267    44    1289    65    63把这幅图放大成4×4大小的图像，初始化一个4×4的矩阵：?    ?    ?    ??    ?    ?    ??    ?    ?    ?根据3">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 双线性插值进行图像缩放 | 林俊宇的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">林俊宇的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                双线性插值进行图像缩放
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-10-20T22:35:14+08:00" content="2016-10-20">
+              2016-10-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>这段时间在上数字图像处理的课，有一个实验是关于图像缩放的，不许调用opencv库里的resize()函数，需要自己根据算法写。</p>
+<p>比如一个图像的像素矩阵如下：<br>234    38    22<br>67    44    12<br>89    65    63<br>把这幅图放大成4×4大小的图像，初始化一个4×4的矩阵：<br>?    ?    ?    ?<br>?    ?    ?    ?<br>?    ?    ?    ?<br>根据3×3的矩阵计算4×4的矩阵里的像素值。</p>
+<p>最简单的一种算法就是最近邻插值，公式如下：<br><img src="https://ooo.0o0.ooo/2016/10/20/5808f47533ffe.png" alt="nearest_formula.png"></p>
+<p>首先计算新图(0, 0)像素值，套用公式得(0×(3/4), 0×(3/4))=(0×0.75, 0×0.75)=(0, 0)，对应了旧图(0, 0)像素的值。那么4×4矩阵中的(0, 0)就是3×3矩阵中(0, 0)的像素值234。<br>更新4×4矩阵：<br>234    ?    ?    ?<br>?    ?    ?    ?<br>?    ?    ?    ?</p>
+<p>接下来依法炮制，计算新图(1, 0)像素值，套用公式(1×(3/4), 0×(3/4))=(1×0.75,0×0.75)=(0.75,0)，对应了旧图(0.75, 0)像素的值，但是出现了小数，我们在这里选择四舍五入处理得到(1, 0)，即4×4矩阵中的(1, 0)像素值对应3×3矩阵中的(1, 0)像素值38。<br>更新4×4矩阵：<br>234    38    ?    ?<br>?    ?    ?    ?<br>?    ?    ?    ?</p>
+<p>依次计算每个像素，完成4×4矩阵：<br>234    38    22    22<br>67    44    12    12<br>89    65    63    63<br>89    65    63    63</p>
+<p>这样就完成了最近邻插值的缩放算法。这是一种最基本简单的算法，但是效果也是最差的。为什么呢？</p>
+<p>回到刚才的4×4和3×3矩阵的例子<br>4×4矩阵：<br>234    ?    ?    ?<br>?    ?    ?    ?<br>?    ?    ?    ?</p>
+<p>计算新图(1, 0)像素值，套用公式(1×(3/4), 0×(3/4))=(1×0.75,0×0.75)=(0.75,0)，其实(0.75, 0)这个点不应该被四舍五入，虽然(1, 0)离它0.25距离，但是(0, 0)离它0.75距离。(1, 0)对它影响更大，但是不能忽略(0, 0)带来的影响。距离越短，影响因子就应该越大。假如(1, 0)带给它的影响因子为0.75，那么(0, 0)带给它的影响因子应该为0.25。<br>这也就说明了最近邻线性插值效果差的原因，计算过程中采用了四舍五入的方法，直接用了和坐标最接近的像素的值，当推出来的坐标为(0.75, 0)时，不应该就简单的取(1, 0)的值作为像素值，新图像素值应该根据旧图的点四周四个真实的点按照一定的规律计算出来，这样才能达到更好的缩放效果，这种更好的算法就是双线性插值算法。</p>
+<p>双线性插值算法可以分为四个步骤：<br>(1) 由新图像的某个像素(x,y)映射到原始图像(x’, y’)处。<br>(2) 对x’, y’取整得到([x]，[y])并得到([x], [y]) ([x]+1, [y]) ([x]，[y]+1) ([x]+1，[y]+1)的像素值。<br>(3) 利用双线性插值公式得到像素点(x，y)的值并写到新图像。<br>(4) 重复步骤(2)直到新图像的所有像素写完。</p>
+<p>双线性插值公式：<br><img src="https://ooo.0o0.ooo/2016/10/20/5808f47509810.png" alt="bilinear_formula.png"></p>
+<p>继续4×4矩阵的例子：<br>234    ?    ?    ?<br>?    ?    ?    ?<br>?    ?    ?    ?</p>
+<p>套用公式(1×(3/4), 1×(3/4))=(1×0.75, 1×0.75)=&gt;(0.75, 0.75)，那么新图(1, 1)的像素值应该为旧图0.25×0.25×(0, 0)+0.25×0.75×(0, 1)+0.75×0.25×(1, 0)+0.75×0.75×(1, 1)的像素值并进行取整。<br>把所有的像素点进行这样的处理，即完成了双线性插值的图像缩放。</p>
+<p>一个简单的demo代码：<br>main.cpp<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">#</span><span class="preprocessor"><span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="built_in">#</span><span class="preprocessor"><span class="keyword">include</span> &lt;opencv2/opencv.hpp&gt;</span></span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace cv;</span><br><span class="line"></span><br><span class="line">void ScaleOfNearest<span class="params">(const Mat &amp;input, Mat &amp;output, double sx, double sy)</span>;</span><br><span class="line">void ScaleOfBilinear<span class="params">(const Mat &amp;input, Mat &amp;output, double sx, double sy)</span>;</span><br><span class="line"></span><br><span class="line">int main<span class="params">(int argc, char **argv)</span></span><br><span class="line">&#123;</span><br><span class="line">	Mat input = imread<span class="params">(<span class="string">"D:/ipe/charlie.png"</span>)</span>;</span><br><span class="line">	Mat output, output2;</span><br><span class="line">	ScaleOfNearest<span class="params">(input, output, <span class="number">2.5</span>, <span class="number">2.5</span>)</span>;	<span class="comment">//最近邻插值2.5倍缩放图片</span></span><br><span class="line">	ScaleOfBilinear<span class="params">(input, output2, <span class="number">2.5</span>, <span class="number">2.5</span>)</span>;	<span class="comment">//双线性插值2.5倍缩放图片</span></span><br><span class="line">	imshow<span class="params">(<span class="string">"Nearest"</span>, output)</span>;</span><br><span class="line">	imshow<span class="params">(<span class="string">"Bilinear"</span>, output2)</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	waitKey<span class="params">()</span>;</span><br><span class="line">	return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ScaleOfNearest<span class="params">(const Mat &amp;input, Mat &amp;output, double sx, double sy)</span>		<span class="comment">//采用最近邻插值进行重采样的缩放</span></span><br><span class="line">&#123;</span><br><span class="line">	output = Mat<span class="params">(Size<span class="params">(input.cols * sx, input.rows * sy)</span>, input.type<span class="params">()</span>, Scalar::all<span class="params">(<span class="number">0</span>)</span>)</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> <span class="params">(int i = <span class="number">0</span>; i &lt; output.cols; ++i)</span></span><br><span class="line">	&#123;</span><br><span class="line">		int x = cvFloor<span class="params">(i / sx)</span>;</span><br><span class="line">		x = <span class="built_in">min</span><span class="params">(x, input.cols - <span class="number">1</span>)</span>;</span><br><span class="line">		<span class="keyword">for</span> <span class="params">(int j = <span class="number">0</span>; j &lt; output.rows; ++j)</span></span><br><span class="line">		&#123;</span><br><span class="line">			int y = cvFloor<span class="params">(j / sy)</span>;</span><br><span class="line">			y = <span class="built_in">min</span><span class="params">(y, input.rows - <span class="number">1</span>)</span>;</span><br><span class="line">			output.at&lt;Vec3b&gt;<span class="params">(j, i)</span> = input.at&lt;Vec3b&gt;<span class="params">(y, x)</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ScaleOfBilinear<span class="params">(const Mat &amp;input, Mat &amp;output, double sx, double sy)</span>		<span class="comment">//采用双线性插值进行重采样的缩放</span></span><br><span class="line">&#123;</span><br><span class="line">	output = Mat<span class="params">(Size<span class="params">(input.cols * sx, input.rows * sy)</span>, input.type<span class="params">()</span>, Scalar::all<span class="params">(<span class="number">0</span>)</span>)</span>;</span><br><span class="line"></span><br><span class="line">	uchar<span class="built_in">*</span> dataInput = input.data;</span><br><span class="line">	int stepInput = input.step;</span><br><span class="line"></span><br><span class="line">	uchar<span class="built_in">*</span> dataOutput = output.data;</span><br><span class="line">	int stepOutput = output.step;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> <span class="params">(int j = <span class="number">0</span>; j &lt; output.rows; j++)</span></span><br><span class="line">	&#123;</span><br><span class="line">		float fy = <span class="params">(float)</span><span class="params">(j / sy)</span>;		<span class="comment">//y方向的影响因子</span></span><br><span class="line">		int sy = cvFloor<span class="params">(fy)</span>;</span><br><span class="line">		fy -= sy;</span><br><span class="line">		sy = <span class="built_in">min</span><span class="params">(sy, input.rows - <span class="number">2</span>)</span>;</span><br><span class="line">		sy = <span class="built_in">max</span><span class="params">(<span class="number">0</span>, sy)</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> <span class="params">(int i = <span class="number">0</span>; i &lt; output.cols; i++)</span></span><br><span class="line">		&#123;</span><br><span class="line">			float fx = <span class="params">(float)</span><span class="params">(i / sx)</span>;		<span class="comment">//x方向的影响因子</span></span><br><span class="line">			int sx = cvFloor<span class="params">(fx)</span>;</span><br><span class="line">			fx -= sx;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> <span class="params">(sx &lt; <span class="number">0</span>)</span> &#123;</span><br><span class="line">				fx = <span class="number">0</span>, sx = <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> <span class="params">(sx &gt;= input.cols - <span class="number">1</span>)</span> &#123;</span><br><span class="line">				fx = <span class="number">0</span>, sx = input.cols - <span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span> <span class="params">(int k = <span class="number">0</span>; k &lt; input.channels<span class="params">()</span>; k++)</span>	<span class="comment">//双线性插值</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">*</span><span class="params">(dataOutput + j*stepOutput + <span class="number">3</span> * i + k)</span> = <span class="params">(int)</span><span class="params">(*<span class="params">(dataInput + sy*stepInput + <span class="number">3</span> * sx + k)</span> * <span class="params">(<span class="number">1.0</span> - fx)</span> * <span class="params">(<span class="number">1.0</span> - fy)</span> +</span><br><span class="line">				*<span class="params">(dataInput + <span class="params">(sy + <span class="number">1</span>)</span>*stepInput + <span class="number">3</span> * sx + k)</span> * <span class="params">(<span class="number">1.0</span> - fx)</span> * fy +</span><br><span class="line">				*<span class="params">(dataInput + sy*stepInput + <span class="number">3</span> * <span class="params">(sx + <span class="number">1</span>)</span> + k)</span> * fx * <span class="params">(<span class="number">1.0</span> - fy)</span> +</span><br><span class="line">				*<span class="params">(dataInput + <span class="params">(sy + <span class="number">1</span>)</span>*stepInput + <span class="number">3</span> * <span class="params">(sx + <span class="number">1</span>)</span> + k)</span> * fx * fy)</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>原图：<br><img src="https://ooo.0o0.ooo/2016/10/20/5808f475301f9.png" alt="charlie.png"></p>
+<p>代码的结果：<br><img src="https://ooo.0o0.ooo/2016/10/20/5808f4758d1ce.png" alt="contrast.png"></p>
+<p>对比还是挺明显的，最近邻算法处理的图像明显有锯齿，缩放效果不如双线性插值算法。<br>最近邻算法放大后的图像有很严重的马赛克，缩小后的图像也会有很严重的失真，所以应该被摒弃！</p>
+<p>深夜收工=_=</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/17/php-print-doc/" rel="next" title="投机取巧用PHP输出doc文档">
+                <i class="fa fa-chevron-left"></i> 投机取巧用PHP输出doc文档
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.png" alt="林俊宇" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">林俊宇</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/linjunyu" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/linjunyugood" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.douban.com/people/136864738/" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 豆瓣
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/lin-jun-yu-28" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">林俊宇</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

@@ -207,6 +207,92 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/24/linux-cant-login/" itemprop="url">
+                  Linux修改PATH环境变量账号无法登陆
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-24T23:55:18+08:00" content="2015-11-24">
+              2015-11-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            问题事情的起因是自己装了个双系统，想在Ubuntu上搭建Android开发环境。在设置PATH环境变量的时候，突然脑抽了，sudo vim /etc/profile然后直接在文件末尾export PATH=/usr/local/android-sdk-linux重启系统想让环境变量生效但是在账号登陆界面就进不去了，输入密码依旧是登陆界面我这才意识到自己没有在PATH赋值时把PATH本来的那些赋值进去所以导致系统没法进入
+解决方法1.在开机时进入Ubuntu的Recovery Mode，进入后会显示Recovery Menu(filesystem state: read-only)，在这个状态下是无法修改文件的2.在Recovery Mode选项中选择root，然后输入mount -o remount,rw /再重启进入Recovery Mode，选择grub项3.运行返回之后会发现菜单变成
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/24/linux-cant-login/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/10/data-structures-expr-code-5/" itemprop="url">
                   数据结构实验代码(5)
                 </a>
@@ -519,87 +605,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/27/data-structures-expr-code-2/" itemprop="url">
-                  数据结构实验代码(2)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-27T12:00:14+08:00" content="2015-10-27">
-              2015-10-27
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="实验二_排序算法">实验二 排序算法</h2><h4 id="实验内容">实验内容</h4><p>1.创建排序类。<br>2.提供操作:选择排序、冒泡排序、插入排序、基数排序、快速排序、归并排序。<br>3.*能够显示各种排序算法的中间过程。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/27/data-structures-expr-code-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -646,7 +651,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

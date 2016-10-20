@@ -202,6 +202,94 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/20/bilinear-resampling-resizing-in-opencv/" itemprop="url">
+                  双线性插值进行图像缩放
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-10-20T22:35:14+08:00" content="2016-10-20">
+              2016-10-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            这段时间在上数字图像处理的课，有一个实验是关于图像缩放的，不许调用opencv库里的resize()函数，需要自己根据算法写。
+比如一个图像的像素矩阵如下：234    38    2267    44    1289    65    63把这幅图放大成4×4大小的图像，初始化一个4×4的矩阵：?    ?    ?    ??    ?    ?    ??    ?    ?    ?根据3×3的矩阵计算4×4的矩阵里的像素值。
+最简单的一种算法就是最近邻插值，公式如下：
+首先计算新图(0, 0)像素值，套用公式得(0×(3/4), 0×(3/4))=(0×0.75, 0×0.75)=(0, 0)，对应了旧图(0, 0)像素的值。那么4×4矩阵中的(0, 0)就是3×3矩阵中(0, 0)的像素值234。更新4×4矩阵：234    ?    ?    ??    ?    ?    
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/20/bilinear-resampling-resizing-in-opencv/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/17/php-print-doc/" itemprop="url">
                   投机取巧用PHP输出doc文档
                 </a>
@@ -535,95 +623,6 @@ common.h1unsigned char key;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/21/raspberry-ssh/" itemprop="url">
-                  SSH连接给Raspberry Pi减负
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-05-21T22:02:04+08:00" content="2016-05-21">
-              2016-05-21
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            
-树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件刺激在学校的基本计算机科学教育。树莓派基金会提供了基于ARM架构的Debian、Arch Linux和Fedora等的发行版供大众下载，还计划提供支持Python作为主要编程语言，支持BBC BASIC(通过RISC OS映像或者Linux的”Brandy Basic”克隆)、C语言和Perl等编程语言。——from Wikipedia
-
-最近向实验室申请了一个RaspberryPi，连接好键鼠线、HDMI、网线、电源线并安装好Raspbian系统，虽然成功的跑起来了，但它变成了这个样子：
-这一坨坨线让我一个强迫症看着那叫一个揪心啊，于是就打算用自己的电脑SSH连接到Raspberry Pi进行远程操作，这样只需要一条电源线给Raspberry Pi供电就可
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/21/raspberry-ssh/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -670,7 +669,7 @@ common.h1unsigned char key;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
