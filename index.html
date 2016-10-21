@@ -72,6 +72,7 @@
     motion: true
   };
 </script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
   <title> 林俊宇的博客 </title>
 </head>
@@ -202,6 +203,94 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/21/formula-mathjax/" itemprop="url">
+                  在Markdown中显示复杂公式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-10-21T15:43:35+08:00" content="2016-10-21">
+              2016-10-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            上一篇博文讲了关于opencv当中的缩放算法，用了矩阵作为缩放算法的例子，但是在展示矩阵的时候，用最简单的笨方法表示矩阵，效果并不好：
+
+一个数字后跟一个空格的做法，这样不仅丑，而且不专业，因为Markdown原生不支持公式显示，所以查了查有关Markdown扩展显示复杂公式的方法，可以用MathJax这个公式显示引擎。
+在Hexo中调用很简单，修改/themes/目前使用的主题名/layout/_partials/head.swig文件（不同主题生成模板不同，我目前用的next主题是在head.swig中生成\&lt;head\&gt;\&lt;\/head\&gt;代码，别的主题可能是其他文件），在文末加上&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/21/formula-mathjax/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/20/bilinear-resampling-resizing-in-opencv/" itemprop="url">
                   双线性插值进行图像缩放
                 </a>
@@ -241,9 +330,8 @@
           <span itemprop="articleBody">
             
             这段时间在上数字图像处理的课，有一个实验是关于图像缩放的，不许调用opencv库里的resize()函数，需要自己根据算法写。
-比如一个图像的像素矩阵如下：234    38    2267    44    1289    65    63把这幅图放大成4×4大小的图像，初始化一个4×4的矩阵：?    ?    ?    ??    ?    ?    ??    ?    ?    ?根据3×3的矩阵计算4×4的矩阵里的像素值。
-最简单的一种算法就是最近邻插值，公式如下：
-首先计算新图(0, 0)像素值，套用公式得(0×(3/4), 0×(3/4))=(0×0.75, 0×0.75)=(0, 0)，对应了旧图(0, 0)像素的值。那么4×4矩阵中的(0, 0)就是3×3矩阵中(0, 0)的像素值234。更新4×4矩阵：234    ?    ?    ??    ?    ?    
+比如一个图像的像素矩阵如下：
+$$        \begin{bmatrix}        234 &amp; 38 &amp; 22 \\        67 &amp; 44 &amp; 12 \\        89 &amp; 65 &amp; 63 \\        \end{bmatrix}$$把这幅图放大成4×4大小的图像，初始化一个4×4的矩阵：$$        \begin{bmatrix}        ? &amp; ? &amp; ? &amp; ? \\        ? &amp; ? &amp; ? &amp; ? \\        ? &amp; ? &amp; ? &amp; ? \\        ? &amp; ? 
             ...
           </span>
           <div class="post-more-link text-center">
@@ -531,98 +619,6 @@ Hololens的拍照及录制视频其实还蛮简单的，在你想录制的界面
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/15/global-variable-in-cfiles/" itemprop="url">
-                  全局变量在多个c文件中公用的方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-15T14:04:28+08:00" content="2016-08-15">
-              2016-08-15
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            最近照着川合秀实的书在写操作系统，中间遇到了一个小插曲，关于全局变量在多个c文件中公用，举个例子说明：
-文件夹project下有main.c、common.c和common.h三个文件，其中common.h文件分别#include在main.c和common.c文件中。现在希望声明一个字符型变量key，在main.c和common.c中公用。
-
-我一开始的做法就是直接在两个c文件中引用common.h文件，代码如下：
-main.c1234567#include "common.h"int main()&#123;	//一些调用key变量的代码...	return 0;&#125;
-common.c123#include "common.h"//一些调用key变量的代码...
-common.h1unsigned char key;
-本以为这样就可以达到公用全局变量的目的，但是报错了。Erro
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/15/global-variable-in-cfiles/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -669,7 +665,7 @@ common.h1unsigned char key;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

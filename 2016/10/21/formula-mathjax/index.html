@@ -53,17 +53,27 @@
 
 
 
-<meta name="description" content="这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。后来想了条比较投机取巧的方法，用来输出模板">
+<meta name="description" content="上一篇博文讲了关于opencv当中的缩放算法，用了矩阵作为缩放算法的例子，但是在展示矩阵的时候，用最简单的笨方法表示矩阵，效果并不好：
+
+一个数字后跟一个空格的做法，这样不仅丑，而且不专业，因为Markdown原生不支持公式显示，所以查了查有关Markdown扩展显示复杂公式的方法，可以用MathJax这个公式显示引擎。
+在Hexo中调用很简单，修改/themes/目前使用的主题名/layout/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="投机取巧用PHP输出doc文档">
-<meta property="og:url" content="http://yoursite.com/2016/09/17/php-print-doc/index.html">
+<meta property="og:title" content="在Markdown中显示复杂公式">
+<meta property="og:url" content="http://yoursite.com/2016/10/21/formula-mathjax/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。后来想了条比较投机取巧的方法，用来输出模板">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/09/16/57dc4ea59e51d.png">
-<meta property="og:updated_time" content="2016-09-16T20:03:42.364Z">
+<meta property="og:description" content="上一篇博文讲了关于opencv当中的缩放算法，用了矩阵作为缩放算法的例子，但是在展示矩阵的时候，用最简单的笨方法表示矩阵，效果并不好：
+
+一个数字后跟一个空格的做法，这样不仅丑，而且不专业，因为Markdown原生不支持公式显示，所以查了查有关Markdown扩展显示复杂公式的方法，可以用MathJax这个公式显示引擎。
+在Hexo中调用很简单，修改/themes/目前使用的主题名/layout/">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/21/5809e86c2b0b7.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/10/21/5809e86c2a05d.png">
+<meta property="og:updated_time" content="2016-10-21T10:11:55.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="投机取巧用PHP输出doc文档">
-<meta name="twitter:description" content="这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。后来想了条比较投机取巧的方法，用来输出模板">
+<meta name="twitter:title" content="在Markdown中显示复杂公式">
+<meta name="twitter:description" content="上一篇博文讲了关于opencv当中的缩放算法，用了矩阵作为缩放算法的例子，但是在展示矩阵的时候，用最简单的笨方法表示矩阵，效果并不好：
+
+一个数字后跟一个空格的做法，这样不仅丑，而且不专业，因为Markdown原生不支持公式显示，所以查了查有关Markdown扩展显示复杂公式的方法，可以用MathJax这个公式显示引擎。
+在Hexo中调用很简单，修改/themes/目前使用的主题名/layout/">
 
 
 
@@ -76,7 +86,7 @@
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-  <title> 投机取巧用PHP输出doc文档 | 林俊宇的博客 </title>
+  <title> 在Markdown中显示复杂公式 | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -196,7 +206,7 @@
             
             
               
-                投机取巧用PHP输出doc文档
+                在Markdown中显示复杂公式
               
             
           </h1>
@@ -205,8 +215,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-09-17T03:28:34+08:00" content="2016-09-17">
-              2016-09-17
+            <time itemprop="dateCreated" datetime="2016-10-21T15:43:35+08:00" content="2016-10-21">
+              2016-10-21
             </time>
           </span>
 
@@ -229,12 +239,30 @@
       
 
       
-        <span itemprop="articleBody"><p>这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。<br>我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。<br>用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。<br>后来想了条比较投机取巧的方法，用来输出模板式的文档（比如证书、成绩单、交费单这类）。</p>
-<p>先制作一个模板的word文档，把里面要替换的内容改成name、fee等通用字符串，如下图所示。<br><img src="https://ooo.0o0.ooo/2016/09/16/57dc4ea59e51d.png" alt="paynotice.png"></p>
-<p>把这个word文档另存为xml格式，比如template.xml，然后把template.xml这个文件重命名成template.docx保存。<br>这么做是因为直接保存成docx格式的话，office会用二进制的方式写文件，这样没法进行后面的替换了。</p>
-<p>把template.xml放到服务器你的系统目录里，然后新建一个print.php放到相同的目录。<br>这个print.php就是用来生成doc文档用的，代码如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">edit</span><span class="params">(<span class="variable">$file</span>, <span class="variable">$needle</span>, <span class="variable">$heap</span>)</span> </span>&#123;</span><br><span class="line">	<span class="variable">$content</span> = @file_get_contents(<span class="variable">$file</span>);</span><br><span class="line">	<span class="keyword">if</span>(!<span class="variable">$content</span>) &#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"文件找不到"</span>;  </span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; count(<span class="variable">$needle</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">		<span class="variable">$content</span> = <span class="variable">$content</span> = preg_replace(<span class="string">"/$needle[$i]/"</span>, <span class="variable">$heap</span>[<span class="variable">$i</span>], <span class="variable">$content</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$content</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$year</span> = <span class="variable">$_GET</span>[<span class="string">'year'</span>];</span><br><span class="line"><span class="variable">$month</span> = <span class="variable">$_GET</span>[<span class="string">'month'</span>];</span><br><span class="line"><span class="variable">$name</span> = <span class="variable">$_GET</span>[<span class="string">'name'</span>];</span><br><span class="line"></span><br><span class="line"><span class="variable">$sheet_title</span> = <span class="variable">$year</span>.<span class="string">'年'</span>.<span class="variable">$month</span>.<span class="string">'月业主'</span>.<span class="variable">$name</span>.<span class="string">'交费单.docx'</span>;</span><br><span class="line">header(<span class="string">'Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document'</span>);  </span><br><span class="line">header(<span class="string">'Content-Disposition: attachment;filename="'</span>.<span class="variable">$sheet_title</span>. <span class="string">'"'</span>);  </span><br><span class="line">header(<span class="string">'Cache-Control: max-age=0'</span>);  </span><br><span class="line">ob_clean();</span><br><span class="line"><span class="variable">$needle</span> = <span class="keyword">array</span>(<span class="string">'name'</span>,<span class="string">'year'</span>, <span class="string">'month'</span>, <span class="string">'water_fee'</span>, <span class="string">'electricity_fee'</span>, <span class="string">'gas_fee'</span>, <span class="string">'tv_fee'</span>, <span class="string">'heating_fee'</span>, <span class="string">'pm_fee'</span>);<span class="comment">//doc模板里要替换的各项内容，这里是物业交费单的各项费用的替换</span></span><br><span class="line"><span class="variable">$heap</span> = <span class="keyword">array</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; count(<span class="variable">$needle</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">	array_push(<span class="variable">$heap</span>, <span class="variable">$_GET</span>[<span class="variable">$needle</span>[<span class="variable">$i</span>]]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$template_title</span> = <span class="string">'template.docx'</span>;</span><br><span class="line"><span class="keyword">echo</span> edit(<span class="variable">$template_title</span>, <span class="variable">$needle</span>, <span class="variable">$heap</span>);</span><br><span class="line"><span class="keyword">exit</span>;  </span><br><span class="line"><span class="preprocessor">?&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<p>然后访问 你的服务器路径/print.php?+各项GET参数，就可以下载到word文档了。</p>
-<p>思路就是读文件-&gt;替换-&gt;输出，想想挺偷鸡取巧的，就这样=_=</p>
+        <span itemprop="articleBody"><p>上一篇博文讲了关于opencv当中的缩放算法，用了矩阵作为缩放算法的例子，但是在展示矩阵的时候，用最简单的笨方法表示矩阵，效果并不好：</p>
+<p><img src="https://ooo.0o0.ooo/2016/10/21/5809e86c2b0b7.png" alt="previous.png"></p>
+<p>一个数字后跟一个空格的做法，这样不仅丑，而且不专业，因为Markdown原生不支持公式显示，所以查了查有关Markdown扩展显示复杂公式的方法，可以用MathJax这个公式显示引擎。</p>
+<p>在Hexo中调用很简单，修改<code>/themes/目前使用的主题名/layout/_partials/head.swig</code>文件（不同主题生成模板不同，我目前用的next主题是在head.swig中生成<code>\&lt;head\&gt;\&lt;\/head\&gt;</code>代码，别的主题可能是其他文件），在文末加上<br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;</code><br>这样就调用了MathJax引擎。执行<code>hexo generate</code>命令，查看博文的网页源代码，可以发现<code>&lt;head&gt;&lt;/head&gt;</code>头标签中的最后一段，成功引用了MathJax引擎。</p>
+<p><img src="https://ooo.0o0.ooo/2016/10/21/5809e86c2a05d.png" alt="head.png"></p>
+<p>然后在写博文时用LaTeX的语法来描述公式就可以了，下面展示几个例子：</p>
+<h4 id="一元二次方程求解x的LaTeX公式代码">一元二次方程求解x的LaTeX公式代码</h4><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="operator">div</span>&gt;$$x=\frac&#123;-b\pm\<span class="built_in">sqrt</span>&#123;b^<span class="number">2</span>-<span class="number">4</span>ac&#125;&#125;&#123;<span class="number">2</span><span class="operator">a</span>&#125;$$&lt;/<span class="operator">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>因为在Markdown中编辑，所以需要在两边加上<code>&lt;div&gt;&lt;/div&gt;</code>标签</p>
+<p>效果：</p>
+<div>$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$</div>
+
+<p><br></p>
+<h4 id="矩阵展示的LaTeX公式代码">矩阵展示的LaTeX公式代码</h4><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">$$</span><br><span class="line">        <span class="string">\\begin&#123;bmatrix&#125;</span></span><br><span class="line">		<span class="number">234</span> &amp; <span class="number">38</span> &amp; <span class="number">22</span> <span class="string">\\</span></span><br><span class="line">		<span class="number">67</span> &amp; <span class="number">44</span> &amp; <span class="number">12</span> <span class="string">\\</span></span><br><span class="line">		<span class="number">89</span> &amp; <span class="number">65</span> &amp; <span class="number">63</span> <span class="string">\\</span></span><br><span class="line">		<span class="string">\\end&#123;bmatrix&#125;</span></span><br><span class="line">$$</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<div><br>$$<br>        \begin{bmatrix}<br>        234 &amp; 38 &amp; 22 \<br>        67 &amp; 44 &amp; 12 \<br>        89 &amp; 65 &amp; 63 \<br>        \end{bmatrix}<br>$$<br></div>
+
+<p>没有展示出正确的3×3矩阵效果是因为\\双斜线在LaTeX中为换行，但是在Markdown中\为转义符号，所以需要再次转义，即在LaTeX中的\\两个斜线需要Markdown中的\\\\四个斜线转义才行。</p>
+<h4 id="改正后的矩阵展示的LaTeX公式代码">改正后的矩阵展示的LaTeX公式代码</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line"><span class="formula">$$</span><br><span class="line">        <span class="command">\\</span>begin<span class="special">&#123;</span>bmatrix<span class="special">&#125;</span></span><br><span class="line">		234 <span class="special">&amp;</span> 38 <span class="special">&amp;</span> 22 <span class="command">\\</span><span class="command">\\</span></span><br><span class="line">		67 <span class="special">&amp;</span> 44 <span class="special">&amp;</span> 12 <span class="command">\\</span><span class="command">\\</span></span><br><span class="line">		89 <span class="special">&amp;</span> 65 <span class="special">&amp;</span> 63 <span class="command">\\</span><span class="command">\\</span></span><br><span class="line">		<span class="command">\\</span>end<span class="special">&#123;</span>bmatrix<span class="special">&#125;</span></span><br><span class="line">$$</span></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<div><br>$$<br>        \begin{bmatrix}<br>        234 &amp; 38 &amp; 22 \\<br>        67 &amp; 44 &amp; 12 \\<br>        89 &amp; 65 &amp; 63 \\<br>        \end{bmatrix}<br>$$<br></div>
+
+<p>这样就成功的实现了矩阵展示的效果，在Markdown中添加公式代码时千万不要忘记转义。把上一篇博文的矩阵修改成这种效果，瞬间好看了很多啊~</p>
+<p>最后附上一个不错的在线LaTeX公式代码生成器： <a href="https://kerzol.github.io/markdown-mathjax/editor.html" target="_blank" rel="external">https://kerzol.github.io/markdown-mathjax/editor.html</a></p>
+<p>收工=_=</p>
 </span>
       
     </div>
@@ -246,17 +274,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/21/socket-io-message-to-specific-client/" rel="next" title="socket.io实现精准单用户推送">
-                <i class="fa fa-chevron-left"></i> socket.io实现精准单用户推送
+              <a href="/2016/10/20/bilinear-resampling-resizing-in-opencv/" rel="next" title="双线性插值进行图像缩放">
+                <i class="fa fa-chevron-left"></i> 双线性插值进行图像缩放
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/20/bilinear-resampling-resizing-in-opencv/" rel="prev" title="双线性插值进行图像缩放">
-                双线性插值进行图像缩放 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -404,7 +428,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一元二次方程求解x的LaTeX公式代码"><span class="nav-number">1.</span> <span class="nav-text">一元二次方程求解x的LaTeX公式代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵展示的LaTeX公式代码"><span class="nav-number">2.</span> <span class="nav-text">矩阵展示的LaTeX公式代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#改正后的矩阵展示的LaTeX公式代码"><span class="nav-number">3.</span> <span class="nav-text">改正后的矩阵展示的LaTeX公式代码</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

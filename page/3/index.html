@@ -72,6 +72,7 @@
     motion: true
   };
 </script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
   <title> 林俊宇的博客 </title>
 </head>
@@ -184,6 +185,96 @@
 
       
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/13/pointer-in-cpp/" itemprop="url">
+                  C++指针小记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-13T15:51:28+08:00" content="2016-01-13">
+              2016-01-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            关于int int* int&amp;的区别int*是int指针类型比如这段代码12int b = 1;int* a = &amp;b;
+此时*a和b为同一个东西，改变a的值，就会改变b的值。
+int&amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;int&amp; a = b;
+此时a和b为同一个东西，改变a的值，就会改变b的值。
+在函数的形参中定义引用，也是一样。比如这段伪代码123456789void fun(int&amp; a)&#123;	对a进行的操作...&#125;int main()&#123;	int b = 4;	fun(b);&#125;
+此时，在fun中使用变量a，就相当于使用变量b，函数中改变a的值，b的值也会同时改变。定义引用的优点是实参向形参传值时，系统会新开辟一段内存用于存放形参，而使用引用则跳过此步骤，有利于提高程序效率。尤其是
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/13/pointer-in-cpp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -524,87 +615,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/01/data-structures-expr-code-6/" itemprop="url">
-                  数据结构实验代码(6)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-01T23:26:24+08:00" content="2015-12-01">
-              2015-12-01
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="实验六_二叉树操作">实验六 二叉树操作</h2><h4 id="实验内容">实验内容</h4><p>1.创建二叉树类。二叉树的存储结构使用链表。<br>2.提供操作:前序遍历、中序遍历、后序遍历、层次遍历、计算二叉树结点数目、计算二叉树高度。<br>3.对建立好的二叉树，执行上述各操作。<br>4.接收键盘录入的二叉树前序序列和中序序列(各元素各不相同)，输出该二叉树的后序序列。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/01/data-structures-expr-code-6/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -651,7 +661,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
