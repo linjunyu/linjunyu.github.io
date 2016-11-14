@@ -203,6 +203,100 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/14/gaussian-filter-in-opencv/" itemprop="url">
+                  实现高斯滤波
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-11-14T14:33:15+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            在说实现高斯滤波之前，需要提到高斯函数。
+一维高斯函数为
+$$f(x) = \frac{1}{\sqrt{2 \pi} \sigma} e ^ {-\frac{x^2}{2\sigma^2}} $$ 
+
+根据一维高斯函数，可以推导出二维的高斯函数为
+$$f(x, y) = \frac{1}{2 \pi \sigma^2} e ^ {-\frac{x^2 + y^2}{2\sigma^2}} $$ 
+
+关于多维的高斯函数图像：
+高斯函数，越接近中心，取值越大，越远离中心，取值越小，那么高斯滤波其实就是把高斯函数用于图像处理的一种线性平滑滤波，对整个图像进行加权平均，每一个像素点的值，都由它本身和邻域的其他像素值经过加权平均后得到。具体过程就是用一个模板（又称卷积核），扫描图像的每一个像素点，用模板确定的加权平均来替代中心像素点的值。
+首先是需要计算卷积核，假设中心点的坐标是(0, 0)，那么
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/14/gaussian-filter-in-opencv/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/21/formula-mathjax/" itemprop="url">
                   在Markdown中显示复杂公式
                 </a>
@@ -531,100 +625,12 @@ $$        \begin{bmatrix}        234 &amp; 38 &amp; 22 \\        67 &amp; 44 &am
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/20/hololens-making-a-video/" itemprop="url">
-                  Hololens如何录制视频并导出
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-20T00:21:33+08:00" content="2016-08-20">
-              2016-08-20
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            实验室的Hololens到了，把玩了一下相当不错呀。
-Hololens的拍照及录制视频其实还蛮简单的，在你想录制的界面用Blossom手势调出开始菜单，那些磁贴下面有两项Photo和Video，就是进行拍照和视频录制。
-但是我发现Blossom手势有些应用会调出开始菜单，但有些应用则是直接退出，所以没法调出开始菜单录制，如果出现这种情况的话，就需要用语音来操作，可以直接对Hololens说 &quot;hey cortana take a photo / record a video&quot;，这样可以解决某些应用没法用手势录制的情况。
-录制好以后视频的导出一开始我还以为Hololens像手机一样USB连接到电脑上就能导出视频，但是尝试USB连接过，发现并没有什么卵用，电脑并不能识别Hololens这个设备。后来从一个学长那里得知，原来Hololens本身搭建了一个Web Server，
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/20/hololens-making-a-video/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -665,7 +671,7 @@ Hololens的拍照及录制视频其实还蛮简单的，在你想录制的界面
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

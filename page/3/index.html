@@ -208,6 +208,104 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/24/html-form-upload-file/" itemprop="url">
+                  form表单上传文件失败的原因
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-04-24T15:35:40+08:00" content="2016-04-24">
+              2016-04-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            发现最近好久都没有写博客了，变懒了，以后一定不能颓废下去了。
+form表单上传文件失败先看下面这段代码
+1234&lt;form name="form1" action="form2.html"&gt;    &lt;p&gt;添加上传文件：&lt;input type="file" name="file1"&gt;&lt;/p&gt;	&lt;input type="submit" value="提交"&gt;&lt;/form&gt;
+如果直接这样定义这个form的话，上传文件是不会成功的。因为form有一个属性值enctype，enctype规定了在发送到服务器之前应该如何对表单数据进行编码。默认地，表单数据会编码为 “application/x-www-form-urlencoded”。enctype的值一共有下面三种：
+
+
+
+值
+描述
+
+
+
+
+application/x-www-
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/24/html-form-upload-file/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/01/13/pointer-in-cpp/" itemprop="url">
                   C++指针小记
                 </a>
@@ -534,93 +632,12 @@ int&amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/22/data-structures-expr-code-7/" itemprop="url">
-                  数据结构实验代码(7)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-22T01:21:10+08:00" content="2015-12-22">
-              2015-12-22
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="实验七_堆和搜索树">实验七 堆和搜索树</h2><h4 id="实验内容">实验内容</h4><p>1.创建最大堆类。最大堆的存储结构使用链表。<br>2.提供操作:堆的插入、堆的删除。堆的初始化。Huffman树的构造。二叉搜索树的构造。<br>3.接收键盘录入的一系列整数，输出其对应的最大堆、Huffman编码以及二叉搜索树。<br>4.堆排序。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/22/data-structures-expr-code-7/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -661,7 +678,7 @@ int&amp;是引用，相当于原有变量的副本比如这段代码12int b = 4;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
