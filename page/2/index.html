@@ -208,6 +208,94 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/17/php-print-doc/" itemprop="url">
+                  投机取巧用PHP输出doc文档
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-09-17T03:28:34+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。后来想了条比较投机取巧的方法，用来输出模板式的文档（比如证书、成绩单、交费单这类）。
+先制作一个模板的word文档，把里面要替换的内容改成name、fee等通用字符串，如下图所示。
+把这个word文档另存为xml格式，比如template.xml，然后把template.xml这个文件重命名成template.docx保存。这么做是因为直接保存成docx格式的话，office会用二进制的方式写文件，这样没法进行后面的替换了。
+把templ
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/17/php-print-doc/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/21/socket-io-message-to-specific-client/" itemprop="url">
                   socket.io实现精准单用户推送
                 </a>
@@ -542,94 +630,6 @@ common.h1unsigned char key;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/18/ajax-cross-origin-resource-sharing/" itemprop="url">
-                  Ajax跨域请求
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-05-18T23:02:26+08:00" content="2016-05-18">
-              2016-05-18
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            “用最少的代码来做更多的事情”最近在看关于jQuery的资料，被jQuery强大的功能震撼到了。说到jQuery就会说到Ajax，然后就想写点Ajax的东西练练手。
-在SAE上写了一个getjson.php文件http://linjunyu.applinzi.com/getjson.php，本地客户端通过ajax获取SAE上的json信息。然后写了下面的错误代码：
-错误示范客户端JS代码：12345678&lt;script&gt;$(document).ready(function() &#123;	var url = "http://linjunyu.applinzi.com/getjson.php";	$.getJSON(url, function(json) &#123;		alert(json.name);	&#125;);&#125;);&lt;/script&gt;
-SAE服
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/18/ajax-cross-origin-resource-sharing/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -676,7 +676,7 @@ SAE服
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

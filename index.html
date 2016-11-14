@@ -212,6 +212,95 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/14/mean-filter-in-opencv/" itemprop="url">
+                  实现均值滤波
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-11-14T18:03:20+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            举个例子，把下面5×5的矩阵当成一副图像，进行均值滤波，假设滤波窗口大小为3，坐标从左上为(0, 0)开始：
+$$        \begin{bmatrix}        12 &amp; 13 &amp; 14 &amp; 15 &amp; 16 \\        22 &amp; 23 &amp; 24 &amp; 25 &amp; 26 \\        32 &amp; 33 &amp; 34 &amp; 35 &amp; 36 \\        42 &amp; 43 &amp; 44 &amp; 45 &amp; 46 \\        52 &amp; 53 &amp; 54 &amp; 55 &amp; 56 \\        \end{bmatrix}$$
+
+因为滤波窗口大小为3，所以滤波需要从(1, 1)到(4, 4)，从(0, 0)开始会超边界。
+(1,
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/14/mean-filter-in-opencv/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/14/hexo-next-load-failed/" itemprop="url">
                   解决Hexo中nexT主题主页加载空白问题
                 </a>
@@ -550,94 +639,6 @@ $$        \begin{bmatrix}        234 &amp; 38 &amp; 22 \\        67 &amp; 44 &am
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/17/php-print-doc/" itemprop="url">
-                  投机取巧用PHP输出doc文档
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-09-17T03:28:34+08:00" content="2016-09-17">
-              2016-09-17
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            这几天在写课设，一个物业信息管理系统，需要实现打印交费单还有统计报表功能。我做的是B/S端，用PHP+MySQL简单写写就可以了，之后用PHP输出一下doc文档(打印交费单)和excel表格(统计报表)。用PHP输出excel很简单，有个第三方库PHPExcel，文档也写的特别详细，直接调用就OK了，但是输出doc文档的时候查网上发现说法不一，有很多方法。后来想了条比较投机取巧的方法，用来输出模板式的文档（比如证书、成绩单、交费单这类）。
-先制作一个模板的word文档，把里面要替换的内容改成name、fee等通用字符串，如下图所示。
-把这个word文档另存为xml格式，比如template.xml，然后把template.xml这个文件重命名成template.docx保存。这么做是因为直接保存成docx格式的话，office会用二进制的方式写文件，这样没法进行后面的替换了。
-把templ
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/17/php-print-doc/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -684,7 +685,7 @@ $$        \begin{bmatrix}        234 &amp; 38 &amp; 22 \\        67 &amp; 44 &am
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

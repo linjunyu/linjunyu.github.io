@@ -53,32 +53,19 @@
 
 
 
-<meta name="description" content="树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件刺激在学校的基本计算机科学教育。树莓派基金会提供了基于ARM架构的Debian、Arch Linux和Fedora等的发行版供大众下载，还计划提供支持Python作为主要编程语言，支持BBC BASIC(通过RISC OS映像或者Linux的”Brandy Basic">
+<meta name="description" content="举个例子，把下面5×5的矩阵当成一副图像，进行均值滤波，假设滤波窗口大小为3，坐标从左上为(0, 0)开始：
+$$        \begin{bmatrix}        12 &amp;amp; 13 &amp;amp; 14 &amp;amp; 15 &amp;amp; 16 \\        22 &amp;amp; 23 &amp;amp; 24 &amp;amp; 25 &amp;amp; 26 \\        32 &amp;amp; 33 &amp;a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSH连接给Raspberry Pi减负">
-<meta property="og:url" content="http://yoursite.com/2016/05/21/raspberry-ssh/index.html">
+<meta property="og:title" content="实现均值滤波">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/mean-filter-in-opencv/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件刺激在学校的基本计算机科学教育。树莓派基金会提供了基于ARM架构的Debian、Arch Linux和Fedora等的发行版供大众下载，还计划提供支持Python作为主要编程语言，支持BBC BASIC(通过RISC OS映像或者Linux的”Brandy Basic">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57408864f245c.jpg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57408beb71af4.jpg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/574088358c936.jpg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57408895872f9.jpg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/5740883fac547.jpg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57408879be880.jpg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57408879be880.jpg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57409356b18eb.jpg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/574087c7945ee.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/574092976a314.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57409297cfc8d.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/5740931d48629.jpg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/574093356189f.jpg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57409867a10f7.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57409867adebb.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/05/21/57409867b8e2b.png">
-<meta property="og:updated_time" content="2016-05-23T10:39:56.112Z">
+<meta property="og:description" content="举个例子，把下面5×5的矩阵当成一副图像，进行均值滤波，假设滤波窗口大小为3，坐标从左上为(0, 0)开始：
+$$        \begin{bmatrix}        12 &amp;amp; 13 &amp;amp; 14 &amp;amp; 15 &amp;amp; 16 \\        22 &amp;amp; 23 &amp;amp; 24 &amp;amp; 25 &amp;amp; 26 \\        32 &amp;amp; 33 &amp;a">
+<meta property="og:updated_time" content="2016-11-14T10:36:12.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSH连接给Raspberry Pi减负">
-<meta name="twitter:description" content="树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件刺激在学校的基本计算机科学教育。树莓派基金会提供了基于ARM架构的Debian、Arch Linux和Fedora等的发行版供大众下载，还计划提供支持Python作为主要编程语言，支持BBC BASIC(通过RISC OS映像或者Linux的”Brandy Basic">
+<meta name="twitter:title" content="实现均值滤波">
+<meta name="twitter:description" content="举个例子，把下面5×5的矩阵当成一副图像，进行均值滤波，假设滤波窗口大小为3，坐标从左上为(0, 0)开始：
+$$        \begin{bmatrix}        12 &amp;amp; 13 &amp;amp; 14 &amp;amp; 15 &amp;amp; 16 \\        22 &amp;amp; 23 &amp;amp; 24 &amp;amp; 25 &amp;amp; 26 \\        32 &amp;amp; 33 &amp;a">
 
 
 
@@ -91,7 +78,7 @@
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-  <title> SSH连接给Raspberry Pi减负 | 林俊宇的博客 </title>
+  <title> 实现均值滤波 | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -211,7 +198,7 @@
             
             
               
-                SSH连接给Raspberry Pi减负
+                实现均值滤波
               
             
           </h1>
@@ -220,8 +207,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-05-21T22:02:04+08:00" content="2016-05-21">
-              2016-05-21
+            <time itemprop="dateCreated" datetime="2016-11-14T18:03:20+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -244,33 +231,22 @@
       
 
       
-        <span itemprop="articleBody"><blockquote>
-<p>树莓派（英语：Raspberry Pi），是一款基于Linux的单板机电脑。它由英国的树莓派基金会所开发，目的是以低价硬件及自由软件刺激在学校的基本计算机科学教育。<br>树莓派基金会提供了基于ARM架构的Debian、Arch Linux和Fedora等的发行版供大众下载，还计划提供支持Python作为主要编程语言，支持BBC BASIC(通过RISC OS映像或者Linux的”Brandy Basic”克隆)、C语言和Perl等编程语言。<br>——from <a href="https://zh.wikipedia.org/wiki/%E6%A0%91%E8%8E%93%E6%B4%BE" target="_blank" rel="external">Wikipedia</a></p>
-</blockquote>
-<p>最近向实验室申请了一个RaspberryPi，连接好键鼠线、HDMI、网线、电源线并安装好Raspbian系统，虽然成功的跑起来了，但它变成了这个样子：<br><img src="https://ooo.0o0.ooo/2016/05/21/57408864f245c.jpg" alt="raspberry.jpg"></p>
-<p>这一坨坨线让我一个强迫症看着那叫一个揪心啊，于是就打算用自己的电脑SSH连接到Raspberry Pi进行远程操作，这样只需要一条电源线给Raspberry Pi供电就可以了。</p>
-<h4 id="Wifi_Adapter">Wifi Adapter</h4><p>首先需要树莓派连接到跟自己的电脑相同的网段，也就是连接到路由器，不用网线连接的话，这样就需要一个Wifi Adapter。<br><img src="https://ooo.0o0.ooo/2016/05/21/57408beb71af4.jpg" alt="wifiadapter.jpg"></p>
-<p>将Wifi Adapter插入到Raspberry Pi的USB口，然后进行Wifi的相关配置。<br>Raspbian系统可以用<code>iwconfig</code>命令来查询Adapter是否成功连接，如下图所示。<br><img src="https://ooo.0o0.ooo/2016/05/21/574088358c936.jpg" alt="iwconfig2.jpg"></p>
-<p>连接成功后Adapter需要进行Wifi的扫描，这里需要注意的是<code>iwlist wlan0 scan</code>并不会有任何的扫描结果，需要在命令前面加上<code>sudo</code><br><img src="https://ooo.0o0.ooo/2016/05/21/57408895872f9.jpg" alt="iwlist.jpg"></p>
-<p>Adapter会找到许多的cell，其实就是我们附近的热点，找到需要连接热点的ESSID，我这里连接的是”longshen521”<br><img src="https://ooo.0o0.ooo/2016/05/21/5740883fac547.jpg" alt="searchwifi.jpg"></p>
-<p>然后配置WPA配置文件，使用<code>sudo vim /etc/wpa_supplicant/wpa_supplicant.conf</code>，<br>将如下内容添加到conf文件末尾</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">network=</span>&#123;</span><br><span class="line"><span class="variable">ssid=</span><span class="string">"你的ESSID"</span></span><br><span class="line"><span class="variable">psk=</span><span class="string">"WIFI密码"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编辑完成后重启adapter<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">sudo</span> ifdown wlan0</span><br><span class="line">sudo ifup wlan0</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://ooo.0o0.ooo/2016/05/21/57408879be880.jpg" alt="startwifi.jpg"><br>我这里<code>ifup</code>的时候抱了invalid的错，但是后续依旧成功了 【囧</p>
-<p>使用<code>ifconfig wlan0</code>命令可以发现wlan0已经成功连接上并有了所对应的IP地址(192.168.1.117)。<br><img src="https://ooo.0o0.ooo/2016/05/21/57408879be880.jpg" alt="startwifi.jpg"></p>
-<p>系统右上角会有wifi连接的相关信息，如下图所示：<br><img src="https://ooo.0o0.ooo/2016/05/21/57409356b18eb.jpg" alt="browser2.jpg"></p>
-<h4 id="SSH连接">SSH连接</h4><p>在电脑上使用PUTTY或者WinSCP这样的软件来连接，我这里用了WinSCP，如下图所示：<br><img src="https://ooo.0o0.ooo/2016/05/21/574087c7945ee.png" alt="login.png"></p>
-<p>输入好相关的信息然后连接<br><img src="https://ooo.0o0.ooo/2016/05/21/574092976a314.png" alt="connecting.png"></p>
-<p>成功连接，如下图所示：<br><img src="https://ooo.0o0.ooo/2016/05/21/57409297cfc8d.png" alt="connected.png"></p>
-<p>终于，通过SSH连接Raspberry，再也不用去管那些烦人的线了。此时的Raspberry Pi清爽了好多：<br><img src="https://ooo.0o0.ooo/2016/05/21/5740931d48629.jpg" alt="raspberry2.jpg"></p>
-<p>再加上一个炫酷的透明保护壳：<br><img src="https://ooo.0o0.ooo/2016/05/21/574093356189f.jpg" alt="raspberry3.jpg"></p>
-<p>只需要一条电源线就可以远程操作这个Raspberry Pi了 Cool~</p>
-<h4 id="IP绑定">IP绑定</h4><p>Raspberry Pi通过DHCP获取IP，有时IP地址会变，这样还需要进一步把IP和MAC绑定，使Raspberry Pi的IP地址一直保持不变，才能使SSH连接成功。</p>
-<p>登录<a href="http://192.168.1.1/" target="_blank" rel="external">http://192.168.1.1/</a>，（不同路由器的地址不一定相同），然后进行DHCP的配置：<br><img src="https://ooo.0o0.ooo/2016/05/21/57409867a10f7.png" alt="dhcp.png"></p>
-<p>添加新条目，填写Adapter的MAC地址和想绑定的IP地址：<br><img src="https://ooo.0o0.ooo/2016/05/21/57409867adebb.png" alt="dhcp2.png"></p>
-<p>这样Raspberry Pi的IP地址就会一直不变了<br><img src="https://ooo.0o0.ooo/2016/05/21/57409867b8e2b.png" alt="dhcp3.png"></p>
-<h4 id="尘归尘土归土">尘归尘土归土</h4><p>最近实验室的assistant professor带我做一个图像识别的项目，以后就要多跟openCV和底层算法打交道了，不知道有没有时间去继续捣鼓Raspberry Pi。<br>还有就是最近在读一本关于计算机视觉的书，感觉在大一的时候没有好好学线性代数和离散数学，回想起来真的是蛮后悔的事，这也是今后不断努力的动力所在吧。<br>最近废话好多，那么，加油咯=_=</p>
-<p>对了，我的图床从繁琐的新浪微博相册转成了一个特别棒特别简洁的：<a href="https://sm.ms/" target="_blank" rel="external">https://sm.ms/</a>，良心推荐~</p>
+        <span itemprop="articleBody"><p>举个例子，把下面5×5的矩阵当成一副图像，进行均值滤波，假设滤波窗口大小为3，坐标从左上为(0, 0)开始：</p>
+<div><br>$$<br>        \begin{bmatrix}<br>        12 &amp; 13 &amp; 14 &amp; 15 &amp; 16 \\<br>        22 &amp; 23 &amp; 24 &amp; 25 &amp; 26 \\<br>        32 &amp; 33 &amp; 34 &amp; 35 &amp; 36 \\<br>        42 &amp; 43 &amp; 44 &amp; 45 &amp; 46 \\<br>        52 &amp; 53 &amp; 54 &amp; 55 &amp; 56 \\<br>        \end{bmatrix}<br>$$<br></div>
+
+<p>因为滤波窗口大小为3，所以滤波需要从(1, 1)到(4, 4)，从(0, 0)开始会超边界。</p>
+<p>(1, 1)坐标进行大小为3的均值滤波，(12+13+14+22+23+24+32+33+34)/9=23，所以(1, 1)滤波后像素值为23。<br>对(1, 1)到(4, 4)的点进行这个过程，即完成了图像的均值滤波。但是这样做时间复杂度比较高，滤波窗口大小为3时，每个像素点做8次加法和1次除法，效率受滤波窗口大小影响。</p>
+<h4 id="更快的均值滤波">更快的均值滤波</h4><p>这里就要引进一个关于积分图的概念:<br>图像I的积分图S是与其大小相同的图像，S的每一像素S(u,v)存贮的是I(u,v)左上角所有像素的颜色值之和。</p>
+<p>sumi.png</p>
+<p>积分图可增量计算，只需对原图进行一遍扫描：</p>
+<div>$$S(u, v)=S(u, v-1) + sum(I[1:u, v])$$</div>
+
+<p>基于积分图可以进行快速的均值滤波，设设滤波窗口大小为2w+1，滤波结果为图像O，则：</p>
+<p><div>$$O(u, v)=\frac{1}{Z}[S(u+w, v+w)+S(u-w-1, v-w-1)-S(u+w, v-w-1)-S(u-w-1, v+w)]$$</div><br>中括号内即为滤波窗口覆盖的像素颜色值之和，Z=(2w+1)×(2w+1)。</p>
+<p>实现快速均值滤波的代码：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">#</span><span class="preprocessor"><span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="built_in">#</span><span class="preprocessor"><span class="keyword">include</span> &lt;opencv2/opencv.hpp&gt;</span></span><br><span class="line"><span class="built_in">#</span><span class="preprocessor"><span class="keyword">include</span> &lt;math.h&gt;</span></span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace cv;</span><br><span class="line"></span><br><span class="line">void MeanFilter<span class="params">(const Mat &amp;input, Mat &amp;output, int window_size)</span>;	<span class="comment">//均值滤波函数</span></span><br><span class="line"></span><br><span class="line">int main<span class="params">(int argc, char **argv)</span></span><br><span class="line">&#123;</span><br><span class="line">	Mat input = imread<span class="params">(<span class="string">"D:/ipe/test.jpg"</span>)</span>;</span><br><span class="line">	Mat output;</span><br><span class="line">	input.copyTo<span class="params">(output)</span>;</span><br><span class="line">	imshow<span class="params">(<span class="string">"input"</span>, input)</span>;</span><br><span class="line">	MeanFilter<span class="params">(input, output, <span class="number">3</span>)</span>;	<span class="comment">//假设滤波窗口大小为3</span></span><br><span class="line">	</span><br><span class="line">	waitKey<span class="params">()</span>;</span><br><span class="line">	return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void MeanFilter<span class="params">(const Mat &amp;input, Mat &amp;output, int window_size)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//s的图像类型不能为CV_8UC3，因为这样最大值为255，存不下input像素值那么大的和，这里设置为CV_64FC3</span></span><br><span class="line">	Mat s = Mat<span class="params">(input.rows, input.cols, CV_64FC3)</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//积分图的计算，只需对原图进行一遍扫描</span></span><br><span class="line">	double sum[<span class="number">3</span>] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span> <span class="params">(int j = <span class="number">0</span>; j &lt; input.rows; j++)</span></span><br><span class="line">	&#123;</span><br><span class="line">		sum[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">		sum[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">		sum[<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> <span class="params">(int i = <span class="number">0</span>; i &lt; input.cols; i++)</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> <span class="params">(int k = <span class="number">0</span>; k &lt; <span class="number">3</span>; k++)</span></span><br><span class="line">			&#123;</span><br><span class="line">				sum[k] += input.at&lt;Vec3b&gt;<span class="params">(j, i)</span>[k];</span><br><span class="line">				<span class="keyword">if</span> <span class="params">(j == <span class="number">0</span>)</span></span><br><span class="line">				&#123;</span><br><span class="line">					s.at&lt;Vec3d&gt;<span class="params">(j, i)</span>[k] = sum[k];</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					s.at&lt;Vec3d&gt;<span class="params">(j, i)</span>[k] = <span class="params">(<span class="params">(double)</span>s.at&lt;Vec3d&gt;<span class="params">(j - <span class="number">1</span>, i)</span>[k])</span> + sum[k];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	int z = window_size <span class="built_in">*</span> window_size;</span><br><span class="line">	int w = <span class="params">(window_size - <span class="number">1</span>)</span> / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//套用积分图的公式计算均值滤波</span></span><br><span class="line">	<span class="keyword">for</span> <span class="params">(int j = w + <span class="number">1</span>; j &lt; output.rows - w - <span class="number">1</span>; j++)</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> <span class="params">(int i = w + <span class="number">1</span>; i &lt; output.cols - w - <span class="number">1</span>; i++)</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> <span class="params">(int k = <span class="number">0</span>; k &lt; <span class="number">3</span>; k++)</span></span><br><span class="line">			&#123;</span><br><span class="line">				output.at&lt;Vec3b&gt;<span class="params">(j, i)</span>[k] = <span class="params">(uchar)</span> <span class="params">(<span class="params">(s.at&lt;Vec3d&gt;<span class="params">(j + w, i + w)</span>[k] + s.at&lt;Vec3d&gt;<span class="params">(j - w - <span class="number">1</span>, i - w - <span class="number">1</span>)</span>[k] - s.at&lt;Vec3d&gt;<span class="params">(j - w - <span class="number">1</span>, i + w)</span>[k] - s.at&lt;Vec3d&gt;<span class="params">(j + w, i - w - <span class="number">1</span>)</span>[k])</span> / z)</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	imshow<span class="params">(<span class="string">"output"</span>, output)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的就是s变量的图像类型不能是8位unsgined char类型3通道，因为它要存储input图像的像素值之和，8位unsigned char最大只能存储255，所以这里我设置了它图像类型为64位float类型，这样存储和的时候不会溢出。</p>
+<p>收工-_-</p>
 </span>
       
     </div>
@@ -282,17 +258,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/18/ajax-cross-origin-resource-sharing/" rel="next" title="Ajax跨域请求">
-                <i class="fa fa-chevron-left"></i> Ajax跨域请求
+              <a href="/2016/11/14/hexo-next-load-failed/" rel="next" title="解决Hexo中nexT主题主页加载空白问题">
+                <i class="fa fa-chevron-left"></i> 解决Hexo中nexT主题主页加载空白问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/15/global-variable-in-cfiles/" rel="prev" title="全局变量在多个c文件中公用的方法">
-                全局变量在多个c文件中公用的方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -440,7 +412,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Wifi_Adapter"><span class="nav-number">1.</span> <span class="nav-text">Wifi Adapter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH连接"><span class="nav-number">2.</span> <span class="nav-text">SSH连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP绑定"><span class="nav-number">3.</span> <span class="nav-text">IP绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尘归尘土归土"><span class="nav-number">4.</span> <span class="nav-text">尘归尘土归土</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#更快的均值滤波"><span class="nav-number">1.</span> <span class="nav-text">更快的均值滤波</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
