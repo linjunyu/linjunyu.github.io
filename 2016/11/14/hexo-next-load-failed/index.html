@@ -53,26 +53,29 @@
 
 
 
-<meta name="description" content="最近照着川合秀实的书在写操作系统，中间遇到了一个小插曲，关于全局变量在多个c文件中公用，举个例子说明：
-文件夹project下有main.c、common.c和common.h三个文件，其中common.h文件分别#include在main.c和common.c文件中。现在希望声明一个字符型变量key，在main.c和common.c中公用。
-
-我一开始的做法就是直接在两个c文件中引用common">
+<meta name="description" content="刚写完上一篇关于高斯滤波的文章，在本地的服务器测试时(hexo server)显示正常，结果部署到Github上(hexo deploy)，整个博客就空白了，让人很是心痛啊。
+在Chrome下按F12打开开发者控制台，发现缺少了很多js文件。
+查看这些js文件，都加载失败，返回了Github的404页面。访问失败的都是vendors目录下的资源。
+在Github的repo中查看vendors文件夹">
 <meta property="og:type" content="article">
-<meta property="og:title" content="全局变量在多个c文件中公用的方法">
-<meta property="og:url" content="http://yoursite.com/2016/08/15/global-variable-in-cfiles/index.html">
+<meta property="og:title" content="解决Hexo中nexT主题主页加载空白问题">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/hexo-next-load-failed/index.html">
 <meta property="og:site_name" content="林俊宇的博客">
-<meta property="og:description" content="最近照着川合秀实的书在写操作系统，中间遇到了一个小插曲，关于全局变量在多个c文件中公用，举个例子说明：
-文件夹project下有main.c、common.c和common.h三个文件，其中common.h文件分别#include在main.c和common.c文件中。现在希望声明一个字符型变量key，在main.c和common.c中公用。
-
-我一开始的做法就是直接在两个c文件中引用common">
-<meta property="og:image" content="https://ooo.0o0.ooo/2016/08/15/57b15e134f2c5.png">
-<meta property="og:updated_time" content="2016-08-15T06:33:28.163Z">
+<meta property="og:description" content="刚写完上一篇关于高斯滤波的文章，在本地的服务器测试时(hexo server)显示正常，结果部署到Github上(hexo deploy)，整个博客就空白了，让人很是心痛啊。
+在Chrome下按F12打开开发者控制台，发现缺少了很多js文件。
+查看这些js文件，都加载失败，返回了Github的404页面。访问失败的都是vendors目录下的资源。
+在Github的repo中查看vendors文件夹">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/11/14/582989a8c3be5.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/11/14/582989ab2f5b9.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/11/14/582989a85d6a8.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/11/14/582989ab8a7d5.png">
+<meta property="og:updated_time" content="2016-11-14T09:54:31.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="全局变量在多个c文件中公用的方法">
-<meta name="twitter:description" content="最近照着川合秀实的书在写操作系统，中间遇到了一个小插曲，关于全局变量在多个c文件中公用，举个例子说明：
-文件夹project下有main.c、common.c和common.h三个文件，其中common.h文件分别#include在main.c和common.c文件中。现在希望声明一个字符型变量key，在main.c和common.c中公用。
-
-我一开始的做法就是直接在两个c文件中引用common">
+<meta name="twitter:title" content="解决Hexo中nexT主题主页加载空白问题">
+<meta name="twitter:description" content="刚写完上一篇关于高斯滤波的文章，在本地的服务器测试时(hexo server)显示正常，结果部署到Github上(hexo deploy)，整个博客就空白了，让人很是心痛啊。
+在Chrome下按F12打开开发者控制台，发现缺少了很多js文件。
+查看这些js文件，都加载失败，返回了Github的404页面。访问失败的都是vendors目录下的资源。
+在Github的repo中查看vendors文件夹">
 
 
 
@@ -85,7 +88,7 @@
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-  <title> 全局变量在多个c文件中公用的方法 | 林俊宇的博客 </title>
+  <title> 解决Hexo中nexT主题主页加载空白问题 | 林俊宇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -205,7 +208,7 @@
             
             
               
-                全局变量在多个c文件中公用的方法
+                解决Hexo中nexT主题主页加载空白问题
               
             
           </h1>
@@ -214,8 +217,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-08-15T14:04:28+08:00" content="2016-08-15">
-              2016-08-15
+            <time itemprop="dateCreated" datetime="2016-11-14T17:37:32+08:00" content="2016-11-14">
+              2016-11-14
             </time>
           </span>
 
@@ -238,22 +241,16 @@
       
 
       
-        <span itemprop="articleBody"><p>最近照着川合秀实的书在写操作系统，中间遇到了一个小插曲，关于全局变量在多个c文件中公用，举个例子说明：</p>
-<p>文件夹project下有main.c、common.c和common.h三个文件，其中common.h文件分别#include在main.c和common.c文件中。现在希望声明一个字符型变量key，在main.c和common.c中公用。</p>
-<p><img src="https://ooo.0o0.ooo/2016/08/15/57b15e134f2c5.png" alt=""></p>
-<p>我一开始的做法就是直接在两个c文件中引用common.h文件，代码如下：</p>
-<p>main.c<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "common.h"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="comment">//一些调用key变量的代码...</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>common.c<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "common.h"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//一些调用key变量的代码...</span></span><br></pre></td></tr></table></figure></p>
-<p>common.h<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> key;</span><br></pre></td></tr></table></figure></p>
-<p>本以为这样就可以达到公用全局变量的目的，但是报错了。<br><code>Error: L6200E: Symbol key multiply defined (by common.o and main.o)</code></p>
-<p>也就是说编译器认为我们重复定义了key这个变量。#include其实就是把头文件原封不动的搬到了#include位置，相当于main.c和common.c都定义了一次key，这样一个项目里两个变量key，所以报错了。<br>后来看了网上的解决办法，用extern关键字来声明变量为外部变量。<br>改正后的正确代码：</p>
-<p>main.c<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "common.h"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> key;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="comment">//一些调用key变量的代码...</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>common.c<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> "common.h"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> key;</span><br><span class="line"></span><br><span class="line"><span class="comment">//一些调用key变量的代码...</span></span><br></pre></td></tr></table></figure></p>
-<p>common.h<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> key;</span><br></pre></td></tr></table></figure></p>
-<p>在一个c文件中定义一个全局变量key，然后在另外一个c文件中使用extern声明这个变量，这样全局变量就可以在多个c文件中进行公用了。</p>
-<h4 id="变量定义(define)和变量声明(declare)的区别">变量定义(define)和变量声明(declare)的区别</h4><p>变量定义是用变量类型和变量的名称来让编译器给它分配内存单元的，而变量声明是用<code>extern 变量类型 变量名称</code>来告诉编译器，让这个变量在其他外部c文件中定义，我这里只是在外部用它。编译器这时不会给它分配内存空间，等变量定义的时候再给它分配内存空间。</p>
-<p>感觉这些算是c语言的基础，基础的部分居然犯错了，以后不能懒了，还是要多学习啊。</p>
-<p>收工=_=</p>
+        <span itemprop="articleBody"><p>刚写完上一篇关于高斯滤波的文章，在本地的服务器测试时(hexo server)显示正常，结果部署到Github上(hexo deploy)，整个博客就空白了，让人很是心痛啊。<br><img src="https://ooo.0o0.ooo/2016/11/14/582989a8c3be5.png" alt="blog.png"></p>
+<p>在Chrome下按F12打开开发者控制台，发现缺少了很多js文件。<br><img src="https://ooo.0o0.ooo/2016/11/14/582989ab2f5b9.png" alt="error.png"></p>
+<p>查看这些js文件，都加载失败，返回了Github的404页面。访问失败的都是vendors目录下的资源。<br><img src="https://ooo.0o0.ooo/2016/11/14/582989a85d6a8.png" alt="404.png"></p>
+<p>在Github的repo中查看vendors文件夹，这些js文件在repo中依然存在。</p>
+<p>后来在网上查了查，发现原来Github Pages禁止了source/vendors目录的访问。在11月3日更新了Jekyll的3.3版本，为了加快构建速度，忽略了vendors和node_modules文件夹。</p>
+<p>11月3日在hexo-theme-next的issue中出现了这个问题：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next/issues/1214</a></p>
+<p>next的作者给出了解决方案:<br><img src="https://ooo.0o0.ooo/2016/11/14/582989ab8a7d5.png" alt="reply.png"></p>
+<p>手动将 source/vendors 目录修改成 source/lib （或者其他的名称，只是 lib 我测试了可以使用）；同时，修改下主题配置文件_config.yml， 将 _internal: vendors 改成你所修改的名字，例如  _internal: lib。</p>
+<p>问题解决。</p>
+<p>最近打算自己动手写一个丑陋风的hexo主题，不过事情有点多啊，尽量抽空吧，溜了溜了-_-</p>
 </span>
       
     </div>
@@ -265,17 +262,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/21/raspberry-ssh/" rel="next" title="SSH连接给Raspberry Pi减负">
-                <i class="fa fa-chevron-left"></i> SSH连接给Raspberry Pi减负
+              <a href="/2016/11/14/gaussian-filter-in-opencv/" rel="next" title="实现高斯滤波">
+                <i class="fa fa-chevron-left"></i> 实现高斯滤波
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/20/hololens-making-a-video/" rel="prev" title="Hololens如何录制视频并导出">
-                Hololens如何录制视频并导出 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -423,7 +416,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量定义(define)和变量声明(declare)的区别"><span class="nav-number">1.</span> <span class="nav-text">变量定义(define)和变量声明(declare)的区别</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

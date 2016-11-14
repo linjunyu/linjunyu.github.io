@@ -21,7 +21,7 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
@@ -185,6 +185,92 @@
 
       
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/21/socket-io-message-to-specific-client/" itemprop="url">
+                  socket.io实现精准单用户推送
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-21T00:08:40+08:00" content="2016-08-21">
+              2016-08-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            今天用socket.io写了个简单的你画我猜练手，感受到了socket.io别样的魅力。先说socket先说说socket.io的优点吧，代码简单实用，而且支持自定义事件。socket.emit(&#39;some event&#39;, &#39;some data&#39;);和socket.on(&#39;some event&#39;, function(data) { //处理some event的代码 });分别实现了事件触发和接收，特别方便。但是它的缺点，是它的官方文档。必须吐槽一下，简直就像放屁一样啊= =
+事情的起因是，我想实现从server到一个明确的client的信息发送（你画我猜当中有一个流程是在server端确定一个index，给这个index编号的玩家画画的权限，其他玩家只有猜的权限，所以需要实现类似私聊的socket发送）因为官网的文档比较烂，所以在网上查知，
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/21/socket-io-message-to-specific-client/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -544,92 +630,6 @@ SAE服
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/24/mysql-row-nums/" itemprop="url">
-                  PHP怎样确定mysql中select的结果是否为空
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-04-24T15:54:48+08:00" content="2016-04-24">
-              2016-04-24
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            我觉得这是我碰到的比较中二的bug了，【好吧是我自己比较中二先附上一段php代码1234567891011$username = $_POST['username'];$password = $_POST['password'];$query = "select * from user where username = '$username' and password = '$password'";$result = mysql_query($query);if($result) &#123;	//执行登录成功的代码&#125;else &#123;	//执行登录失败的代码&#125;
-这段代码想实现的功能就是在数据库中查询username和password，判断账号密码是否正确。问题出在最后六行，我错误的认为，如果在数据库中能查询到结果，那么result变量就不为空，否则为空。所以就写出
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/24/mysql-row-nums/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -676,7 +676,7 @@ SAE服
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -786,7 +786,7 @@ SAE服
     <div class="back-to-top"></div>
   </div>
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
   
@@ -801,19 +801,19 @@ SAE服
   
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
 
 
   <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
 
 
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
 
