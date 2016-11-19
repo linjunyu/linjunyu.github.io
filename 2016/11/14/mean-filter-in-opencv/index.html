@@ -61,7 +61,8 @@ $$        \begin{bmatrix}        12 &amp;amp; 13 &amp;amp; 14 &amp;amp; 15 &amp;
 <meta property="og:site_name" content="林俊宇的博客">
 <meta property="og:description" content="举个例子，把下面5×5的矩阵当成一副图像，进行均值滤波，假设滤波窗口大小为3，坐标从左上为(0, 0)开始：
 $$        \begin{bmatrix}        12 &amp;amp; 13 &amp;amp; 14 &amp;amp; 15 &amp;amp; 16 \\        22 &amp;amp; 23 &amp;amp; 24 &amp;amp; 25 &amp;amp; 26 \\        32 &amp;amp; 33 &amp;a">
-<meta property="og:updated_time" content="2016-11-14T10:36:12.554Z">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/11/19/58305eb49aa5d.png">
+<meta property="og:updated_time" content="2016-11-19T14:16:50.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现均值滤波">
 <meta name="twitter:description" content="举个例子，把下面5×5的矩阵当成一副图像，进行均值滤波，假设滤波窗口大小为3，坐标从左上为(0, 0)开始：
@@ -236,8 +237,7 @@ $$        \begin{bmatrix}        12 &amp;amp; 13 &amp;amp; 14 &amp;amp; 15 &amp;
 
 <p>因为滤波窗口大小为3，所以滤波需要从(1, 1)到(4, 4)，从(0, 0)开始会超边界。</p>
 <p>(1, 1)坐标进行大小为3的均值滤波，(12+13+14+22+23+24+32+33+34)/9=23，所以(1, 1)滤波后像素值为23。<br>对(1, 1)到(4, 4)的点进行这个过程，即完成了图像的均值滤波。但是这样做时间复杂度比较高，滤波窗口大小为3时，每个像素点做8次加法和1次除法，效率受滤波窗口大小影响。</p>
-<h4 id="更快的均值滤波">更快的均值滤波</h4><p>这里就要引进一个关于积分图的概念:<br>图像I的积分图S是与其大小相同的图像，S的每一像素S(u,v)存贮的是I(u,v)左上角所有像素的颜色值之和。</p>
-<p>sumi.png</p>
+<h4 id="更快的均值滤波">更快的均值滤波</h4><p>这里就要引进一个关于积分图的概念:<br>图像I的积分图S是与其大小相同的图像，S的每一像素S(u,v)存贮的是I(u,v)左上角所有像素的颜色值之和。<br><img src="https://ooo.0o0.ooo/2016/11/19/58305eb49aa5d.png" alt="sumi.png"></p>
 <p>积分图可增量计算，只需对原图进行一遍扫描：</p>
 <div>$$S(u, v)=S(u, v-1) + sum(I[1:u, v])$$</div>
 
